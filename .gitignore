@@ -21,6 +21,7 @@ Thumbs.db
 
 # Superpowers brainstorm artifacts
 .superpowers/
+docs/superpowers/
 
 # Env
 .env
