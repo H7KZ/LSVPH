@@ -31,15 +31,15 @@ export default function Timetable() {
 								</td>
 								{day.slots.map((slug, i) => {
 									const subject = slug ? findSubjectBySlug(slug) : null
-									const isLunch = timeSlots[i]?.label != null
+									const slot = timeSlots[i]
 									return (
 										<td
 											key={i}
 											className="border-ink border-2 px-4 py-3"
 											style={subject ? { backgroundColor: subject.accent } : undefined}
 										>
-											{isLunch ? (
-												<span className="text-muted">–</span>
+											{slot?.label != null ? (
+												<span className="text-muted">{slot.label}</span>
 											) : subject ? (
 												<span className="font-medium">{subject.title}</span>
 											) : (

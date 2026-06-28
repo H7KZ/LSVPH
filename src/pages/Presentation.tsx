@@ -26,7 +26,7 @@ export default function Presentation() {
 		}
 	}, [presentation])
 
-	if (!presentation) return <Navigate to="/404" replace />
+	if (!presentation) return <Navigate to="/" replace />
 
 	// Mount the Deck only once the markdown is loaded, so Reveal initializes
 	// with all slides already present (avoids the async-src sync race that
