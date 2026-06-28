@@ -9,13 +9,13 @@ export default function Home() {
 				<p className="text-muted mb-3 text-xs font-bold tracking-widest uppercase">
 					Letní Škola Vývoje Počítačových Her — 5. ročník
 				</p>
-				<h1 className="font-display mb-4 text-5xl leading-none font-extrabold tracking-tight">
+				<h1 className="font-display mb-4 text-4xl leading-none font-extrabold tracking-tight sm:text-5xl">
 					LŠVPH 2026
 				</h1>
 				<p className="text-muted max-w-xl text-lg">
 					Týden plný programování, grafiky a game designu. Vytvoříš svoji první hru.
 				</p>
-				<div className="mt-6 flex gap-4">
+				<div className="mt-6 flex flex-wrap gap-3">
 					<Link
 						to="/timetable"
 						className="border-ink bg-accent hover:bg-ink hover:text-accent inline-block border-2 px-5 py-2 text-sm font-bold tracking-widest uppercase transition-colors"
@@ -23,10 +23,10 @@ export default function Home() {
 						Rozvrh
 					</Link>
 					<Link
-						to="/subjects"
+						to="/presentations"
 						className="border-ink hover:bg-ink hover:text-bg inline-block border-2 px-5 py-2 text-sm font-bold tracking-widest uppercase transition-colors"
 					>
-						Předměty
+						Prezentace
 					</Link>
 				</div>
 			</div>

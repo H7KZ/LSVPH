@@ -5,7 +5,7 @@ export default function Layout() {
 	return (
 		<div className="flex min-h-full flex-col">
 			<Nav />
-			<main className="flex-1 px-6 py-10">
+			<main className="flex-1 px-4 py-8 sm:px-6 sm:py-10">
 				<Outlet />
 			</main>
 		</div>
