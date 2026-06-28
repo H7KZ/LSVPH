@@ -16,21 +16,13 @@ export type Group = {
 	days: GroupDay[]
 }
 
-export const timeSlots = [
-	'9:00–10:00',
-	'10:00–11:00',
-	'11:00–12:00',
-	'Oběd',
-	'13:00–14:00',
-	'14:00–15:00',
-	'15:00–16:00',
-]
+export const timeSlots = ['9:00–10:00', '10:00–11:00', '11:00–12:00', 'Oběd', '13:00–14:00', '14:00–15:00', '15:00–16:00']
 
 const uvod: SlotEntry = { label: 'Úvod', room: '211', lecturers: ['Všichni'] }
 const projekt = (room: string, l1: string, l2: string): SlotEntry => ({
 	label: 'Projekt',
 	room,
-	lecturers: [l1, l2],
+	lecturers: [l1, l2]
 })
 
 export const groups: Group[] = [
@@ -46,24 +38,24 @@ export const groups: Group[] = [
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '6',
-						lecturers: ['Matyáš', 'Eliška'],
+						lecturers: ['Matyáš', 'Eliška']
 					},
 					{
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '6',
-						lecturers: ['Matyáš', 'Eliška'],
+						lecturers: ['Matyáš', 'Eliška']
 					},
 					null,
 					{
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '6',
-						lecturers: ['Matyáš', 'Eliška'],
+						lecturers: ['Matyáš', 'Eliška']
 					},
 					{ label: 'Základy 2D', subjectSlug: '2d', room: '6', lecturers: ['Šimon', 'Honza'] },
-					{ label: 'Základy 2D', subjectSlug: '2d', room: '6', lecturers: ['Šimon', 'Honza'] },
-				],
+					{ label: 'Základy 2D', subjectSlug: '2d', room: '6', lecturers: ['Šimon', 'Honza'] }
+				]
 			},
 			{
 				day: 'Úterý',
@@ -73,40 +65,40 @@ export const groups: Group[] = [
 						label: 'Základy gamedesignu',
 						subjectSlug: 'gamedesign',
 						room: '6',
-						lecturers: ['Ondřej', 'Matyáš'],
+						lecturers: ['Ondřej', 'Matyáš']
 					},
 					{
 						label: 'Základy gamedesignu',
 						subjectSlug: 'gamedesign',
 						room: '6',
-						lecturers: ['Ondřej', 'Matyáš'],
+						lecturers: ['Ondřej', 'Matyáš']
 					},
 					{
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '6',
-						lecturers: ['Matyáš', 'Eliška'],
+						lecturers: ['Matyáš', 'Eliška']
 					},
 					null,
 					{
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '6',
-						lecturers: ['Matyáš', 'Eliška'],
+						lecturers: ['Matyáš', 'Eliška']
 					},
 					{
 						label: 'Základy Blenderu',
 						subjectSlug: '3d',
 						room: '6',
-						lecturers: ['David', 'Eliška'],
+						lecturers: ['David', 'Eliška']
 					},
 					{
 						label: 'Základy Blenderu',
 						subjectSlug: '3d',
 						room: '6',
-						lecturers: ['David', 'Eliška'],
-					},
-				],
+						lecturers: ['David', 'Eliška']
+					}
+				]
 			},
 			{
 				day: 'Středa',
@@ -116,15 +108,15 @@ export const groups: Group[] = [
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '6',
-						lecturers: ['Matyáš', 'Eliška'],
+						lecturers: ['Matyáš', 'Eliška']
 					},
 					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'TBD'] },
 					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'TBD'] },
 					null,
 					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'TBD'] },
 					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'TBD'] },
-					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'TBD'] },
-				],
+					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'TBD'] }
+				]
 			},
 			{
 				day: 'Čtvrtek',
@@ -136,8 +128,8 @@ export const groups: Group[] = [
 					null,
 					projekt('6', 'Matyáš', 'David'),
 					projekt('6', 'Matyáš', 'David'),
-					projekt('6', 'Matyáš', 'David'),
-				],
+					projekt('6', 'Matyáš', 'David')
+				]
 			},
 			{
 				day: 'Pátek',
@@ -149,10 +141,10 @@ export const groups: Group[] = [
 					null,
 					projekt('6', 'Matyáš', 'David'),
 					projekt('6', 'Matyáš', 'David'),
-					projekt('6', 'Matyáš', 'David'),
-				],
-			},
-		],
+					projekt('6', 'Matyáš', 'David')
+				]
+			}
+		]
 	},
 	{
 		name: 'B',
@@ -166,34 +158,34 @@ export const groups: Group[] = [
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '109',
-						lecturers: ['Honza', 'Ondřej'],
+						lecturers: ['Honza', 'Ondřej']
 					},
 					{
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '109',
-						lecturers: ['Honza', 'Ondřej'],
+						lecturers: ['Honza', 'Ondřej']
 					},
 					null,
 					{
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '109',
-						lecturers: ['Honza', 'Ondřej'],
+						lecturers: ['Honza', 'Ondřej']
 					},
 					{
 						label: 'Základy Blenderu',
 						subjectSlug: '3d',
 						room: '109',
-						lecturers: ['David', 'Eliška'],
+						lecturers: ['David', 'Eliška']
 					},
 					{
 						label: 'Základy Blenderu',
 						subjectSlug: '3d',
 						room: '109',
-						lecturers: ['David', 'Eliška'],
-					},
-				],
+						lecturers: ['David', 'Eliška']
+					}
+				]
 			},
 			{
 				day: 'Úterý',
@@ -205,28 +197,28 @@ export const groups: Group[] = [
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '109',
-						lecturers: ['Honza', 'Ondřej'],
+						lecturers: ['Honza', 'Ondřej']
 					},
 					null,
 					{
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '109',
-						lecturers: ['Honza', 'Ondřej'],
+						lecturers: ['Honza', 'Ondřej']
 					},
 					{
 						label: 'Základy gamedesignu',
 						subjectSlug: 'gamedesign',
 						room: '109',
-						lecturers: ['Ondřej', 'Matyáš'],
+						lecturers: ['Ondřej', 'Matyáš']
 					},
 					{
 						label: 'Základy gamedesignu',
 						subjectSlug: 'gamedesign',
 						room: '109',
-						lecturers: ['Ondřej', 'Matyáš'],
-					},
-				],
+						lecturers: ['Ondřej', 'Matyáš']
+					}
+				]
 			},
 			{
 				day: 'Středa',
@@ -236,40 +228,40 @@ export const groups: Group[] = [
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '109',
-						lecturers: ['Honza', 'Ondřej'],
+						lecturers: ['Honza', 'Ondřej']
 					},
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '109',
-						lecturers: ['Adam', 'Matyáš'],
+						lecturers: ['Adam', 'Matyáš']
 					},
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '109',
-						lecturers: ['Adam', 'Matyáš'],
+						lecturers: ['Adam', 'Matyáš']
 					},
 					null,
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '109',
-						lecturers: ['Adam', 'Matyáš'],
+						lecturers: ['Adam', 'Matyáš']
 					},
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '109',
-						lecturers: ['Adam', 'Matyáš'],
+						lecturers: ['Adam', 'Matyáš']
 					},
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '109',
-						lecturers: ['Adam', 'Matyáš'],
-					},
-				],
+						lecturers: ['Adam', 'Matyáš']
+					}
+				]
 			},
 			{
 				day: 'Čtvrtek',
@@ -281,8 +273,8 @@ export const groups: Group[] = [
 					null,
 					projekt('109', 'Honza', 'Šimon'),
 					projekt('109', 'Honza', 'Šimon'),
-					projekt('109', 'Honza', 'Šimon'),
-				],
+					projekt('109', 'Honza', 'Šimon')
+				]
 			},
 			{
 				day: 'Pátek',
@@ -294,10 +286,10 @@ export const groups: Group[] = [
 					null,
 					projekt('109', 'Honza', 'Šimon'),
 					projekt('109', 'Honza', 'Šimon'),
-					projekt('109', 'Honza', 'Šimon'),
-				],
-			},
-		],
+					projekt('109', 'Honza', 'Šimon')
+				]
+			}
+		]
 	},
 	{
 		name: 'C',
@@ -311,34 +303,34 @@ export const groups: Group[] = [
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '13',
-						lecturers: ['Šimon', 'Adam'],
+						lecturers: ['Šimon', 'Adam']
 					},
 					{
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '13',
-						lecturers: ['Šimon', 'Adam'],
+						lecturers: ['Šimon', 'Adam']
 					},
 					null,
 					{
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '13',
-						lecturers: ['Šimon', 'Adam'],
+						lecturers: ['Šimon', 'Adam']
 					},
 					{
 						label: 'Základy gamedesignu',
 						subjectSlug: 'gamedesign',
 						room: '13',
-						lecturers: ['Ondřej', 'Matyáš'],
+						lecturers: ['Ondřej', 'Matyáš']
 					},
 					{
 						label: 'Základy gamedesignu',
 						subjectSlug: 'gamedesign',
 						room: '13',
-						lecturers: ['Ondřej', 'Matyáš'],
-					},
-				],
+						lecturers: ['Ondřej', 'Matyáš']
+					}
+				]
 			},
 			{
 				day: 'Úterý',
@@ -348,30 +340,30 @@ export const groups: Group[] = [
 						label: 'Základy Blenderu',
 						subjectSlug: '3d',
 						room: '13',
-						lecturers: ['David', 'Eliška'],
+						lecturers: ['David', 'Eliška']
 					},
 					{
 						label: 'Základy Blenderu',
 						subjectSlug: '3d',
 						room: '13',
-						lecturers: ['David', 'Eliška'],
+						lecturers: ['David', 'Eliška']
 					},
 					{
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '13',
-						lecturers: ['Šimon', 'Adam'],
+						lecturers: ['Šimon', 'Adam']
 					},
 					null,
 					{
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '13',
-						lecturers: ['Šimon', 'Adam'],
+						lecturers: ['Šimon', 'Adam']
 					},
 					{ label: 'Základy 2D', subjectSlug: '2d', room: '13', lecturers: ['Honza', 'Šimon'] },
-					{ label: 'Základy 2D', subjectSlug: '2d', room: '13', lecturers: ['Honza', 'Šimon'] },
-				],
+					{ label: 'Základy 2D', subjectSlug: '2d', room: '13', lecturers: ['Honza', 'Šimon'] }
+				]
 			},
 			{
 				day: 'Středa',
@@ -381,40 +373,40 @@ export const groups: Group[] = [
 						label: 'Základy programování',
 						subjectSlug: 'csharp',
 						room: '13',
-						lecturers: ['Šimon', 'Adam'],
+						lecturers: ['Šimon', 'Adam']
 					},
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '13',
-						lecturers: ['Tobiáš', 'Honza'],
+						lecturers: ['Tobiáš', 'Honza']
 					},
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '13',
-						lecturers: ['Tobiáš', 'Honza'],
+						lecturers: ['Tobiáš', 'Honza']
 					},
 					null,
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '13',
-						lecturers: ['Tobiáš', 'Honza'],
+						lecturers: ['Tobiáš', 'Honza']
 					},
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '13',
-						lecturers: ['Tobiáš', 'Honza'],
+						lecturers: ['Tobiáš', 'Honza']
 					},
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '13',
-						lecturers: ['Tobiáš', 'Honza'],
-					},
-				],
+						lecturers: ['Tobiáš', 'Honza']
+					}
+				]
 			},
 			{
 				day: 'Čtvrtek',
@@ -426,8 +418,8 @@ export const groups: Group[] = [
 					null,
 					projekt('13', 'Ondřej', 'Adam'),
 					projekt('13', 'Ondřej', 'Adam'),
-					projekt('13', 'Ondřej', 'Adam'),
-				],
+					projekt('13', 'Ondřej', 'Adam')
+				]
 			},
 			{
 				day: 'Pátek',
@@ -439,9 +431,9 @@ export const groups: Group[] = [
 					null,
 					projekt('13', 'Ondřej', 'Adam'),
 					projekt('13', 'Ondřej', 'Adam'),
-					projekt('13', 'Ondřej', 'Adam'),
-				],
-			},
-		],
-	},
+					projekt('13', 'Ondřej', 'Adam')
+				]
+			}
+		]
+	}
 ]

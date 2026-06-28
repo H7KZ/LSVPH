@@ -6,15 +6,9 @@ export default function Home() {
 	return (
 		<div className="mx-auto max-w-4xl">
 			<div className="border-ink mb-12 border-b-2 pb-10">
-				<p className="text-muted mb-3 text-xs font-bold tracking-widest uppercase">
-					Letní Škola Vývoje Počítačových Her — 5. ročník
-				</p>
-				<h1 className="font-display mb-4 text-4xl leading-none font-extrabold tracking-tight sm:text-5xl">
-					LŠVPH 2026
-				</h1>
-				<p className="text-muted max-w-xl text-lg">
-					Týden plný programování, grafiky a game designu. Vytvoříš svoji první hru.
-				</p>
+				<p className="text-muted mb-3 text-xs font-bold tracking-widest uppercase">Letní Škola Vývoje Počítačových Her — 5. ročník</p>
+				<h1 className="font-display mb-4 text-4xl leading-none font-extrabold tracking-tight sm:text-5xl">LŠVPH 2026</h1>
+				<p className="text-muted max-w-xl text-lg">Týden plný programování, grafiky a game designu. Vytvoříš svoji první hru.</p>
 				<div className="mt-6 flex flex-wrap gap-3">
 					<Link
 						to="/timetable"
@@ -33,7 +27,7 @@ export default function Home() {
 
 			<h2 className="font-display mb-6 text-2xl font-bold">Co tě čeká</h2>
 			<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-				{subjects.map((s) => (
+				{subjects.map(s => (
 					<SubjectCard key={s.slug} subject={s} />
 				))}
 			</div>

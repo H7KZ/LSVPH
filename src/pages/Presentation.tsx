@@ -1,6 +1,6 @@
+import { Deck, Markdown } from '@revealjs/react'
 import { useEffect, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
-import { Deck, Markdown } from '@revealjs/react'
 import RevealHighlight from 'reveal.js/plugin/highlight'
 import { findPresentationBySlug } from '../data/presentations'
 import 'reveal.js/reveal.css'
@@ -17,8 +17,8 @@ export default function Presentation() {
 		let active = true
 		setMarkdown(null)
 		fetch(`/slides/${presentation.slug}.md`)
-			.then((r) => r.text())
-			.then((text) => {
+			.then(r => r.text())
+			.then(text => {
 				if (active) setMarkdown(text)
 			})
 		return () => {
@@ -40,7 +40,7 @@ export default function Presentation() {
 				hash: true,
 				transition: 'concave',
 				transitionSpeed: 'fast',
-				backgroundTransition: 'concave',
+				backgroundTransition: 'concave'
 			}}
 			plugins={[RevealHighlight]}
 		>

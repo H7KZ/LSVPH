@@ -24,11 +24,11 @@ stejný styl LŠVPH automaticky.
 1. Vytvoř soubor `public/slides/<slug>.md` (formát viz níže).
 2. Přidej záznam do `src/data/presentations.ts`:
 
-   ```ts
-   { slug: 'csharp-promenne', subjectSlug: 'csharp', title: 'Proměnné a typy' }
-   ```
+    ```ts
+    { slug: 'csharp-promenne', subjectSlug: 'csharp', title: 'Proměnné a typy' }
+    ```
 
-   `subjectSlug` musí odpovídat předmětu z `src/data/subjects.ts`.
+    `subjectSlug` musí odpovídat předmětu z `src/data/subjects.ts`.
 
 3. Hotovo — prezentace se objeví na `/presentation/csharp-promenne`.
 
@@ -176,9 +176,9 @@ Cesta začíná `/slides/`, protože odtud se obrázky načítají.
 
 1. V terminálu spusť vývojový server:
 
-   ```bash
-   npm run dev
-   ```
+    ```bash
+    npm run dev
+    ```
 
 2. Otevři v prohlížeči `http://localhost:5173/presentation/<slug>`
    (např. `http://localhost:5173/presentation/csharp-uvod`).

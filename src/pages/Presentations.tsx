@@ -1,30 +1,28 @@
 import { Link } from 'react-router-dom'
-import { subjects } from '../data/subjects'
 import { presentationsForSubject } from '../data/presentations'
+import { subjects } from '../data/subjects'
 
 export default function Presentations() {
 	return (
 		<div className="mx-auto max-w-4xl">
 			<h1 className="font-display mb-2 text-4xl font-extrabold">Prezentace</h1>
 			<p className="text-muted mb-10 max-w-prose">
-				Prezentace k jednotlivým předmětům. Klikni na některou a spusť ji — ovládáš ji šipkami,
-				klávesa <span className="font-bold">S</span> zobrazí poznámky přednášejícího.
+				Prezentace k jednotlivým předmětům. Klikni na některou a spusť ji — ovládáš ji šipkami, klávesa <span className="font-bold">S</span> zobrazí
+				poznámky přednášejícího.
 			</p>
 
 			<div className="space-y-10">
-				{subjects.map((subject) => {
+				{subjects.map(subject => {
 					const items = presentationsForSubject(subject.slug)
 					return (
 						<section key={subject.slug} id={subject.slug}>
-							<h2 className="font-display border-ink mb-4 border-b-2 pb-2 text-2xl font-bold">
-								{subject.title}
-							</h2>
+							<h2 className="font-display border-ink mb-4 border-b-2 pb-2 text-2xl font-bold">{subject.title}</h2>
 
 							{items.length === 0 ? (
 								<p className="text-muted text-sm italic">Prezentace se připravují.</p>
 							) : (
 								<ul className="space-y-2">
-									{items.map((p) => (
+									{items.map(p => (
 										<li key={p.slug}>
 											<Link
 												to={`/presentation/${p.slug}`}

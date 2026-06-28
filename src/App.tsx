@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
-import Timetable from './pages/Timetable'
 import Lunch from './pages/Lunch'
-import Presentations from './pages/Presentations'
-import Presentation from './pages/Presentation'
 import NotFound from './pages/NotFound'
+import Presentation from './pages/Presentation'
+import Presentations from './pages/Presentations'
+import Timetable from './pages/Timetable'
 
 export default function App() {
 	return (
