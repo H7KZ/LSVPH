@@ -1,0 +1,150 @@
+/*
+ * LŠVPH — sdílený vzhled RevealJS prezentací.
+ * Načítá se po `reveal.js/theme/white.css` a přepisuje jeho proměnné
+ * na designové tokeny portálu (viz src/index.css). Všechny prezentace
+ * tak sdílejí stejný styl — neměň jednotlivé .md soubory kvůli vzhledu.
+ */
+
+/*
+ * Oprava konfliktu s TailwindCSS v4.
+ * Tailwind preflight přidává `[hidden] { display: none !important }`, což přebije
+ * inline `display:block`, kterým reveal.js zobrazuje slajdy, jež si nechává označené
+ * atributem `hidden` (přehled po stisku ESC, přechody, přednačtené sousední slajdy).
+ * Reveal řídí zobrazení slajdu vlastním inline `display` (`block` = načteno,
+ * `none` = uvolněno), takže respektujeme jeho hodnotu jen u načtených slajdů.
+ *
+ * Pravidlo musí být ve vrstvě `base` (stejné jako Tailwind preflight) — u
+ * `!important` deklarací totiž vrstvené pravidlo přebíjí nevrstvené bez ohledu
+ * na specificitu, takže nevrstvený override by nezabral.
+ */
+@layer base {
+	.reveal .slides section[hidden][style*='display: block'],
+	.reveal .slides section[hidden][style*='display:block'] {
+		display: block !important;
+	}
+}
+
+:root {
+	/* Pozadí a text */
+	--r-background-color: #fafaf5;
+	--r-main-color: #000000;
+	--r-main-font: 'DM Sans', sans-serif;
+	--r-main-font-size: 38px;
+
+	/* Nadpisy */
+	--r-heading-color: #000000;
+	--r-heading-font: 'Space Grotesk', sans-serif;
+	--r-heading-font-weight: 800;
+	--r-heading-text-transform: none;
+	--r-heading-text-shadow: none;
+	--r-heading1-text-shadow: none;
+	--r-heading-letter-spacing: -0.02em;
+
+	/* Odkazy */
+	--r-link-color: #a87f00;
+	--r-link-color-dark: #6b5200;
+	--r-link-color-hover: #000000;
+
+	/* Výběr textu — žlutý akcent */
+	--r-selection-background-color: #facc15;
+	--r-selection-color: #000000;
+
+	--r-code-font: ui-monospace, 'SFMono-Regular', 'Menlo', monospace;
+}
+
+/* Žlutý akcent pod nadpisem slajdu */
+.reveal h1,
+.reveal h2 {
+	display: inline-block;
+	border-bottom: 6px solid #facc15;
+	padding-bottom: 0.1em;
+}
+
+/* Zvýraznění tučného textu žlutým akcentem */
+.reveal strong {
+	background: #facc15;
+	padding: 0 0.15em;
+}
+
+/* ---- Kódové bloky: brutalistní panel (rám + tvrdý stín jako karty na webu) ---- */
+.reveal pre {
+	width: 100%;
+	margin: 1em auto;
+	box-shadow: 6px 6px 0 #000;
+	font-size: 0.5em;
+	line-height: 1.4;
+}
+
+.reveal pre code {
+	border: 2px solid #000;
+	border-radius: 0;
+	padding: 1em 1.2em;
+	max-height: 460px;
+}
+
+/* Inline `kód` v textu */
+.reveal code:not(pre code) {
+	background: #f0efe6;
+	border: 1px solid #d6d4c5;
+	padding: 0.05em 0.35em;
+}
+
+/* ---- Světlé barevné schéma pro zvýraznění syntaxe (highlight.js) ---- */
+/* Nahrazuje tmavé monokai téma; ladí se světlým pozadím #fafaf5. */
+.reveal .hljs {
+	display: block;
+	overflow-x: auto;
+	padding: 0.5em;
+	background: #ffffff;
+	color: #1a1a1a;
+}
+
+.reveal .hljs-comment,
+.reveal .hljs-quote {
+	color: #6e7781;
+	font-style: italic;
+}
+
+.reveal .hljs-keyword,
+.reveal .hljs-selector-tag,
+.reveal .hljs-literal,
+.reveal .hljs-name,
+.reveal .hljs-tag {
+	color: #8f5b00;
+	font-weight: 700;
+}
+
+.reveal .hljs-string,
+.reveal .hljs-attr,
+.reveal .hljs-attribute,
+.reveal .hljs-bullet,
+.reveal .hljs-addition {
+	color: #0a7d33;
+}
+
+.reveal .hljs-number,
+.reveal .hljs-symbol,
+.reveal .hljs-meta {
+	color: #0a52c7;
+}
+
+.reveal .hljs-title,
+.reveal .hljs-title.function_,
+.reveal .hljs-built_in,
+.reveal .hljs-section {
+	color: #6b3fb8;
+}
+
+.reveal .hljs-type,
+.reveal .hljs-class .hljs-title,
+.reveal .hljs-deletion {
+	color: #a8330b;
+}
+
+.reveal .hljs-emphasis {
+	font-style: italic;
+}
+
+.reveal .hljs-strong {
+	font-weight: 700;
+}

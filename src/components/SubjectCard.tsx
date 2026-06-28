@@ -4,7 +4,7 @@ import type { Subject } from '../data/subjects'
 export default function SubjectCard({ subject }: { subject: Subject }) {
 	return (
 		<Link
-			to={`/subject/${subject.slug}`}
+			to={`/presentations#${subject.slug}`}
 			className="border-ink block border-2 p-5 transition-shadow hover:shadow-[4px_4px_0_#000]"
 			style={{ backgroundColor: subject.accent }}
 		>

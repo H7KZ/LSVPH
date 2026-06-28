@@ -14,6 +14,17 @@ Studenti (8.–9. třída ZŠ) jej používají pro přístup k rozvrhu, obědov
 
 ---
 
+## Datový model
+
+- **Předmět** (`src/data/subjects.ts`) — téma školy, má kartu na `/subjects`.
+- **Prezentace** (`src/data/presentations.ts`) — jeden slide deck, patří k předmětu
+  (`subjectSlug`). Jeden předmět může mít **více prezentací**. Sekce `/presentations`
+  je vypisuje seskupené pod jednotlivými předměty.
+- Slajdy každé prezentace: `public/slides/<presentation-slug>.md`.
+- Deck se renderuje na `/presentation/<presentation-slug>` (`src/pages/Presentation.tsx`).
+  Markdown se nejdřív načte přes `fetch` a teprve pak se mountuje `<Deck>` — jinak
+  Reveal nastartuje s prázdnými slajdy a deck zůstane bílý.
+
 ## Jak přidat předmět
 
 **1. Přidej záznam do `src/data/subjects.ts`:**
@@ -28,9 +39,22 @@ Studenti (8.–9. třída ZŠ) jej používají pro přístup k rozvrhu, obědov
 }
 ```
 
-**2. Vytvoř soubor `public/slides/muj-predmet.md`** (viz formát níže).
+**2. Hotovo.** Karta předmětu je na `/subjects`.
 
-**3. Hotovo.** Prezentace je dostupná na `/subject/muj-predmet`.
+## Jak přidat prezentaci
+
+**1. Vytvoř soubor `public/slides/muj-predmet-uvod.md`** (formát níže).
+
+**2. Přidej záznam do `src/data/presentations.ts`:**
+
+```ts
+{ slug: 'muj-predmet-uvod', subjectSlug: 'muj-predmet', title: 'Úvod do předmětu' }
+```
+
+**3. Hotovo.** Prezentace je na `/presentation/muj-predmet-uvod` a v sekci Prezentace.
+
+> Sdílený vzhled prezentací je v `src/reveal-theme.css` (přepisuje `theme/white.css`).
+> Návod pro přednášející: `docs/jak-delat-prezentace.md`.
 
 ---
 
@@ -38,8 +62,6 @@ Studenti (8.–9. třída ZŠ) jej používají pro přístup k rozvrhu, obědov
 
 ```markdown
 ## Název přednášky
-
-Jméno přednášejícího
 
 ---
 
