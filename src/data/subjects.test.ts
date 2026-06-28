@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest'
-import { subjects, findSubjectBySlug } from './subjects'
+import { describe, expect, it } from 'vitest'
+import { findSubjectBySlug, subjects } from './subjects'
 import { schedule, timeSlots } from './timetable'
 
 describe('subjects', () => {

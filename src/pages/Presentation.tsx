@@ -1,4 +1,4 @@
-import { useParams, Navigate } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import { Deck, Markdown } from '@revealjs/react'
 import { findSubjectBySlug } from '../data/subjects'
 import 'reveal.js/reveal.css'
