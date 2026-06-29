@@ -36,7 +36,8 @@ string text = cislo.ToString();          // int → string
 ```
 
 Notes:
-int.Parse vs Convert.ToInt32: chování při null se liší (Convert vrátí 0, Parse hodí výjimku). Pro jednoduchost používejte int.Parse nebo TryParse. Desetinná čísla: pozor na desetinnou čárku vs tečku — záleží na nastavení systému.
+int.Parse vs Convert.ToInt32: chování při null se liší (Convert vrátí 0, Parse hodí výjimku). Pro jednoduchost
+používejte int.Parse nebo TryParse. Desetinná čísla: pozor na desetinnou čárku vs tečku — záleží na nastavení systému.
 
 ---
 
@@ -62,11 +63,11 @@ else
 
 ## Logické operátory
 
-| Operátor | Název | Příklad | Výsledek |
-|----------|-------|---------|----------|
-| `&&` | A zároveň | `vek >= 13 && vek <= 19` | true, jen pokud obě platí |
-| `\|\|` | Nebo | `vek < 5 \|\| vek > 65` | true, pokud aspoň jedna platí |
-| `!` | Negace | `!jeHrac` | obrátí true/false |
+| Operátor | Název     | Příklad                  | Výsledek                      |
+| -------- | --------- | ------------------------ | ----------------------------- |
+| `&&`     | A zároveň | `vek >= 13 && vek <= 19` | true, jen pokud obě platí     |
+| `\|\|`   | Nebo      | `vek < 5 \|\| vek > 65`  | true, pokud aspoň jedna platí |
+| `!`      | Negace    | `!jeHrac`                | obrátí true/false             |
 
 ```csharp
 bool vyhra = zdravi > 0 && skore >= 100;
@@ -75,20 +76,21 @@ bool nizkeZdravi = !(zdravi > 30);   // stejné jako zdravi <= 30
 ```
 
 Notes:
-Zkrácené vyhodnocování (short-circuit): u && — pokud první podmínka je false, druhá se vůbec nevyhodnotí. U || — pokud první je true, druhá se přeskočí.
+Zkrácené vyhodnocování (short-circuit): u && — pokud první podmínka je false, druhá se vůbec nevyhodnotí. U || — pokud
+první je true, druhá se přeskočí.
 
 ---
 
 ## Porovnávací operátory
 
-| Operátor | Význam |
-|----------|--------|
-| `==` | rovná se |
-| `!=` | nerovná se |
-| `<` | menší než |
-| `<=` | menší nebo rovno |
-| `>` | větší než |
-| `>=` | větší nebo rovno |
+| Operátor | Význam           |
+| -------- | ---------------- |
+| `==`     | rovná se         |
+| `!=`     | nerovná se       |
+| `<`      | menší než        |
+| `<=`     | menší nebo rovno |
+| `>`      | větší než        |
+| `>=`     | větší nebo rovno |
 
 ```csharp
 // Pozor — = je přiřazení, == je porovnání!
@@ -118,7 +120,8 @@ else
 ```
 
 Notes:
-Podmínka musí být bool výraz (true/false). Složené závorky {} jsou technicky volitelné pro jednořádkové bloky, ale VŽDY je pište — předejdete chybám.
+Podmínka musí být bool výraz (true/false). Složené závorky {} jsou technicky volitelné pro jednořádkové bloky, ale VŽDY
+je pište — předejdete chybám.
 
 ---
 
@@ -205,6 +208,7 @@ Napiš program, který:
 
 Notes:
 Řešení:
+
 ```csharp
 Console.Write("První číslo: ");
 int a = int.Parse(Console.ReadLine());

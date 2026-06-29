@@ -67,7 +67,8 @@ Hrac h2 = new Hrac("Eva", 80);    // Zdravi = 80
 Konstruktor se zavolá automaticky při `new`. Má stejný název jako třída, žádný návratový typ.
 
 Notes:
-Pokud konstruktor nedefinujete, C# vytvoří prázdný automaticky. Jakmile vlastní konstruktor definujete, prázdný přestane existovat (pokud ho nenapíšete také).
+Pokud konstruktor nedefinujete, C# vytvoří prázdný automaticky. Jakmile vlastní konstruktor definujete, prázdný přestane
+existovat (pokud ho nenapíšete také).
 
 ---
 
@@ -94,7 +95,8 @@ class Hrac
 `private` = nikdo zvenčí nemůže změnit `zdravi` na -999. Třída **chrání svá data**.
 
 Notes:
-Zapouzdření (encapsulation) je jeden ze základů OOP. Skrýváme implementaci a vystavujeme jen to, co je potřeba. public = dostupné odkudkoli. private = jen uvnitř třídy.
+Zapouzdření (encapsulation) je jeden ze základů OOP. Skrýváme implementaci a vystavujeme jen to, co je potřeba. public =
+dostupné odkudkoli. private = jen uvnitř třídy.
 
 ---
 
@@ -123,7 +125,8 @@ Console.WriteLine(h.Zdravi);   // 80
 ```
 
 Notes:
-Properties jsou v C# preferovaný způsob přístupu k datům třídy. Vypadají jako pole, ale mají logiku. Auto-property: `public int Zdravi { get; set; }` — pokud validaci nepotřebujete.
+Properties jsou v C# preferovaný způsob přístupu k datům třídy. Vypadají jako pole, ale mají logiku. Auto-property:
+`public int Zdravi { get; set; }` — pokud validaci nepotřebujete.
 
 ---
 
@@ -239,7 +242,8 @@ Console.WriteLine(Hra.PocetHracu);      // 2 (přes název třídy)
 ```
 
 Notes:
-static = sdílené pro všechny objekty, přistupujeme přes název třídy. Instance člen = každý objekt má vlastní kopii. Math.PI, Console.WriteLine jsou také static.
+static = sdílené pro všechny objekty, přistupujeme přes název třídy. Instance člen = každý objekt má vlastní kopii.
+Math.PI, Console.WriteLine jsou také static.
 
 ---
 
@@ -256,6 +260,7 @@ Vytvoř dvě auta a zrychluj/brzdi je.
 
 Notes:
 Řešení:
+
 ```csharp
 class Auto
 {

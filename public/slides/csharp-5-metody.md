@@ -46,7 +46,8 @@ VypisCaru();
 - `()` — parametry (zatím prázdné)
 
 Notes:
-Konvence pojmenování metod v C#: PascalCase (první písmeno velké). Metody dělají jednu věc — název by měl říkat co. Špatně: DoStuff(). Dobře: VypoctiPrumer(), VypisHrace().
+Konvence pojmenování metod v C#: PascalCase (první písmeno velké). Metody dělají jednu věc — název by měl říkat co.
+Špatně: DoStuff(). Dobře: VypoctiPrumer(), VypisHrace().
 
 ---
 
@@ -133,7 +134,8 @@ Console.WriteLine(Soucet(1, 2, 3));    // tří-parametrová verze
 Stejný název, různé parametry — kompilátor pozná, kterou zavolat.
 
 Notes:
-Přetěžování je běžné v C# — například Console.WriteLine funguje pro string, int, double, bool atd. Všechny jsou různé verze stejné metody.
+Přetěžování je běžné v C# — například Console.WriteLine funguje pro string, int, double, bool atd. Všechny jsou různé
+verze stejné metody.
 
 ---
 
@@ -172,7 +174,8 @@ if (x > 5)
 Proměnná existuje od deklarace do konce `{}` bloku, ve kterém byla deklarována.
 
 Notes:
-Scope platí i pro for cyklus: proměnná `i` z `for (int i = 0; ...)` existuje jen uvnitř cyklu. Metody mají vlastní scope — metoda nevidí proměnné jiné metody.
+Scope platí i pro for cyklus: proměnná `i` z `for (int i = 0; ...)` existuje jen uvnitř cyklu. Metody mají vlastní
+scope — metoda nevidí proměnné jiné metody.
 
 ---
 
@@ -192,6 +195,7 @@ Pak napiš přetíženou verzi s parametrem `mena = "Kč"`.
 
 Notes:
 Řešení:
+
 ```csharp
 static void VypisProdukty(string nazev, double cena, string mena = "Kč")
 {
@@ -203,4 +207,5 @@ VypisProdukty("Fortnite", 0);
 VypisProdukty("Counter-Strike 2", 399);
 VypisProdukty("Minecraft", 10.99, "USD");
 ```
+
 string.PadRight(n) doplní mezerami zprava na n znaků. PadLeft(n) zarovná zleva.

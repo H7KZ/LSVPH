@@ -1,330 +1,280 @@
-## Figma: Tvoříme jako profíci 🚀
+## Figma: Tvoříme jako profíci
 
-Vektorová grafika v prohlížeči · zdarma · bez instalace
+Vektorová grafika v prohlížeči — zdarma, bez instalace.
 
 _Základy 2D grafiky · LŠVPH 2026_
 
 Notes:
-Úvodní slide. Zeptat se: "Kdo někdy slyšel o Figmě?" a "Kdo si myslí, že návrh grafiky je těžký?" — cílem je zbořit
-strach.
+Zeptat se: "Kdo už někdy slyšel o Figmě?" Cílem je zbořit strach — dnes vytvoříme grafiku, kterou herní studia platí
+designérům tisíce dolarů za kus.
+
+---
+
+## Přihlašovací údaje
+
+Každý z vás má přiřazený Figma účet:
+
+| Účet                       | Heslo            |
+| -------------------------- | ---------------- |
+| `lsvph_001@jankominek.com` | `lsvph123456789` |
+| `lsvph_002@jankominek.com` | `lsvph123456789` |
+| ...                        | ...              |
+| `lsvph_018@jankominek.com` | `lsvph123456789` |
+
+Přihlas se na **figma.com** — číslo účtu dostaneš od přednášejícího.
+
+Notes:
+Rozdat číslice studentům. Počkat, než jsou všichni přihlášeni. Ujistit se, že každý vidí dashboard s soubory.
 
 ---
 
 ## Co je Figma?
 
-**Figma** je profesionální designový nástroj, který běží přímo v prohlížeči
+**Figma** je profesionální designový nástroj v prohlížeči.
 
-- 🆓 Zdarma pro studenty a začátečníky
-- 🌐 Windows · Mac · Linux — stačí Chrome nebo Edge
-- 👥 Spolupráce v reálném čase (jako Google Docs, ale pro grafiku)
-- 🏢 Používají ho týmy v Googlu, Microsoftu, Airbnb, Netflixu…
+- Funguje na Windows, Mac, Linux — stačí Chrome nebo Edge
+- Spolupráce v reálném čase (jako Google Docs, ale pro grafiku)
+- Používají ho Google, Microsoft, Airbnb, Netflix
+- Herní studia navrhují UI — inventáře, HUD, menu
 
-🎮 A taky herní studia při návrhu herního UI!
+Přejdi na **figma.com** a klikni **"+ New design file"**.
 
 Notes:
-Ukázat Figmu otevřenou v prohlížeči. Zmínit, že herní UI designéři, kteří navrhují inventáře, mapy a HUD, pracují přesně
-v takových nástrojích.
+Ukázat Figmu otevřenou v prohlížeči. Zmínit, že herní UI designéři, kteří navrhují inventáře a HUD, pracují přesně v
+takovém nástroji.
 
 ---
 
-## 🚀 Začínáme — 3 kroky
+## Rozhraní Figmy
 
-1. Jdi na **figma.com**
-2. Klikni **"Get started for free"** → registrace Google účtem
-3. V dashboardu klikni **"+ New design file"**
-
-A jsme uvnitř! 🎉
-
-_(Dej mi vědět, jakmile máš otevřený prázdný soubor)_
+<img src="/slides/assets/figma_ui.png" style="width:90%;border:2px solid #000;margin:0 auto;display:block">
 
 Notes:
-Dát studentům 3–4 minuty na registraci. Projít třídou a pomoci těm, kdo mají problémy. Počkat, než jsou všichni uvnitř,
-pak pokračovat.
+Ukázat na projektoru živě. Projet každou část — toolbar nahoře, vrstvy vlevo, canvas uprostřed, vlastnosti vpravo.
 
 ---
 
-## 🗺️ Rozhraní Figmy — 4 části
+## Toolbar — nástrojová lišta
 
-```
-┌─────────────────────────────────────────┐
-│ [Nástroje]       Figma       [Uložení]  │  ← Toolbar
-├────────────┬───────────────┬────────────┤
-│            │               │            │
-│  Vrstvy    │    Canvas     │ Vlastnosti │
-│  (vlevo)   │  (uprostřed)  │  (vpravo)  │
-│            │               │            │
-└────────────┴───────────────┴────────────┘
-```
-
-**Canvas** = nekonečná kreslicí plocha · pohybuj se Mezerník + táhnutí
-
-Notes:
-Projít každou část živě na projektoru. Zmínit, že Inspector (pravý panel) se mění podle toho, co je vybrané. To bude
-důležité při nastavování barev a velikostí.
-
---
-
-## 🗺️ Layers (Vrstvy) — levý panel
-
-Vrstvy jsou jako **štos papírů** — vrstva nahoře je „vpředu"
-
-- 👁️ = skrytí vrstvy
-- 🔒 = zamknutí (nejde omylem pohnout)
-- Přetažením vrstev změníš jejich pořadí
-
-💡 **Pojmenuj vrstvy!** "Vrstva 1" je chaos, "HP bar — pozadí" je přehledné
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center">
+<div style="text-align:left">
+<table>
+<tr><th>Klávesa</th><th>Nástroj</th></tr>
+<tr><td><strong>V</strong></td><td>Move — výběr a posouvání</td></tr>
+<tr><td><strong>R</strong></td><td>Rectangle — obdélník</td></tr>
+<tr><td><strong>O</strong></td><td>Ellipse — kruh / elipsa</td></tr>
+<tr><td><strong>L</strong></td><td>Line — čára</td></tr>
+<tr><td><strong>T</strong></td><td>Text — přidání textu</td></tr>
+<tr><td><strong>F</strong></td><td>Frame — pracovní plocha</td></tr>
+</table>
+<p style="margin-top:1rem">Tip: drž <strong>Shift</strong> při kreslení → dokonalý čtverec nebo kruh.</p>
+</div>
+<img src="https://help.figma.com/hc/article_attachments/33673944882583" style="width:100%;border:2px solid #000">
+</div>
 
 Notes:
-Ukázat na konkrétním příkladu — mít nachystaný soubor se 3–4 vrstvami, pojmenovanými i nepojmenovanými. Ukázat chaos vs.
-pořádek.
+Projít každý nástroj živě — stisknout klávesu a ukázat cursor change. Dokumentace:
+help.figma.com/hc/en-us/articles/360041064174
 
 ---
 
-## 🛠️ Základní nástroje
+## Levý panel — Vrstvy a stránky
 
-| Klávesa | Nástroj   | K čemu             |
-| ------- | --------- | ------------------ |
-| **V**   | Move      | Výběr a posouvání  |
-| **R**   | Rectangle | Obdélník / čtverec |
-| **O**   | Ellipse   | Elipsa / kruh      |
-| **L**   | Line      | Čára               |
-| **T**   | Text      | Přidání textu      |
-| **F**   | Frame     | Pracovní plocha    |
-
-💡 **Tip:** Drž **Shift** při kreslení → dokonalý čtverec nebo kruh
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center">
+<div style="text-align:left">
+<ul>
+<li>Seznam všech objektů ve scéně</li>
+<li>Vrstvy jsou jako <strong>štos papírů</strong> — vrstva nahoře je "vpředu"</li>
+<li>Klikni na vrstvu → vybereš ji</li>
+<li>👁 = skrytí &nbsp;·&nbsp; 🔒 = zamknutí</li>
+</ul>
+<p style="margin-top:1rem"><strong>Pojmenuj vrstvy!</strong> „Vrstva 1" je chaos, „HP bar pozadí" je přehledné.</p>
+</div>
+<img src="https://help.figma.com/hc/article_attachments/37506155851799" style="width:100%;border:2px solid #000">
+</div>
 
 Notes:
-Projít každý nástroj live, vždy stisknout klávesu a ukázat cursor change. Nechat studenty zkusit každý nástroj.
+Ukázat live — soubor se špatně pojmenovanými vrstvami vs. dobře pojmenovanými. Chaos vs. pořádek.
 
 ---
 
-## ▭ Tvary — ZKUS TO!
+## Pravý panel — Vlastnosti
 
-**Obdélník:**
-
-1. Stiskni **R**
-2. Klikni a táhni na canvas
-3. Drž **Shift** → dokonalý čtverec
-
-**Kruh:**
-
-4. Stiskni **O**
-5. Klikni, táhni, drž **Shift**
-
-🎯 **Výzva:** Nakresli 3 různé tvary — jiná barva každý!
-
-_(Barvu nastavíš v pravém panelu pod „Fill")_
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center">
+<div style="text-align:left">
+<ul>
+<li>Mění se podle toho, co je vybrané</li>
+<li><strong>Fill</strong> — barva výplně</li>
+<li><strong>Stroke</strong> — obrys / rámeček</li>
+<li><strong>Corner radius</strong> — zaoblení rohů</li>
+<li><strong>Opacity</strong> — průhlednost (0–100 %)</li>
+<li><strong>Effects</strong> — stín, blur</li>
+</ul>
+</div>
+<img src="https://help.figma.com/hc/article_attachments/31937313497879" style="width:100%;border:2px solid #000">
+</div>
 
 Notes:
-Dát studentům 3 minuty na volné experimentování. Procházet třídou a pomáhat. Upozornit na to, jak změna hodnot v pravém
-panelu okamžitě mění tvar na canvas.
+Ukázat každou vlastnost živě — vybrat obdélník a procházet pravý panel. Zdůraznit, že panel je kontextový.
 
 ---
 
-## 🎨 Barvy a výplně
+## Základní zkratky
 
-Po kliknutí na tvar → pravý panel → **Fill**:
+| Zkratka              | Akce                     |
+| -------------------- | ------------------------ |
+| `Ctrl + Z`           | Zpět                     |
+| `Ctrl + G`           | Seskupit vybrané objekty |
+| `Ctrl + A`           | Vybrat vše               |
+| `Ctrl + D`           | Duplikovat               |
+| `Shift` + kreslení   | Dokonalý čtverec / kruh  |
+| `Mezerník` + táhnutí | Posun pohledu na canvas  |
+| `Ctrl + kolečko`     | Zoom                     |
 
-1. Klikni na **barevný čtverec**
-2. Vyber barvu z palety
-3. Nebo zadej **hex kód** přímo: `#FF6B6B`
-
-```
-Herní palety:
-  #E74C3C  →  Červená · HP, nebezpečí
-  #2ECC71  →  Zelená  · léčení, mana
-  #F39C12  →  Zlatá   · mince, odměna
-  #3498DB  →  Modrá   · mana, shield
-```
+Plný přehled: [help.figma.com/hc/en-us/articles/360040328653](https://help.figma.com/hc/en-us/articles/360040328653)
 
 Notes:
-Vysvětlit hex kódy — každá barva má přesný šestimístný kód. Ukázat color picker a jak se pohybuje po spektru. Zmínit, že
-herní designéři mají pečlivě vybrané palety, aby hráč okamžitě věděl, co barva znamená.
-
---
-
-## 🎨 Průhlednost a Stroke
-
-**Opacity (průhlednost):**
-
-- V pravém panelu nahoře — číslo **100** = plná barva
-- Snižuj na 50, 30, 10 → průhledné překrytí
-
-**Stroke (obrys):**
-
-- V pravém panelu → **Stroke** → klikni **+**
-- Nastav barvu a tloušťku (např. 2 nebo 4 px)
-
-🎯 Stroke se hodí pro herní UI tlačítka a rámečky!
-
-Notes:
-Ukázat prakticky — nakreslit obdélník, přidat mu tmavý stroke, snížit opacity. Pak ukázat, jak to vypadá jako herní
-tlačítko.
+Projít zkratky živě. Zkratky jsou klíč k rychlé práci. Dát minutu na vyzkoušení.
 
 ---
 
-## ✏️ Text
+## Tvorba tvarů
 
-1. Stiskni **T**
-2. Klikni na canvas
-3. Napiš cokoliv
-4. V pravém panelu:
-    - **Font** — zkus `Inter`, `Roboto`, nebo `Press Start 2P` (herní!)
-    - **Size** — velikost písma
-    - **Color** — barva textu
-
-🎮 **Zkus:** Napiš `GAME OVER` · velká písmena · červená barva · font Press Start 2P
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center">
+<div style="text-align:left">
+<ol>
+<li>Stiskni <strong>R</strong> → klikni a táhni (drž Shift → čtverec)</li>
+<li>Stiskni <strong>O</strong> → klikni a táhni (drž Shift → kruh)</li>
+<li>Vyber tvar → pravý panel → změň <strong>Fill</strong></li>
+<li>Přetahuj v Layer panelu pro změnu pořadí</li>
+</ol>
+<p style="margin-top:1rem">Výzva: nakresli 3 tvary, každý jinou barvou.</p>
+</div>
+<img src="/slides/assets/figma_ui_selected_polygon.png" style="width:100%;border:2px solid #000">
+</div>
 
 Notes:
-Ukázat různé fonty. "Press Start 2P" je Google Font který vypadá jako retro herní text — studenti ho milují. Ukázat kde
-ho najít ve Figmě (vyhledat v Font picker).
+Dát studentům 3 minuty na volné experimentování. Procházet třídou a pomáhat.
 
 ---
 
-## 🎮 Projekt 1: Herní mince 🪙
+## Barvy a výplně
 
-Tvoříme zlatou minci z RPG hry!
+Vyber tvar → pravý panel → **Fill** → klikni na barevný čtverec.
 
-1. **O** → velký kruh (drž Shift) · barva: `#FFD700`
-2. **O** → menší kruh uvnitř · barva: `#FFA500`
-3. **T** → text `G` nebo `$` · bílá barva · na střed
-4. Vyber vše (**Ctrl+A**) → seskup (**Ctrl+G**)
-5. Pojmenuj skupinu: `"Mince"`
+Herní paleta — každá barva má svůj význam:
 
-⏱️ Čas: **8 minut**
-
-Notes:
-Ukázat hotový výsledek jako cíl před tím, než studenti začnou. Projít třídou a pomáhat. Rychlejší studenti mohou přidat
-stín: v pravém panelu → Effects → + → Drop Shadow.
-
---
-
-## 🎮 Projekt 1: Tipy
-
-**Jak vycentrovat text na kruh:**
-
-1. Vyber text a kruh
-2. V pravém panelu nahoře → ikony zarovnání
-3. Klikni "Align horizontal center" + "Align vertical center"
-
-**Přidat stín (bonus):**
-
-Vyber objekt → pravý panel → **Effects** → **+** → Drop Shadow
+| Hex kód   | Barva   | Herní použití |
+| --------- | ------- | ------------- |
+| `#E74C3C` | Červená | HP, nebezpečí |
+| `#2ECC71` | Zelená  | Léčení, mana  |
+| `#F39C12` | Zlatá   | Mince, odměna |
+| `#3498DB` | Modrá   | Mana, shield  |
+| `#1A1A2E` | Tmavá   | Pozadí UI     |
 
 Notes:
-Tento slide zobrazit jen pokud studenti mají problémy s centrováním nebo se ptají na stín. Jinak ho přeskočit.
+Vysvětlit hex kódy — 6místný kód přesně určuje barvu. Herní designéři mají pečlivě vybrané palety, aby hráč okamžitě
+věděl, co barva znamená.
 
 ---
 
-## 💗 Projekt 2: HP Bar
+## Text a skupiny
 
-Klasický ukazatel zdraví ze hry!
+**Text:**
 
-1. **F** → Frame **300 × 50 px** · tmavé pozadí `#1A1A2E`
-2. **R** → obdélník **230 × 34 px** · barva `#E74C3C` · zarovnej doleva
-3. Corner Radius = **8** (zaoblené rohy · v pravém panelu)
-4. **T** → text `❤️  80 / 100` · bílá barva
-5. Pojmenuj vrstvy: `"HP fill"`, `"HP label"`, `"HP background"`
+- Klávesa `T` → klikni na canvas → piš
+- V pravém panelu: font, velikost, barva
+- Zkus font `Press Start 2P` — retro herní písmo
 
-🎯 **Bonus:** Přidej ještě modrý SHIELD bar pod HP
+**Skupiny:**
 
-⏱️ Čas: **10 minut**
-
-Notes:
-HP bar je nejklasičtější herní UI element. Ukázat screenshoty z různých her, kde HP bary vypadají různě (Dark Souls,
-League of Legends, Stardew Valley). Projít třídou. Corner radius je v pravém panelu — čtverec s kulatými rohy.
-
---
-
-## 💗 Projekt 2: Hotový výsledek
-
-```
-┌──────────────────────────────────┐
-│ ❤❤❤   80 / 100                 │   ← Frame
-│ ██████████████████████░░░░░░░░░░ │   ← HP fill (červená)
-└──────────────────────────────────┘
-```
-
-**Variace pro bonus:**
-
-```
-┌──────────────────────────────────┐
-│ 🛡🛡🛡   50 / 50                  │
-│ ████████████████████████████████ │   ← SHIELD fill (modrá)
-└──────────────────────────────────┘
-```
+- Vyber více objektů (`Ctrl + klik`) → `Ctrl + G` → seskup
+- Skupina se pohybuje a škáluje jako celek
+- Pojmenuj ji v Layer panelu
 
 Notes:
-Ukázat jak by vypadal hotový výsledek. Studenti mohou mít různé variace — všechny jsou správné. Pochválit kreativitu.
+Ukázat Press Start 2P — Google Font přímo ve Figmě. Studenti ho milují. Ukázat jak se skupina chová jinak než jednotlivé
+objekty.
 
 ---
 
-## 🌍 Figma ve světě her
+## Projekt 1: Herní mince
 
-Herní studia používají Figmu na:
+Tvoříme zlatou minci z RPG hry.
 
-- 🗺️ **UI prototypy** — jak bude vypadat inventář nebo menu?
-- 🎨 **Ikony a itemy** — meče, lektvary, zbroje, achievementy
-- 🖼️ **Splash screeny** — uvítací obrazovky
-- 📋 **Design dokumenty** — celý game design doc v jednom souboru
-- 🤝 **Spolupráci** — designér + programátor ve stejném souboru live
+1. **O** → velký kruh (drž Shift) &nbsp;·&nbsp; barva: `#FFD700`
+2. **O** → menší kruh uvnitř &nbsp;·&nbsp; barva: `#FFA500`
+3. **T** → text `G` nebo `$` &nbsp;·&nbsp; bílá barva &nbsp;·&nbsp; nastav na střed
+4. Vyber vše (`Ctrl + A`) → seskup (`Ctrl + G`)
+5. Pojmenuj skupinu: `Mince`
 
-📁 **Figma Community:** stovky herních UI šablon — zadarmo!
+Bonus: pravý panel → **Effects** → **+** → Drop Shadow
+
+Čas: **8 minut**
 
 Notes:
-Otevřít figma.com/community a vyhledat "game UI". Nechat studenty procházet a najít něco cool. Ukázat konkrétní příklady
-herního UI (inventory, skill tree, minimap).
+Ukázat hotový výsledek jako cíl před začátkem. Projít třídou a pomáhat. Rychlejší studenti přidají stín nebo zkusí
+stříbrnou minci.
 
 ---
 
-## 💾 Export — grafika ven z Figmy
+## Projekt 2: HP Bar
+
+Klasický ukazatel zdraví ze hry.
+
+1. **F** → Frame **300 × 50 px** &nbsp;·&nbsp; barva pozadí: `#1A1A2E`
+2. **R** → obdélník **230 × 34 px** &nbsp;·&nbsp; barva: `#E74C3C` &nbsp;·&nbsp; zarovnej doleva
+3. Pravý panel → Corner Radius = `8`
+4. **T** → text `80 / 100` &nbsp;·&nbsp; bílá barva
+5. Pojmenuj vrstvy: `HP fill` · `HP label` · `HP background`
+
+Bonus: přidej modrý SHIELD bar pod HP (`#3498DB`)
+
+Čas: **10 minut**
+
+Notes:
+HP bar je nejklasičtější herní UI element. Ukázat screenshoty z různých her. Projít třídou. Frame ořezává obsah —
+důležitý koncept.
+
+---
+
+## Export
+
+Co s hotovým designem?
 
 1. Vyber objekt nebo skupinu
-2. Pravý panel → sjeď dolů → **Export**
-3. Klikni **+**
-4. Vyber formát:
-    - **PNG** — web, průhledné pozadí ✅
-    - **SVG** — vektorový, škálovatelný ✅
-    - **JPG** — fotografie a pozadí
-5. Klikni **Export [název]**
+2. Pravý panel → sjeď dolů → **Export** → klikni **+**
+3. Zvol formát:
+
+| Formát  | Kdy použít                           |
+| ------- | ------------------------------------ |
+| **PNG** | Web, průhledné pozadí, ikony         |
+| **SVG** | Vektorový — škálovatelný, pro web    |
+| **JPG** | Fotografie a pozadí bez průhlednosti |
+
+4. Klikni **Export [název]**
+
+Dokumentace: [help.figma.com/hc/en-us/articles/360040028114](https://help.figma.com/hc/en-us/articles/360040028114)
 
 Notes:
-Ukázat export live. Exportovat tu samou minci jako PNG i SVG, ukázat rozdíl velikosti souboru. Zdůraznit, že SVG je
-vektorový — může se zvětšovat bez ztráty kvality.
+Exportovat živě — ukázat PNG a SVG ze stejné mince. Ukázat rozdíl velikosti souboru. SVG je vektorový.
 
 ---
 
-## 🔗 Zdroje pro další studium
+## Zdroje a co dál
 
-- 📚 **help.figma.com** — oficiální tutoriály Figmy
-- 🎬 **Figma Design for Beginners 2025** — bezplatný kurz od Figmy
-- 🌐 **figma.com/community** — tisíce šablon zdarma
-- 🎮 Community file: `figma.com/community/file/882673583516057201`
+**Figma:**
 
-**YouTube tutoriály (CZ titulky):**
+- [Figma pro začátečníky](https://help.figma.com/hc/en-us/articles/30848209492887)
+- [Figma Community — herní UI šablony](https://www.figma.com/community)
+- [Klávesové zkratky](https://help.figma.com/hc/en-us/articles/360040328653)
 
-- Figma in 100 seconds
-- Figma for Beginners — crash course
+**Pixel Art:**
 
-Notes:
-Ukázat komunitu živě. Otevřít zmíněný community file — je to herní UI šablona. Zmínit, že vše je zdarma a studenti mohou
-šablony duplikovat a upravovat.
+- [pixilart.com](https://www.pixilart.com/) — kreslení online zdarma
+- [Pixel Art tutoriál (YouTube)](https://www.youtube.com/watch?v=LFclLgUQ1zE)
 
----
-
-## ✅ Co jsme dnes zvládli
-
-- ✅ Registrace a orientace ve Figmě
-- ✅ Základní nástroje — tvary, text, barvy
-- ✅ Práce s vrstvami a jejich pojmenování
-- ✅ Vytvořená herní mince 🪙
-- ✅ Vytvořený HP bar 💗
-- ✅ Export grafiky jako PNG a SVG
-
-🚀 Teď ovládáš základy nástroje, který používají designéři v herních studiích po celém světě!
-
-🏠 **Dobrovolný domácí projekt:** Navrhni jedno UI okno pro svoji vysněnou hru — hlavní menu, inventory, nebo HUD
+Dobrovolný projekt: navrhni UI obrazovku pro svoji vysněnou hru.
 
 Notes:
-Pochválit studenty. Ukázat pár pěkných výsledků z jejich práce (s dovolením). Otevřít prostor pro dotazy. Domácí úkol je
-dobrovolný — ti, kdo ho udělají, ho příště ukáží.
+Otevřít Figma Community živě a vyhledat "game UI". Ukázat pár příkladů. Domácí úkol je dobrovolný.

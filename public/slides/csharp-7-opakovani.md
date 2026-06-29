@@ -19,12 +19,14 @@ Vytvoř třídu `Produkt` s vlastnostmi `Nazev` (string) a `Cena` (double).
 Přepiš `ToString()`.
 
 Pak:
+
 1. Vytvoř `List<Produkt>` se třemi produkty
 2. Seřaď produkty podle ceny a vypiš je
 3. Vypočítej a vypiš průměrnou cenu
 
 Notes:
 Řešení:
+
 ```csharp
 class Produkt
 {
@@ -60,6 +62,7 @@ Console.WriteLine($"\nPrůměr: {soucet / kosik.Count:F2} Kč");
 ## Cvičení 2: Nejcennější drahokam
 
 Vytvoř třídu `Drahokam` s vlastnostmi:
+
 - `Nazev` (string)
 - `Hmotnost` (double, v gramech)
 - `CenaZaGram` (double)
@@ -71,6 +74,7 @@ Najdi a vypiš drahokam s nejvyšší hodnotou z `List<Drahokam>`.
 
 Notes:
 Řešení:
+
 ```csharp
 class Drahokam
 {
@@ -114,6 +118,7 @@ Console.WriteLine($"\nNejcennější: {nejlepsi.Nazev} ({nejlepsi.Hodnota():F0} 
 ## Cvičení 3: Textová RPG souboj
 
 Vytvoř třídu `Postava` s:
+
 - `Jmeno`, `Zdravi` (private setter, min 0), `Utok`
 - Metoda `Utoc(Postava cil)` — odebere `Utok` HP cíli, vypíše co se stalo
 - `JeZiva()` → `Zdravi > 0`
@@ -123,6 +128,7 @@ Piš souboj: dvě postavy se střídavě útočí, dokud jedna nepadne.
 
 Notes:
 Řešení:
+
 ```csharp
 class Postava
 {
@@ -187,4 +193,6 @@ Za týden jste prošli od `Console.WriteLine("Ahoj")` po třídy, properties a c
 To je základ, na kterém stojí **každá hra v Unity**.
 
 Notes:
-Závěrečné povzbuzení. Zmínit, kde mohou pokračovat sami: learn.microsoft.com/cs-cz/dotnet/csharp/ pro dokumentaci, Brackeys na YouTube pro Unity tutoriály (anglicky). Zdůraznit, že třídy Hrac a Postava z dnešního cvičení jsou přesně to, co budou psát v Unity.
+Závěrečné povzbuzení. Zmínit, kde mohou pokračovat sami: learn.microsoft.com/cs-cz/dotnet/csharp/ pro dokumentaci,
+Brackeys na YouTube pro Unity tutoriály (anglicky). Zdůraznit, že třídy Hrac a Postava z dnešního cvičení jsou přesně
+to, co budou psát v Unity.

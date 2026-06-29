@@ -88,4 +88,5 @@ Chyby jsou **normální** — i profíci hledají chyby každý den.
 Žádné zkušenosti s programováním nepotřebuješ. Stačí chuť zkoušet.
 
 Notes:
-Uvítat studenty, zeptat se, kdo už někdy něco programoval. Zdůraznit, že chyby jsou normální součást učení — i profesionálové tráví velkou část času debuggováním. Ukázat Visual Studio a .NET prostředí.
+Uvítat studenty, zeptat se, kdo už někdy něco programoval. Zdůraznit, že chyby jsou normální součást učení — i
+profesionálové tráví velkou část času debuggováním. Ukázat Visual Studio a .NET prostředí.

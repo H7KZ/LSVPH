@@ -34,7 +34,8 @@ class Program           // třída (vysvětlíme v lekci 6)
 ```
 
 Notes:
-Pro začátek stačí vědět: kód píšeme do Main(). `using System` je potřeba pro Console. Třídy a namespace vysvětlíme v lekci 6. Komentáře začínají // a kompilátor je ignoruje.
+Pro začátek stačí vědět: kód píšeme do Main(). `using System` je potřeba pro Console. Třídy a namespace vysvětlíme v
+lekci 6. Komentáře začínají // a kompilátor je ignoruje.
 
 ---
 
@@ -53,18 +54,19 @@ Console.WriteLine();                 // jen prázdný řádek
 
 ## Datové typy
 
-| Typ | Co ukládá | Příklad |
-|-----|-----------|---------|
-| `string` | text | `"Ahoj"` |
-| `int` | celé číslo (32-bit) | `42` |
-| `long` | velké celé číslo (64-bit) | `9999999999L` |
-| `double` | desetinné číslo | `3.14` |
-| `float` | desetinné (méně přesné) | `3.14f` |
-| `bool` | pravda / lež | `true` |
-| `char` | jeden znak | `'A'` |
+| Typ      | Co ukládá                 | Příklad       |
+| -------- | ------------------------- | ------------- |
+| `string` | text                      | `"Ahoj"`      |
+| `int`    | celé číslo (32-bit)       | `42`          |
+| `long`   | velké celé číslo (64-bit) | `9999999999L` |
+| `double` | desetinné číslo           | `3.14`        |
+| `float`  | desetinné (méně přesné)   | `3.14f`       |
+| `bool`   | pravda / lež              | `true`        |
+| `char`   | jeden znak                | `'A'`         |
 
 Notes:
-Pro hry nejčastěji: int, float, bool. float vs double: float je rychlejší ale méně přesný — Unity ho používá hodně. char se píše do jednoduchých uvozovek. decimal (suffix m) se používá pro peníze (28 číslic přesnosti).
+Pro hry nejčastěji: int, float, bool. float vs double: float je rychlejší ale méně přesný — Unity ho používá hodně. char
+se píše do jednoduchých uvozovek. decimal (suffix m) se používá pro peníze (28 číslic přesnosti).
 
 ---
 
@@ -99,7 +101,8 @@ var pi    = 3.14;     // kompilátor ví: double
 `var` je zkratka — typ se odvodí z pravé strany. Kód je kratší, typ stále existuje.
 
 Notes:
-var je užitečný pro komplexní typy kde opakování typového jména by bylo zdlouhavé. Pro jednoduché typy (int, string) je přehlednější psát typ explicitně. Typ proměnné se nemění — C# není dynamický jazyk.
+var je užitečný pro komplexní typy kde opakování typového jména by bylo zdlouhavé. Pro jednoduché typy (int, string) je
+přehlednější psát typ explicitně. Typ proměnné se nemění — C# není dynamický jazyk.
 
 ---
 
@@ -154,7 +157,8 @@ else
 ```
 
 Notes:
-Modulo je v hrách hodně užitečné — třeba pro pohyb po mřížce nebo pro střídání hráčů (hrac % 2 == 0 → hráč 1, jinak hráč 2).
+Modulo je v hrách hodně užitečné — třeba pro pohyb po mřížce nebo pro střídání hráčů (hrac % 2 == 0 → hráč 1, jinak hráč
+2).
 
 ---
 
@@ -171,7 +175,8 @@ Math.PI            // 3.14159... — konstanta
 ```
 
 Notes:
-Math.Abs se hodí pro výpočet vzdálenosti (bez záporných hodnot). Math.Clamp(value, min, max) omezí hodnotu do rozsahu — super pro zdraví hráče.
+Math.Abs se hodí pro výpočet vzdálenosti (bez záporných hodnot). Math.Clamp(value, min, max) omezí hodnotu do rozsahu —
+super pro zdraví hráče.
 
 ---
 
@@ -205,6 +210,7 @@ Napiš program, který:
 
 Notes:
 Řešení:
+
 ```csharp
 string jmeno = "Adam";
 int vek = 15;

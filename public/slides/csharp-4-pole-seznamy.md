@@ -61,7 +61,8 @@ Console.WriteLine(skore[0]);          // 97 — největší
 ```
 
 Notes:
-Array.Sort funguje pro int, double, string. Pro vlastní typy je potřeba implementovat IComparable — to je pokročilé téma.
+Array.Sort funguje pro int, double, string. Pro vlastní typy je potřeba implementovat IComparable — to je pokročilé
+téma.
 
 ---
 
@@ -85,7 +86,8 @@ for (int r = 0; r < 3; r++)
 Hodí se pro herní mapy, šachovnice, 2D gridy.
 
 Notes:
-int[,,] pro 3D pole. V Unity se pro 2D gridy používá jednodimenzionální pole s výpočtem indexu (index = r * sirka + s) — je to výkonnější.
+int[,,] pro 3D pole. V Unity se pro 2D gridy používá jednodimenzionální pole s výpočtem indexu (index = r * sirka + s) —
+je to výkonnější.
 
 ---
 
@@ -150,17 +152,18 @@ List<string> zPole = new List<string>(pole);
 
 ## Pole vs. List
 
-| | Pole `T[]` | List `List<T>` |
-|--|------------|----------------|
-| Velikost | pevná | dynamická |
-| Výkon | rychlejší | mírně pomalejší |
-| Přidávání | ❌ | ✅ `.Add()` |
-| Odebírání | ❌ | ✅ `.Remove()` |
-| Řazení | `Array.Sort()` | `.Sort()` |
-| Kdy použít | pevný počet | neznámý počet |
+|            | Pole `T[]`     | List `List<T>`  |
+| ---------- | -------------- | --------------- |
+| Velikost   | pevná          | dynamická       |
+| Výkon      | rychlejší      | mírně pomalejší |
+| Přidávání  | ❌             | ✅ `.Add()`     |
+| Odebírání  | ❌             | ✅ `.Remove()`  |
+| Řazení     | `Array.Sort()` | `.Sort()`       |
+| Kdy použít | pevný počet    | neznámý počet   |
 
 Notes:
-List<T> je v praxi mnohem běžnější než pole, protože nevíte předem kolik prvků budete mít. Pole je výkonnější a Unity ho hodně používá interně, ale pro hry studentů je List většinou lepší volbou.
+List<T> je v praxi mnohem běžnější než pole, protože nevíte předem kolik prvků budete mít. Pole je výkonnější a Unity ho
+hodně používá interně, ale pro hry studentů je List většinou lepší volbou.
 
 ---
 
@@ -174,6 +177,7 @@ Napiš program, který:
 
 Notes:
 Řešení:
+
 ```csharp
 List<int> znamky = new List<int>();
 

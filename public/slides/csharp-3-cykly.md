@@ -46,7 +46,8 @@ Console.WriteLine("Správně!");
 Tělo se provede **vždy alespoň jednou** — podmínka se kontroluje až po prvním průchodu.
 
 Notes:
-do while se hodí pro validaci vstupu — chcete zobrazit výzvu alespoň jednou a pak opakovat dokud uživatel nezadá správný vstup.
+do while se hodí pro validaci vstupu — chcete zobrazit výzvu alespoň jednou a pak opakovat dokud uživatel nezadá správný
+vstup.
 
 ---
 
@@ -67,7 +68,8 @@ Tři části hlavičky: `inicializace; podmínka; krok`
 - `i++` — spustí se po každém průchodu
 
 Notes:
-Proměnná `i` existuje jen uvnitř for cyklu. Hodí se, když víte kolikrát cyklus proběhne — pak je for přehlednější než while.
+Proměnná `i` existuje jen uvnitř for cyklu. Hodí se, když víte kolikrát cyklus proběhne — pak je for přehlednější než
+while.
 
 ---
 
@@ -112,7 +114,8 @@ Výstup:
 ```
 
 Notes:
-Vnořené cykly se hodí pro práci s 2D mřížkou (herní mapa, šachovnice). Pokud má každý cyklus N kroků, celkem proběhne N×N kroků — pozor na výkon!
+Vnořené cykly se hodí pro práci s 2D mřížkou (herní mapa, šachovnice). Pokud má každý cyklus N kroků, celkem proběhne
+N×N kroků — pozor na výkon!
 
 ---
 
@@ -158,7 +161,8 @@ while (bezici)
 ```
 
 Notes:
-Herní smyčka je základní vzor každé hry — nekonečná smyčka, která čte vstup, aktualizuje stav a vykresluje. Unity ji má zabudovanou (metody Start a Update). while(true) s break je také validní vzor.
+Herní smyčka je základní vzor každé hry — nekonečná smyčka, která čte vstup, aktualizuje stav a vykresluje. Unity ji má
+zabudovanou (metody Start a Update). while(true) s break je také validní vzor.
 
 ---
 
@@ -173,6 +177,7 @@ Napiš program, který:
 
 Notes:
 Řešení:
+
 ```csharp
 int tajne = 42;
 int pokusy = 0;

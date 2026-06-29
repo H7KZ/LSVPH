@@ -2,6 +2,7 @@ import { Deck, Markdown } from '@revealjs/react'
 import { useEffect, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import RevealHighlight from 'reveal.js/plugin/highlight'
+import RevealNotes from 'reveal.js/plugin/notes'
 import { findPresentationBySlug } from '../data/presentations'
 import 'reveal.js/reveal.css'
 import 'reveal.js/theme/white.css'
@@ -42,7 +43,7 @@ export default function Presentation() {
 				transitionSpeed: 'fast',
 				backgroundTransition: 'concave'
 			}}
-			plugins={[RevealHighlight]}
+			plugins={[RevealHighlight, RevealNotes]}
 		>
 			<Markdown separator="^\n---\n$" verticalSeparator="^\n--\n$">
 				{markdown}
