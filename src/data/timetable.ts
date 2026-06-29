@@ -1,6 +1,6 @@
 export type SlotEntry = {
 	label: string
-	subjectSlug?: string
+	subjectSlug: string
 	room: string | null
 	lecturers: string[]
 }
@@ -18,9 +18,10 @@ export type Group = {
 
 export const timeSlots = ['9:00–10:00', '10:00–11:00', '11:00–12:00', 'Oběd', '13:00–14:00', '14:00–15:00', '15:00–16:00']
 
-const uvod: SlotEntry = { label: 'Úvod', room: '211', lecturers: ['Všichni'] }
+const uvod: SlotEntry = { label: 'Úvod', room: '211', lecturers: ['Všichni'], subjectSlug: 'entry' }
 const projekt = (room: string, l1: string, l2: string): SlotEntry => ({
-	label: 'Projekt',
+	label: 'Projektová práce',
+	subjectSlug: 'project',
 	room,
 	lecturers: [l1, l2]
 })

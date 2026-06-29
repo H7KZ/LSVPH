@@ -11,12 +11,19 @@ export default function Lunch() {
 							<h2 className="font-display text-xl font-bold">{day.day}</h2>
 							<span className="text-muted text-xs font-bold tracking-widest uppercase">{day.date}</span>
 						</div>
-						<p className="text-muted mb-1 text-sm">
-							<span className="text-ink font-medium">Polévka:</span> {day.soup}
-						</p>
-						<p className="text-muted text-sm">
-							<span className="text-ink font-medium">Hlavní jídlo:</span> {day.main}
-						</p>
+						{day.items.length === 0 ? (
+							<p className="text-muted text-sm">Menu zatím není k dispozici.</p>
+						) : (
+							<ul className="flex flex-col gap-2">
+								{day.items.map((item, i) => (
+									<li key={i} className="text-sm">
+										<span className="text-muted text-xs font-bold tracking-widest uppercase">{item.label}: </span>
+										<span className="font-medium">{item.name}</span>
+										{item.allergens.length > 0 && <span className="text-muted ml-2 text-xs">Alergeny: {item.allergens.join(', ')}</span>}
+									</li>
+								))}
+							</ul>
+						)}
 						{day.note && <p className="border-ink/20 text-muted mt-3 border-t pt-3 text-xs">{day.note}</p>}
 					</div>
 				))}

@@ -17,6 +17,12 @@ export default function Home() {
 						Rozvrh
 					</Link>
 					<Link
+						to="/lunch"
+						className="border-ink hover:bg-ink hover:text-bg inline-block border-2 px-5 py-2 text-sm font-bold tracking-widest uppercase transition-colors"
+					>
+						Obědy
+					</Link>
+					<Link
 						to="/presentations"
 						className="border-ink hover:bg-ink hover:text-bg inline-block border-2 px-5 py-2 text-sm font-bold tracking-widest uppercase transition-colors"
 					>

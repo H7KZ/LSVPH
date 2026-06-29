@@ -38,7 +38,7 @@ export default function Timetable() {
 					</thead>
 					<tbody>
 						{group.days.map(day => (
-							<tr key={day.date} className="even:bg-accent/10">
+							<tr key={day.date}>
 								<td className="border-ink border-2 px-3 py-3 font-bold whitespace-nowrap">
 									<span className="block">{day.day}</span>
 									<span className="text-muted text-xs font-normal">{day.date}</span>
@@ -48,7 +48,7 @@ export default function Timetable() {
 									return (
 										<td key={i} className="border-ink border-2 px-3 py-3" style={subject ? { backgroundColor: subject.accent } : undefined}>
 											{slot === null ? (
-												<span className="text-muted">🍽 Oběd</span>
+												<span className="text-muted flex items-center justify-center text-center">🍽</span>
 											) : (
 												<>
 													<span className="block font-medium">{slot.label}</span>
