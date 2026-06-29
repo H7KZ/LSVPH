@@ -8,6 +8,13 @@ export type Presentation = {
 // `public/slides/<slug>.md`. Nové prezentace přidávej sem (a vytvoř .md soubor).
 export const presentations: Presentation[] = [
 	{ slug: 'csharp-uvod', subjectSlug: 'csharp', title: 'Úvod do předmětu' },
+	{ slug: 'csharp-1-promenne', subjectSlug: 'csharp', title: 'Lekce 1: Proměnné a datové typy' },
+	{ slug: 'csharp-2-konverze-podminky', subjectSlug: 'csharp', title: 'Lekce 2: Konverze a podmínky' },
+	{ slug: 'csharp-3-cykly', subjectSlug: 'csharp', title: 'Lekce 3: Cykly' },
+	{ slug: 'csharp-4-pole-seznamy', subjectSlug: 'csharp', title: 'Lekce 4: Pole a seznamy' },
+	{ slug: 'csharp-5-metody', subjectSlug: 'csharp', title: 'Lekce 5: Metody a funkce' },
+	{ slug: 'csharp-6-tridy-oop', subjectSlug: 'csharp', title: 'Lekce 6: Třídy a OOP' },
+	{ slug: 'csharp-7-opakovani', subjectSlug: 'csharp', title: 'Lekce 7: Opakování a cvičení' },
 	{ slug: '2d-uvod', subjectSlug: '2d', title: 'Rastr vs. Vektor' },
 	{ slug: '2d-figma', subjectSlug: '2d', title: 'Figma: Tvoříme jako profíci' },
 	{ slug: '3d-uvod', subjectSlug: '3d', title: 'Úvod do předmětu' },
