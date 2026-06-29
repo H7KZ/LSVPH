@@ -101,6 +101,7 @@ bool vyhra = skore >= 100 && zivoty > 0;
 
 ```csharp
 string operace = "+";
+int a = 10, b = 5;    // příklad hodnot
 
 switch (operace)
 {

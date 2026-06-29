@@ -102,7 +102,7 @@ Parametry jsou odděleny čárkami, každý má svůj typ.
 
 Napiš metodu `VypisProdukty(string nazev, double cena)`, která vypíše:
 
-```
+```text
 Minecraft          249.00 Kč
 Fortnite             0.00 Kč
 ```
