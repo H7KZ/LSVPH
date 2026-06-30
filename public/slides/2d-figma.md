@@ -278,3 +278,6 @@ Dobrovolný projekt: navrhni UI obrazovku pro svoji vysněnou hru.
 
 Notes:
 Otevřít Figma Community živě a vyhledat "game UI". Ukázat pár příkladů. Domácí úkol je dobrovolný.
+
+Blooket kvíz (jen Figma): https://dashboard.blooket.com/set/6a443d351f805cdd61824a36
+Blooket kvíz (2D + Figma + Pixel Art): https://dashboard.blooket.com/set/6a443d5bf2d740c1a8c16d28

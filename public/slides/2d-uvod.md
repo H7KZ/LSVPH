@@ -230,4 +230,4 @@ Odpovědi: Rastr · Vektor · Rastr · Vektor · Rastr · Vektor
 Notes:
 Spustit Blooket hru. Studenti se připojí na telefonech nebo laptopech. Cca 5–7 minut.
 
-Blooket kvíz: `dashboard.blooket.com/set/66826e4c559ac110b3c6feac`
+Blooket kvíz: https://dashboard.blooket.com/set/6a443d10ef3edfdcbb37f0a5
