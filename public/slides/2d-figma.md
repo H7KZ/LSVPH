@@ -10,21 +10,20 @@ designérům tisíce dolarů za kus.
 
 ---
 
-## Přihlašovací údaje
+## Vytvoř si účet
 
-Každý z vás má přiřazený Figma účet:
+Figma je zdarma — stačí e-mail nebo Google účet.
 
-| Účet                       | Heslo            |
-| -------------------------- | ---------------- |
-| `lsvph_001@jankominek.com` | `lsvph123456789` |
-| `lsvph_002@jankominek.com` | `lsvph123456789` |
-| ...                        | ...              |
-| `lsvph_018@jankominek.com` | `lsvph123456789` |
+1. Jdi na [figma.com](https://www.figma.com/)
+2. Klikni **"Get started for free"**
+3. Přihlas se Google účtem (nejrychlejší) nebo zadej e-mail
+4. Při dotazu na roli zvol **Student**
+5. Klikni **"+ New design file"** — a jsme uvnitř!
 
-Přihlas se na **figma.com** — číslo účtu dostaneš od přednášejícího.
+Studentský plán zdarma: [figma.com/education](https://www.figma.com/education/)
 
 Notes:
-Rozdat číslice studentům. Počkat, než jsou všichni přihlášeni. Ujistit se, že každý vidí dashboard s soubory.
+Počkat, než jsou všichni přihlášeni — cca 3 minuty. Pomoci těm, kdo nemají Google účet (mohou použít školní e-mail). Dokumentace: help.figma.com/hc/en-us/articles/360039811114
 
 ---
 
