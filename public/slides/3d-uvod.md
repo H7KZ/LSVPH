@@ -1,4 +1,11 @@
 ## Základy 3D grafiky
+<div style="display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:center">
+<div style="text-align:left">
+<h2>Základy 3D grafiky</h2>
+<p>První krůčky ve světě 3D modelování, materiálů a tvorby vlastních herních assetů.</p>
+</div>
+<img src="/slides/assets/blender_hero_island.jpg" style="width:100%;border:2px solid #000">
+</div>
 
 ---
 
@@ -10,7 +17,7 @@
 
 ---
 
-## Proč to stojí za to
+## Proč?
 
 3D svět hry musí někdo vymodelovat — postavy, zbraně, prostředí.
 Když to umíš, můžeš si **celou hru postavit od nuly** přesně podle své představy.
@@ -20,10 +27,8 @@ Když to umíš, můžeš si **celou hru postavit od nuly** přesně podle své 
 ## Základní pojmy
 
 - **Mesh** — síť polygonů tvořící 3D objekt
-- **Materiál** — jak povrch vypadá (barva, lesk)
-- **Textura** — obrázek namapovaný na povrch
-
-Nezní to složitě, jakmile to uvidíš naživo.
+- **Materiál** — Jak povrch vypadá (barva, lesk)
+- **Textura** — obrázek namapovaný na povrch modelu
 
 ---
 
@@ -36,7 +41,3 @@ Nezní to složitě, jakmile to uvidíš naživo.
 
 ## Pojďme modelovat!
 
-První vlastní 3D asset vytvoříš hned na prvním cvičení.
-
-Notes:
-Připravit jednoduchý model krychle a projít celý workflow Blender → Unity živě.

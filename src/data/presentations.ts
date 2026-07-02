@@ -18,6 +18,9 @@ export const presentations: Presentation[] = [
 	{ slug: '2d-uvod', subjectSlug: '2d', title: 'Rastr vs. Vektor' },
 	{ slug: '2d-figma', subjectSlug: '2d', title: 'Figma: Tvoříme jako profíci' },
 	{ slug: '3d-uvod', subjectSlug: '3d', title: 'Úvod do předmětu' },
+	{ slug: '3d-blender-zaklady', subjectSlug: '3d', title: 'Blender: 3D Prostor' },
+	{ slug: '3d-blender-edit-mode', subjectSlug: '3d', title: 'Blender: Modelování' },
+	{ slug: '3d-blender-tvorba-assetu', subjectSlug: '3d', title: 'Blender: Tvorba assetu a export' },
 	{ slug: 'gamedesign-uvod', subjectSlug: 'gamedesign', title: 'Úvod do předmětu' },
 	{ slug: 'unity-uvod', subjectSlug: 'unity', title: 'Úvod do předmětu' }
 ]
