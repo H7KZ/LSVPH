@@ -1,4 +1,4 @@
-## Flappy Bird — Část 1: Ptáček
+## Flappy Bird — Část 1: Ptáček a fyzika
 
 Letní škola vývoje her 2026
 
@@ -6,130 +6,250 @@ Letní škola vývoje her 2026
 
 ## Co dnes postavíme
 
-Flappy Bird klon od základu:
+<img src="/images/flappy/bird.png" alt="Ptáček" style="height:180px">
 
-- Ptáček který padá díky gravitaci
-- Skok mezerníkem
-- Roury jako překážky
-- Skóre a restart
+Klon Flappy Bird od základu — za jeden den
 
-**Cíl dopoledne:** funkční ptáček s fyzikou a kolekcí kolizí
+**Dopoledne:** ptáček s fyzikou, skok, detekce kolizí
 
 Notes:
-Ukažte hotovou hru nejdřív alespoň minutu. Studenti by měli vidět konečný cíl před tím než začneme. Pak otevřete projekt a jdeme na to.
+Ukažte hotovou hru nejdřív alespoň minutu. Studenti vidí cíl před tím než začneme. Pak otevřete projekt.
+
+---
+
+## Nový Unity projekt
+
+1. Otevři **Unity Hub** → klikni **New Project**
+2. Vyber šablonu **2D (Core)**
+3. Název: `FlappyBird`, zvol složku
+4. Klikni **Create project** a počkej
+
+![Nový 2D projekt v Unity Hub](/images/flappy/placeholder-new-project.svg)
+
+Notes:
+2D Core = bez nadbytečných balíčků. Počkejte než se projekt otevře — může trvat minutu. Mezitím ukažte strukturu složek v Exploreru.
 
 ---
 
 ## Struktura projektu
 
-Čtyři scripty, každý má jednu zodpovědnost:
+Vytvoř složky v **Project** okně (pravý klik → Create → Folder):
 
-| Script           | Co dělá                                   |
-| ---------------- | ----------------------------------------- |
-| `PlayerMovement` | Vstup hráče, skok, detekce kolizí         |
-| `Pipe`           | Pohyb roury doleva, zničení za obrazovkou |
-| `PipeSpawner`    | Pravidelné vytváření nových rour          |
-| `GameManager`    | Skóre a aktualizace UI                    |
+```
+Assets/
+├── Graphics/    ← Bird.png, Pipe.png (přetáhni sem)
+├── Scripts/     ← naše C# skripty
+└── Prefabs/     ← Pipe prefab (odpoledne)
+```
+
+Jedno pravidlo: **jeden skript = jedna zodpovědnost**
 
 Notes:
-Otevřete projekt ve Visual Studio. Ukažte strukturu složek v Unity Project okně. Jeden script = jedna zodpovědnost = jednodušší debugging. Pokud script dělá příliš mnoho věcí, je čas ho rozdělit.
+Ukažte Project okno. Drag & drop obrázků do Graphics složky. Unity je importuje automaticky.
 
 ---
 
-## Fyzika ptáčka
-
-`Rigidbody2D` — fyzikální komponenta pro 2D objekty
-
-```
-Gravity Scale = 1   →   ptáček padá dolů
-linearVelocity = Vector2.up * 4   →   ptáček vyletí nahoru
-```
-
-Gravitace pak velocity postupně snižuje → parabolický oblouk
-
-Notes:
-Přidejte Rigidbody2D komponentu na ptáčka v Inspectoru (Add Component → Physics 2D → Rigidbody2D). Ukažte co se stane v Play Mode - ptáček padá. Experimentujte s Gravity Scale živě (hodnoty 0.5, 2, 5).
-
----
-
-## PlayerMovement.cs — skok
+## MonoBehaviour — kostra každého skriptu
 
 ```csharp
-void Update()
+public class PlayerMovement : MonoBehaviour
 {
-    if (Input.GetKeyDown(KeyCode.Space))
+    void Start()  { /* jednou na začátku */ }
+    void Update() { /* každý snímek (~60× za sekundu) */ }
+}
+```
+
+| Metoda | Kdy se volá |
+|--------|------------|
+| `Start` | jednou po aktivaci objektu |
+| `Update` | každý snímek hry |
+
+Notes:
+Toto je základ Unity programování. Dědí z MonoBehaviour → lze přiřadit na GameObject.
+
+---
+
+## Ptáček — sprite a GameObject
+
+1. V **Project** okně otevři `Graphics/`
+2. Přetáhni `Bird.png` do **Scene** nebo **Hierarchy**
+3. Unity vytvoří `GameObject` se `SpriteRenderer`
+4. Přejmenuj ho na `Bird` (F2 v Hierarchy)
+
+<img src="/images/flappy/bird.png" alt="Bird sprite" style="height:120px">
+
+![Bird sprite v Inspektoru](/images/flappy/placeholder-bird-sprite.svg)
+
+Notes:
+SpriteRenderer = komponenta která kreslí 2D obrázek. Inspector ukáže Sprite, Color, atd.
+
+---
+
+## Ptáček — přidání fyziky
+
+1. Vyber `Bird` v Hierarchy
+2. V Inspektoru → **Add Component** → hledej `Rigidbody 2D`
+3. Nastav v Inspektoru:
+   - **Gravity Scale:** `1`
+   - **Freeze Rotation → Z:** ✓ zaškrtni
+
+![Rigidbody2D nastavení v Inspektoru](/images/flappy/placeholder-rigidbody.svg)
+
+**Spusť Play Mode (▶)** → ptáček padá dolů ✓
+
+Notes:
+Gravity Scale = 1 = normální gravitace. Bez Freeze Rotation se ptáček otočí při první kolizi. Experimentujte s Gravity Scale 0.5 / 2 / 5.
+
+---
+
+## Jak funguje gravitace v Unity
+
+```
+Gravity Scale = 1
+→ každý snímek: velocity.y -= 9.81 × deltaTime
+
+linearVelocity = Vector2.up * 4
+→ okamžitá rychlost nahoru = 4 m/s
+
+gravitace pak velocity.y postupně snižuje → parabolický oblouk
+```
+
+Stejný princip jako vrh šikmý ve fyzice na ZŠ
+
+Notes:
+Nemusíme gravitaci programovat — Rigidbody2D ji dělá za nás. My jen nastavíme rychlost nahoru a gravitace udělá zbytek.
+
+---
+
+## BoxCollider2D — trigger zóna ptáčka
+
+1. Vyber `Bird` v Hierarchy
+2. **Add Component** → `Box Collider 2D`
+3. Zaškrtni **Is Trigger** ✓
+4. Uprav velikost: tlačítko **Edit Collider** → táhni zelené body
+
+![BoxCollider2D — Is Trigger zaškrtnuté](/images/flappy/placeholder-collider-trigger.svg)
+
+Notes:
+IsTrigger = objekt proletí skrz, ale Unity zavolá callback. Bez IsTrigger by fyzika ptáčka odrážela od rour.
+
+---
+
+## Trigger vs. fyzická kolize
+
+| Typ | Is Trigger | Chování |
+|-----|-----------|---------|
+| Fyzická kolize | ☐ | Blokuje průchod, odraz |
+| Trigger zóna | ✓ | Proletí skrz, jen event |
+
+```csharp
+// fyzická kolize:
+void OnCollisionEnter2D(Collision2D col) { }
+
+// trigger zóna:
+void OnTriggerEnter2D(Collider2D col)    { }
+```
+
+Notes:
+Fyzická kolize = divné odrazy ptáčka. Trigger = my rozhodneme co se stane. Ptáček má trigger, roury mají normální collider.
+
+---
+
+## PlayerMovement.cs — piš s námi
+
+Vytvoř `Assets/Scripts/PlayerMovement.cs` (pravý klik → Create → C# Script):
+
+```csharp
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class PlayerMovement : MonoBehaviour
+{
+    [SerializeField] private float jumpForce = 4f;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameManager gameManager;
+
+    void Update()
     {
-        // Nastavíme okamžitou rychlost nahoru
-        // Gravitace pak velocity postupně snižuje
-        rb.linearVelocity = Vector2.up * jumpForce;
+        if (Input.GetKeyDown(KeyCode.Space))
+            rb.linearVelocity = Vector2.up * jumpForce;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Pipe"))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        if (collision.CompareTag("Score"))
+            gameManager.AddPoints(1);
     }
 }
 ```
 
-`Update()` = každý snímek (60× za sekundu)
-
-`GetKeyDown` = pouze v moment zmáčknutí, ne při držení
-
 Notes:
-Rozdíl: GetKey (každý snímek při držení), GetKeyDown (jen první snímek), GetKeyUp (při puštění). Pro skok chceme GetKeyDown - jedno zmáčknutí = jeden skok. Ukažte rozdíl živě.
+Nechte studenty psát skript sami řádek po řádku. Projděte každou část. Na konci: přiřadit skript na Bird v Hierarchy.
 
 ---
 
-## Trigger vs Collider
-
-Dva typy `BoxCollider2D`:
-
-|                | `IsTrigger = false`  | `IsTrigger = true`              |
-| -------------- | -------------------- | ------------------------------- |
-| Fyzická kolize | ✅ objekty se odrazí | ❌ projdou skrz                 |
-| Callback       | `OnCollisionEnter2D` | `OnTriggerEnter2D`              |
-| Použití        | Pevné zdi, podlaha   | Neviditelné zóny, sběr předmětů |
-
-Notes:
-Ukažte v Inspectoru na ptáčkovi - BoxCollider2D s IsTrigger = true. Fyzická kolize s rourou by způsobila divné odrážení. Trigger nám jen řekne "dotkli jste se" a my rozhodneme co se stane.
-
----
-
-## OnTriggerEnter2D — tagy
+## GetKeyDown vs. GetKey
 
 ```csharp
-private void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.CompareTag("Pipe"))
-    {
-        // Trefili jsme rouru → restartujeme scénu
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    if (collision.CompareTag("Score"))
-    {
-        // Prošli jsme mezerou → přidáme bod
-        gameManager.AddPoints(1);
-    }
-}
+Input.GetKeyDown(KeyCode.Space) // TRUE jen PRVNÍ snímek po stisku ✓
+Input.GetKey(KeyCode.Space)     // TRUE každý snímek při držení ✗
 ```
 
-**Tag** = štítek na GameObject (nastavit v Inspectoru → Tag dropdown)
+Vyzkoušej: změň `GetKeyDown` na `GetKey` → ptáček letí dokud držíš mezerník
+
+| Metoda | Výsledek ve Flappy |
+|--------|------------------|
+| `GetKeyDown` | skok jednou na stisk ✓ |
+| `GetKey` | ptáček stoupá bez omezení ✗ |
 
 Notes:
-Ukažte tagy na rouře v Inspectoru. CompareTag je rychlejší než == "Pipe" (nemusí alokovat string). SceneManager.LoadScene restartuje celou scénu - vše se vrátí do počátečního stavu.
+Nechte studenty skutečně zkusit obě varianty. Experimentování = nejlepší učení.
 
 ---
 
-## Shrnutí části 1
+## SerializeField — propojení v Inspektoru
+
+```csharp
+[SerializeField] private float jumpForce = 4f;   // editovatelné v Inspektoru
+[SerializeField] private Rigidbody2D rb;          // drag & drop z Hierarchy
+[SerializeField] private GameManager gameManager; // drag & drop z Hierarchy
+```
+
+**Proč ne `public`?** SerializeField zachovává `private` přístup ale Inspector ho vidí
+
+Notes:
+public odkrývá pole celé codebase = jiné skripty mohou náhodně přepsat hodnotu. SerializeField = bezpečnější.
+
+---
+
+## Propojení skriptu v Inspektoru
+
+1. Vyber `Bird` v Hierarchy
+2. Přetáhni skript `PlayerMovement` na Bird (nebo Add Component)
+3. V poli **Rb:** přetáhni komponentu `Rigidbody 2D` z Inspektoru ptáčka
+4. **Game Manager:** zatím prázdné — přidáme odpoledne
+
+![PlayerMovement — pole v Inspektoru](/images/flappy/placeholder-playermove-inspector.svg)
+
+Notes:
+Drag & drop Rigidbody2D přímo z panelu komponent do pole Rb. Bez reference → NullReferenceException v Console při spuštění.
+
+---
+
+## Shrnutí dopoledne
 
 Naučili jsme se:
 
-- ✅ `Rigidbody2D` — fyzika, gravitace, velocity
-- ✅ `Update()` + `GetKeyDown` — vstup hráče
-- ✅ `BoxCollider2D` + `IsTrigger` — detekce kontaktu
+- ✅ `Rigidbody2D` — gravitace, `linearVelocity`, Freeze Rotation
+- ✅ `BoxCollider2D` + `Is Trigger` — detekce kontaktu bez fyziky
+- ✅ `Update()` + `GetKeyDown` — vstup hráče každý snímek
 - ✅ `OnTriggerEnter2D` + tagy — reakce na kolize
+- ✅ `[SerializeField]` — propojení komponent v Inspektoru
 
-Po obědě přidáme:
-
-- 🍽 Roury které se spawnují a pohybují
-- 🍽 Skóre a UI
-- 🍽 Kompletní herní smyčku
+**Po obědě:** roury, skóre, UI a kompletní herní smyčka
 
 Notes:
-Dejte studentům 10 minut na experimentování - změna jumpForce, gravity scale, přidání dalšího klíče. Pak přestávka na oběd.
+Dejte studentům 10 minut na experimentování — jumpForce, Gravity Scale, barva spritu. Pak přestávka na oběd.
