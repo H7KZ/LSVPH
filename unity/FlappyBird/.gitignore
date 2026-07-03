@@ -7,6 +7,11 @@ UserSettings/
 
 # IDE
 .vs/
+.vscode/
 .idea/
 *.csproj
 *.sln
+
+# Build output
+Build/
+Builds/
