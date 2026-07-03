@@ -17,18 +17,19 @@ Klon Jump Kinga:
 **Cíl dopoledne:** fungující nabíjecí skok + přepínání obrazovek
 
 Notes:
-Ukažte hotovou hru 1–2 minuty před začátkem. Studenti musí vědět co staví. Hru najdete v unity/JumpKing/. Pak otevřete Unity a jdeme na to.
+Ukažte hotovou hru 1–2 minuty před začátkem. Studenti musí vědět co staví. Hru najdete v unity/JumpKing/. Pak otevřete
+Unity a jdeme na to.
 
 ---
 
 ## Přehled skriptů
 
-| Skript | Co dělá |
-|---|---|
-| `PlayerController` | Nabíjení skoku, detekce přistání |
-| `CameraController` | Přepínání obrazovek |
-| `GameManager` | Stav hry (WaitingToStart / Playing / Win) |
-| `UIManager` | Panely a zobrazení patra |
+| Skript             | Co dělá                                   |
+| ------------------ | ----------------------------------------- |
+| `PlayerController` | Nabíjení skoku, detekce přistání          |
+| `CameraController` | Přepínání obrazovek                       |
+| `GameManager`      | Stav hry (WaitingToStart / Playing / Win) |
+| `UIManager`        | Panely a zobrazení patra                  |
 
 Notes:
 Ukažte tuto tabulku jako „mapu" celého projektu. Dopoledne uděláte PlayerController a CameraController.
@@ -43,8 +44,8 @@ Ukažte tuto tabulku jako „mapu" celého projektu. Dopoledne uděláte PlayerC
 2. Inspector → **Add Component** → **Sprite Renderer**
 3. Přetáhni `Player.png` z Project okna do pole **Sprite**
 4. **Add Component** → **Rigidbody2D**
-   - Gravity Scale: **3**
-   - Constraints → Freeze Rotation **Z** ✓
+    - Gravity Scale: **3**
+    - Constraints → Freeze Rotation **Z** ✓
 5. **Add Component** → **Box Collider 2D**
 
 Notes:
@@ -58,11 +59,11 @@ Gravity Scale 3 = hráč padá rychle, jako v reálném Jump Kingu. Freeze Rotat
 
 Zkontroluj v Inspektoru:
 
-| Vlastnost | Hodnota |
-|---|---|
-| Gravity Scale | 3 |
+| Vlastnost           | Hodnota    |
+| ------------------- | ---------- |
+| Gravity Scale       | 3          |
 | Collision Detection | Continuous |
-| Freeze Rotation Z | ✓ |
+| Freeze Rotation Z   | ✓          |
 
 Notes:
 Continuous collision detection zabraňuje "protunelování" přes tenké plošiny při vysoké rychlosti pádů.
@@ -104,7 +105,8 @@ public class PlayerController : MonoBehaviour
 ```
 
 Notes:
-[RequireComponent] zaručí, že Rigidbody2D je vždy přítomen. CompareTag je rychlejší než == "Ground" a bezpečnější vůči překlepům.
+[RequireComponent] zaručí, že Rigidbody2D je vždy přítomen. CompareTag je rychlejší než == "Ground" a bezpečnější vůči
+překlepům.
 
 ---
 
@@ -119,6 +121,7 @@ Notes:
 - **Překlep → chyba kompilátoru**, ne tichý bug za běhu
 
 Jak nastavit tag:
+
 1. Vyber GameObject "Zem" nebo "Plošina"
 2. Inspector → **Tag** → **Add Tag...** → vytvoř **"Ground"**
 3. Přiřaď tag v Inspector → Tag dropdown
@@ -166,7 +169,8 @@ void Update()
 ```
 
 Notes:
-chargeRate = 1.5 → plné nabití za 0.67 s. Mathf.Min zabraňuje přetečení přes 1. linearVelocity = Unity 6 API (ne velocity).
+chargeRate = 1.5 → plné nabití za 0.67 s. Mathf.Min zabraňuje přetečení přes 1. linearVelocity = Unity 6 API (ne
+velocity).
 
 ---
 
@@ -176,14 +180,15 @@ chargeRate = 1.5 → plné nabití za 0.67 s. Mathf.Min zabraňuje přetečení 
 
 `rb.linearVelocity = ...` místo `rb.AddForce(...)`:
 
-| | linearVelocity | AddForce |
-|---|---|---|
-| Výsledek | Přesně `chargeAmount × maxJumpForce` | Závisí na hmotnosti |
-| Předvídatelnost | ✅ Vždy stejný | ❌ Může překvapit |
-| Vhodné pro | Přesné platformery | Fyzikální simulace |
+|                 | linearVelocity                       | AddForce            |
+| --------------- | ------------------------------------ | ------------------- |
+| Výsledek        | Přesně `chargeAmount × maxJumpForce` | Závisí na hmotnosti |
+| Předvídatelnost | ✅ Vždy stejný                       | ❌ Může překvapit   |
+| Vhodné pro      | Přesné platformery                   | Fyzikální simulace  |
 
 Notes:
-Jump King je o preciznosti — hráč musí vidět přímou vazbu mezi délkou nabití a výškou skoku. AddForce by přidával k existující rychlosti.
+Jump King je o preciznosti — hráč musí vidět přímou vazbu mezi délkou nabití a výškou skoku. AddForce by přidával k
+existující rychlosti.
 
 ---
 
@@ -192,7 +197,7 @@ Jump King je o preciznosti — hráč musí vidět přímou vazbu mezi délkou n
 1. Hierarchy → **Create Empty** → pojmenuj **"Zem"**
 2. Position: X=0, Y=**-0.1**, Z=0
 3. **Add Component** → **Box Collider 2D**
-   - Size: X=**50**, Y=**0.2**
+    - Size: X=**50**, Y=**0.2**
 4. Tag → **"Ground"**
 
 Přiřaď **PlayerController** na GameObject "Hráč".
@@ -200,7 +205,8 @@ Přiřaď **PlayerController** na GameObject "Hráč".
 Otestuj: Spusť hru → hráč přistane na zemi. Drž Space → pusť → hráč skočí!
 
 Notes:
-Tenký statický collider jako neviditelná podlaha. Tag "Ground" spouští isGrounded = true v PlayerController. Studenti uvidí první fungující mechaniku.
+Tenký statický collider jako neviditelná podlaha. Tag "Ground" spouští isGrounded = true v PlayerController. Studenti
+uvidí první fungující mechaniku.
 
 ---
 
@@ -280,7 +286,8 @@ void Update()
 ![Přechod obrazovky](/images/jumpking/placeholder-screen-switch.svg)
 
 Notes:
-Mathf.Max(0, ...) zabrání záporné obrazovce — floor collider hráče zachytí, ale guard clause je tam pro jistotu. TriggerWin() v GameManager ještě neexistuje — přidáme odpoledne.
+Mathf.Max(0, ...) zabrání záporné obrazovce — floor collider hráče zachytí, ale guard clause je tam pro jistotu.
+TriggerWin() v GameManager ještě neexistuje — přidáme odpoledne.
 
 ---
 
@@ -297,7 +304,8 @@ Zem                  ← BoxCollider2D (Size 50×0.2, Tag: Ground, Y = -0.1)
 Otestuj: Skoč hodně vysoko → kamera by měla přeskočit na patro 2!
 
 Notes:
-GameManager ještě neexistuje → guard clause v Update() se vrátí hned (Instance == null). Hráč ale skáče volně. CameraController.TriggerWin() zatím způsobí NullReferenceException. To odpoledne opravíme.
+GameManager ještě neexistuje → guard clause v Update() se vrátí hned (Instance == null). Hráč ale skáče volně.
+CameraController.TriggerWin() zatím způsobí NullReferenceException. To odpoledne opravíme.
 
 ---
 
@@ -313,4 +321,5 @@ Co jsme postavili:
 **Odpolední cíl:** plošiny, GameManager, UIManager, výherní podmínka
 
 Notes:
-Krátká pauza. Studenti by měli mít fungující skok + kamera se pohybuje při opuštění okraje. Pokud skok nefunguje, zkontrolujte Tag "Ground" na Zem.
+Krátká pauza. Studenti by měli mít fungující skok + kamera se pohybuje při opuštění okraje. Pokud skok nefunguje,
+zkontrolujte Tag "Ground" na Zem.

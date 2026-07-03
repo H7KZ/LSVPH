@@ -3,7 +3,9 @@
 _Základy 3D grafiky · LŠVPH 2026_
 
 Notes:
-V minulé přednášce jsme si ukázali, jak hýbat s celými objekty, barvit je a věšet na ně modifikátory. Dnes se podíváme dovnitř objektů. Naučíme se, jak z obyčejné kostky vymodelovat v podstatě cokoliv – od hrnku na kafe až po meč či raketu.
+V minulé přednášce jsme si ukázali, jak hýbat s celými objekty, barvit je a věšet na ně modifikátory. Dnes se podíváme
+dovnitř objektů. Naučíme se, jak z obyčejné kostky vymodelovat v podstatě cokoliv – od hrnku na kafe až po meč či
+raketu.
 
 ---
 
@@ -22,7 +24,9 @@ V minulé přednášce jsme si ukázali, jak hýbat s celými objekty, barvit je
 </div>
 
 Notes:
-Předvést na projektoru. Vytvořit kostku, zmáčknout Tab – kostka zoranžoví a objeví se na ní body. Zmáčknout Tab znovu – jsme zpátky v Object modu. Zdůraznit, že když v Edit modu posuneme celou síť, středový bod objektu (Origin) zůstane na místě, což mění chování transformací.
+Předvést na projektoru. Vytvořit kostku, zmáčknout Tab – kostka zoranžoví a objeví se na ní body. Zmáčknout Tab znovu –
+jsme zpátky v Object modu. Zdůraznit, že když v Edit modu posuneme celou síť, středový bod objektu (Origin) zůstane na
+místě, což mění chování transformací.
 
 ---
 
@@ -47,7 +51,8 @@ Předvést na projektoru. Vytvořit kostku, zmáčknout Tab – kostka zoranžov
 </div>
 
 Notes:
-Ukázat studentům ikonky v levém horním rohu Viewportu, které se objeví pouze v Edit modu. Nechat je vyzkoušet mačkat 1, 2, 3 a klikat na kostku, aby viděli, co zrovna označují.
+Ukázat studentům ikonky v levém horním rohu Viewportu, které se objeví pouze v Edit modu. Nechat je vyzkoušet mačkat 1,
+2, 3 a klikat na kostku, aby viděli, co zrovna označují.
 
 ---
 
@@ -59,10 +64,12 @@ Než s něčím pohneme, musíme to správně vybrat:
 - **Více věcí naráz**: Drž **Shift** a klikej na další prvky.
 - **Vybrat všechno**: Klávesa **A** vybere celou síť objektu.
 - **Zrušit celý výběr**: Rychlé dvojité stisknutí **A** (nebo **Alt + A**).
-- **Loop Select (Výběr smyčky)**: Drž **Alt** a klikni na hranu. Blender vybere celý okruh navazujících hran/plošek. Obrovský pomocník!
+- **Loop Select (Výběr smyčky)**: Drž **Alt** a klikni na hranu. Blender vybere celý okruh navazujících hran/plošek.
+  Obrovský pomocník!
 
 Notes:
-Předvést Loop Select zejména na Subdivision kostce nebo válci – ukázat, jak to ušetří čas oproti klikání na 20 plošek ručně s Shiftem.
+Předvést Loop Select zejména na Subdivision kostce nebo válci – ukázat, jak to ušetří čas oproti klikání na 20 plošek
+ručně s Shiftem.
 
 ---
 
@@ -77,20 +84,23 @@ Dobrá zpráva: Zkratky z minulé lekce fungují úplně stejně! Rozdíl je v t
 > **Tip:** Zamykání do os (**X, Y, Z**) zde funguje také. Například `G` → `Z` vytáhne vybraný bod přesně kolmo nahoru.
 
 Notes:
-Nechat studenty vybrat jednu horní plošku kostky, zmáčknout S a pohnout myší – vznikne jehlan (stříška). Vybrat jednu hranu, zmáčknout G a Z a pohnout jí dolů.
+Nechat studenty vybrat jednu horní plošku kostky, zmáčknout S a pohnout myší – vznikne jehlan (stříška). Vybrat jednu
+hranu, zmáčknout G a Z a pohnout jí dolů.
 
 ---
 
 ## Extrude (E) — Král modelování
 
-**Extrude (Vytlačení)** je nejdůležitější nástroj pro tvorbu nové geometrie. Nevytahuje stávající plošku, ale vytvoří novou a "vypěstuje" z ní nový kus hmoty.
+**Extrude (Vytlačení)** je nejdůležitější nástroj pro tvorbu nové geometrie. Nevytahuje stávající plošku, ale vytvoří
+novou a "vypěstuje" z ní nový kus hmoty.
 
 - **Jak na to:** Vyber plošku (nebo hranu/bod) a stiskni **E**.
 - **Co se stane:** Pohybem myši vytahuješ novou část objektu.
 - Blender automaticky uzamkne pohyb kolmo na vybranou plošku (podle její normály).
 
 Notes:
-Předvést živě: Vybrat horní plošku kostky, stisknout E, popotáhnout nahoru, kliknout. Pak stisknout S (zmenšit), pak znovu E (vytáhnout nahoru). Tímto způsobem ukázat, jak rychle vzniká např. věž nebo hradba.
+Předvést živě: Vybrat horní plošku kostky, stisknout E, popotáhnout nahoru, kliknout. Pak stisknout S (zmenšit), pak
+znovu E (vytáhnout nahoru). Tímto způsobem ukázat, jak rychle vzniká např. věž nebo hradba.
 
 ---
 
@@ -113,7 +123,9 @@ Předvést živě: Vybrat horní plošku kostky, stisknout E, popotáhnout nahor
 </div>
 
 Notes:
-Ukázat kombinaci: Vybrat plošku kostky -> `I` (uděláme menší čtverec uvnitř) -> `E` (zatlačíme ho dovnitř kostky, čímž vznikne krabička). Pak vybrat vnější horní hrany a pomocí `Ctrl + B` je zaoblit. V reálném světě neexistují dokonale ostré hrany, Bevel dává modelům realismus.
+Ukázat kombinaci: Vybrat plošku kostky -> `I` (uděláme menší čtverec uvnitř) -> `E` (zatlačíme ho dovnitř kostky, čímž
+vznikne krabička). Pak vybrat vnější horní hrany a pomocí `Ctrl + B` je zaoblit. V reálném světě neexistují dokonale
+ostré hrany, Bevel dává modelům realismus.
 
 ---
 
@@ -130,7 +142,8 @@ Když potřebujeme přidat detaily doprostřed objektu, musíme ho "přeříznou
 3. Klikni **znovu levým** pro uložení na místě, nebo **pravým tlačítkem** pro vycentrování přesně doprostřed.
 
 Notes:
-Ukázat na dlouhém kvádru. `Ctrl + R`, vyrobit 5 řezů kolečkem myši, potvrdit. Následně vybrat každý druhý vzniklý okruh plošek a pomocí `S` je roztáhnout (vznikne harmonika / vlnitá trubka).
+Ukázat na dlouhém kvádru. `Ctrl + R`, vyrobit 5 řezů kolečkem myši, potvrdit. Následně vybrat každý druhý vzniklý okruh
+plošek a pomocí `S` je roztáhnout (vznikne harmonika / vlnitá trubka).
 
 ---
 
@@ -143,10 +156,12 @@ Ukázat na dlouhém kvádru. `Ctrl + R`, vyrobit 5 řezů kolečkem myši, potvr
 - **X (Delete / Smazat)**: Když stisknete **X** (nebo _Delete_), Blender se zeptá, CO přesně chcete smazat:
 - **Vertices (Body)** — Smaže body a vše, co na nich drželo (vnikne velká díra).
 - **Faces (Plošky)** — Odstraní jen stěnu, ale drátěná kostra (hrany) zůstane.
-- **Dissolve (Rozpustit)** — Kouzelná funkce. Smaže hranu nebo bod, ale neudělá díru – čistě je zahladí do okolních ploch. Udržuje síť čistou.
+- **Dissolve (Rozpustit)** — Kouzelná funkce. Smaže hranu nebo bod, ale neudělá díru – čistě je zahladí do okolních
+  ploch. Udržuje síť čistou.
 
 Notes:
-Předvést rozdíl mezi "Delete Faces" (zůstane prázdná klec) a "Dissolve Edges" (hrana zmizí a plošky se spojí bez poškození povrchu).
+Předvést rozdíl mezi "Delete Faces" (zůstane prázdná klec) a "Dissolve Edges" (hrana zmizí a plošky se spojí bez
+poškození povrchu).
 
 ---
 
@@ -162,4 +177,6 @@ Předvést rozdíl mezi "Delete Faces" (zůstane prázdná klec) a "Dissolve Edg
 - **X** — Mazání (Delete vs. Dissolve).
 
 Notes:
-Nechat tento slide svítit na projektoru. Zadání pro studenty na zbytek hodiny: Vyzkoušejte si vyrobit jednoduchý hrnek na kafe (Válec -> Inset horní plošky -> Extrude dovnitř -> Loop cut zvenku -> Extrude ucha) nebo jednoduchý meč. Obcházet třídu a pomáhat se zákysy.
+Nechat tento slide svítit na projektoru. Zadání pro studenty na zbytek hodiny: Vyzkoušejte si vyrobit jednoduchý hrnek
+na kafe (Válec -> Inset horní plošky -> Extrude dovnitř -> Loop cut zvenku -> Extrude ucha) nebo jednoduchý meč.
+Obcházet třídu a pomáhat se zákysy.

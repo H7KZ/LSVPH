@@ -18,23 +18,25 @@ Klon Chrome dinosaura:
 **Cíl dopoledne:** skákající dino se scrollujícím pozadím
 
 Notes:
-Ukažte hotovou hru 1–2 minuty před začátkem. Studenti musí vědět co staví. Hru najdete v unity/Dinosaur/. Pak otevřete Unity a jdeme na to.
+Ukažte hotovou hru 1–2 minuty před začátkem. Studenti musí vědět co staví. Hru najdete v unity/Dinosaur/. Pak otevřete
+Unity a jdeme na to.
 
 ---
 
 ## Přehled skriptů
 
-| Skript | Co dělá |
-|---|---|
-| `DinosaurController` | Skok, přistání na zemi, smrt kaktusem |
-| `GroundScroller` | 2 dlaždice Background.png scrollují doleva |
-| `ObstacleSpawner` | Náhodné generování kaktusů |
-| `Obstacle` | Pohyb kaktusu doleva + Destroy |
-| `ScoreManager` | Skóre a rekord (PlayerPrefs) |
-| `GameManager` | Stav hry, rychlost, restart |
+| Skript               | Co dělá                                    |
+| -------------------- | ------------------------------------------ |
+| `DinosaurController` | Skok, přistání na zemi, smrt kaktusem      |
+| `GroundScroller`     | 2 dlaždice Background.png scrollují doleva |
+| `ObstacleSpawner`    | Náhodné generování kaktusů                 |
+| `Obstacle`           | Pohyb kaktusu doleva + Destroy             |
+| `ScoreManager`       | Skóre a rekord (PlayerPrefs)               |
+| `GameManager`        | Stav hry, rychlost, restart                |
 
 Notes:
-Skripty závisí na sobě — GameManager je středobod, čtou ho všechny ostatní. DinosaurController → volá GameManager.TriggerGameOver(). GameManager → aktivuje GameOverPanel. Vždy budeme psát GameManager jako první.
+Skripty závisí na sobě — GameManager je středobod, čtou ho všechny ostatní. DinosaurController → volá
+GameManager.TriggerGameOver(). GameManager → aktivuje GameOverPanel. Vždy budeme psát GameManager jako první.
 
 ---
 
@@ -60,7 +62,9 @@ public class DinosaurController : MonoBehaviour
 `[SerializeField] private` → pole viditelné v Inspektoru, nepřístupné zvenku
 
 Notes:
-Proč cache v Awake? GetComponent() volaný každý snímek (60×/s) hledá komponentu v celém GameObjectu — je pomalý. Uložíme referenci jednou, pak ji používáme. Proč SerializeField místo public? Public odkrývá pole celé codebase — každý skript ho může přepsat. SerializeField dává kontrolu.
+Proč cache v Awake? GetComponent() volaný každý snímek (60×/s) hledá komponentu v celém GameObjectu — je pomalý. Uložíme
+referenci jednou, pak ji používáme. Proč SerializeField místo public? Public odkrývá pole celé codebase — každý skript
+ho může přepsat. SerializeField dává kontrolu.
 
 ---
 
@@ -75,7 +79,8 @@ Proč cache v Awake? GetComponent() volaný každý snímek (60×/s) hledá komp
 <img src="/images/dinosaur/placeholder-new-project.svg" style="max-height:350px; width:100%">
 
 Notes:
-Složky neovlivňují hru, ale udržují projekt přehledný. Profesionální projekty mají desítky složek. Studenti mají Unity projekt otevřený z Unity Hub.
+Složky neovlivňují hru, ale udržují projekt přehledný. Profesionální projekty mají desítky složek. Studenti mají Unity
+projekt otevřený z Unity Hub.
 
 ---
 
@@ -85,15 +90,16 @@ Složky neovlivňují hru, ale udržují projekt přehledný. Profesionální pr
 
 1. Klikni na sprite v **Project** okně
 2. V **Inspektoru** nastav:
-   - Texture Type: **`Sprite (2D and UI)`**
-   - Pixels Per Unit: **`100`**
-   - Filter Mode: **`Point (no filter)`** ← zachová ostré pixely!
+    - Texture Type: **`Sprite (2D and UI)`**
+    - Pixels Per Unit: **`100`**
+    - Filter Mode: **`Point (no filter)`** ← zachová ostré pixely!
 3. Klikni **Apply**
 
 <img src="/images/dinosaur/placeholder-import-sprite.svg" style="max-height:350px; width:100%">
 
 Notes:
-Point filter = pixely zůstanou ostré čtverce. Bilinear (výchozí) by pixel art rozmázal. Pixels Per Unit 100: Background.png je 1456×816 px → v Unity bude 14.56 × 8.16 jednotek. Toto číslo budeme potřebovat pro GroundScroller.
+Point filter = pixely zůstanou ostré čtverce. Bilinear (výchozí) by pixel art rozmázal. Pixels Per Unit 100:
+Background.png je 1456×816 px → v Unity bude 14.56 × 8.16 jednotek. Toto číslo budeme potřebovat pro GroundScroller.
 
 ---
 
@@ -111,7 +117,8 @@ Point filter = pixely zůstanou ostré čtverce. Bilinear (výchozí) by pixel a
 <img src="/images/dinosaur/dinosaur.png" style="max-height:80px; image-rendering:pixelated">
 
 Notes:
-Y pozice -1 je orientační — nastavíme přesně po přidání GroundCollider. Studenti zatím vidí sprite uprostřed šedé obrazovky.
+Y pozice -1 je orientační — nastavíme přesně po přidání GroundCollider. Studenti zatím vidí sprite uprostřed šedé
+obrazovky.
 
 ---
 
@@ -120,17 +127,18 @@ Y pozice -1 je orientační — nastavíme přesně po přidání GroundCollider
 **Přidej na Dinosaurus:**
 
 1. `Add Component` → **`Rigidbody2D`**
-   - Gravity Scale: **`2`** ← přirozenější skok
-   - Freeze Rotation Z: **`✓`** ← dino se nepřekotí
+    - Gravity Scale: **`2`** ← přirozenější skok
+    - Freeze Rotation Z: **`✓`** ← dino se nepřekotí
 2. `Add Component` → **`BoxCollider2D`**
-   - Is Trigger: **`✗`** ← fyzická kolize se zemí
+    - Is Trigger: **`✗`** ← fyzická kolize se zemí
 3. `Add Component` → **`Audio Source`**
-   - Play On Awake: **`✗`**
+    - Play On Awake: **`✗`**
 
 <img src="/images/dinosaur/placeholder-rigidbody.svg" style="max-height:350px; width:100%">
 
 Notes:
-Gravity Scale 2 = dvakrát silnější gravitace = přirozenější pocit skoku. Bez Freeze Rotation Z by se dino při kolizi fyzicky přetočilo. BoxCollider2D se automaticky ořízne na velikost spritu.
+Gravity Scale 2 = dvakrát silnější gravitace = přirozenější pocit skoku. Bez Freeze Rotation Z by se dino při kolizi
+fyzicky přetočilo. BoxCollider2D se automaticky ořízne na velikost spritu.
 
 ---
 
@@ -179,7 +187,8 @@ public class DinosaurController : MonoBehaviour
 ```
 
 Notes:
-ForceMode2D.Impulse = okamžitý impuls. Proč ne `rb.linearVelocity = up * force`? AddForce je fyzikálně správnější — nezruší existující pohyb, přidá impuls nahoru. Výsledek: přirozenější oblouk.
+ForceMode2D.Impulse = okamžitý impuls. Proč ne `rb.linearVelocity = up * force`? AddForce je fyzikálně správnější —
+nezruší existující pohyb, přidá impuls nahoru. Výsledek: přirozenější oblouk.
 
 ---
 
@@ -213,7 +222,8 @@ void OnTriggerEnter2D(Collider2D other)
 ```
 
 Notes:
-Zem = fyzická kolize (blokuje průchod). Kaktus = trigger (dino proletí fyzicky, ale event se vyvolá). `rb.simulated = false` vypne fyziku aniž skryje sprite — dino "zmrazí" na místě.
+Zem = fyzická kolize (blokuje průchod). Kaktus = trigger (dino proletí fyzicky, ale event se vyvolá).
+`rb.simulated = false` vypne fyziku aniž skryje sprite — dino "zmrazí" na místě.
 
 ---
 
@@ -224,15 +234,16 @@ Zem = fyzická kolize (blokuje průchod). Kaktus = trigger (dino proletí fyzick
 1. **Hierarchy** → `Create Empty` → `GroundCollider`
 2. Position: `(0, -3.8, 0)` ← zarovnej s čárou v Background.png
 3. `Add Component` → **`BoxCollider2D`**
-   - Size X: `40`, Size Y: `0.3`
-   - Is Trigger: **`✗`**
+    - Size X: `40`, Size Y: `0.3`
+    - Is Trigger: **`✗`**
 4. **Tag** → `Add Tag...` → přidej `Ground`
 5. Nastav Tag na `GroundCollider` → **`Ground`**
 
 <img src="/images/dinosaur/placeholder-ground.svg" style="max-height:350px; width:100%">
 
 Notes:
-Proč samostatný collider? Background.png je 14.56 × 8.16 jednotek — jeho BoxCollider2D by blokoval i vzduch nad zemí. Neviditelný collider dá přesnou výšku přistání. Y = -3.8 odpovídá čáře v Background.png — dolaď pohledem na Scene view.
+Proč samostatný collider? Background.png je 14.56 × 8.16 jednotek — jeho BoxCollider2D by blokoval i vzduch nad zemí.
+Neviditelný collider dá přesnou výšku přistání. Y = -3.8 odpovídá čáře v Background.png — dolaď pohledem na Scene view.
 
 ---
 
@@ -241,7 +252,7 @@ Proč samostatný collider? Background.png je 14.56 × 8.16 jednotek — jeho Bo
 **Dvě kopie Background.png:**
 
 1. `2D Object → Sprite` → `BackgroundTile_A`
-   - Sprite: `Background.png`, Position: `(0, 0, 0)`, Order in Layer: **`-1`**
+    - Sprite: `Background.png`, Position: `(0, 0, 0)`, Order in Layer: **`-1`**
 2. **Ctrl+D** → `BackgroundTile_B`, Position: `(14.56, 0, 0)`
 3. `Create Empty` → `Ground`
 4. Přetáhni obě dlaždice jako children do `Ground`
@@ -251,7 +262,8 @@ Proč samostatný collider? Background.png je 14.56 × 8.16 jednotek — jeho Bo
 <img src="/images/dinosaur/placeholder-ground.svg" style="max-height:350px; width:100%">
 
 Notes:
-14.56 = 1456 px ÷ 100 PPU. Obě dlaždice musí navazovat bez mezery. Order in Layer -1 = pozadí bude za dinem (dino je na vrstvě 0).
+14.56 = 1456 px ÷ 100 PPU. Obě dlaždice musí navazovat bez mezery. Order in Layer -1 = pozadí bude za dinem (dino je na
+vrstvě 0).
 
 ---
 
@@ -292,7 +304,8 @@ public class GroundScroller : MonoBehaviour
 ```
 
 Notes:
-Recyklace: A vyjede vlevo (-13) → teleportuje se doprava za B → `[B][A]` → B vypadne → `[A][B]` → atd. Žádné mezery. Žádné přeskoky. Nekonečný scroll ze dvou objektů.
+Recyklace: A vyjede vlevo (-13) → teleportuje se doprava za B → `[B][A]` → B vypadne → `[A][B]` → atd. Žádné mezery.
+Žádné přeskoky. Nekonečný scroll ze dvou objektů.
 
 ---
 
@@ -313,7 +326,8 @@ Recyklace: A vyjede vlevo (-13) → teleportuje se doprava za B → `[B][A]` →
 ```
 
 Notes:
-Pusťte Play — dino by mělo padat na zem a skákat na mezerník. Pozadí scrolluje. Pokud dino nesedí na zemi: upravte Y GroundCollider nebo Y dina. Pokud pozadí scrolluje divně: zkontrolujte tileWidth (musí být 14.56).
+Pusťte Play — dino by mělo padat na zem a skákat na mezerník. Pozadí scrolluje. Pokud dino nesedí na zemi: upravte Y
+GroundCollider nebo Y dina. Pokud pozadí scrolluje divně: zkontrolujte tileWidth (musí být 14.56).
 
 ---
 

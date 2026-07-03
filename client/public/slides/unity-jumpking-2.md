@@ -42,17 +42,18 @@ Prefab = šablona objektu. Každá kopie v Hierarchy je instance. Změna prefabu
 
 Každá obrazovka = **9 Unity jednotek** výšky:
 
-| Obrazovka | Y rozsah plošin |
-|---|---|
-| 0 — přízemí | 1.5 — 8.0 |
-| 1 — první patro | 10.5 — 17.0 |
-| 2 — druhé patro | 19.5 — 26.0 |
+| Obrazovka       | Y rozsah plošin |
+| --------------- | --------------- |
+| 0 — přízemí     | 1.5 — 8.0       |
+| 1 — první patro | 10.5 — 17.0     |
+| 2 — druhé patro | 19.5 — 26.0     |
 
 Přetáhni **6–8 kopií** prefabu `Plošina` do každé obrazovky.
 Střídej levou a pravou stranu — plošiny musí být dosažitelné plným skokem.
 
 Notes:
-Studenti mají tvůrčí svobodu v rozmístění. Doporučte testovat každou obrazovku průběžně. Plošiny mimo Y rozsah = studenti to sami uvidí při testování.
+Studenti mají tvůrčí svobodu v rozmístění. Doporučte testovat každou obrazovku průběžně. Plošiny mimo Y rozsah =
+studenti to sami uvidí při testování.
 
 ---
 
@@ -174,15 +175,16 @@ PlayerPrefs = jednoduchá persistence dat mezi spuštěními hry. Klíč "JKBest
 
 1. Hierarchy → **UI** → **Canvas** (Screen Space - Overlay)
 2. Canvas → **UI** → **Panel** → pojmenuj **"StartPanel"**
-   - Přidej **Text (TextMeshPro)**: *"Stiskni mezerník pro start"*
+    - Přidej **Text (TextMeshPro)**: _"Stiskni mezerník pro start"_
 3. Canvas → **UI** → **Panel** → pojmenuj **"WinPanel"**
-   - Přidej **Text (TextMeshPro)**: *"Vyhrál jsi! Stiskni mezerník"*
-   - WinPanel: odškrtni checkbox vedle názvu → panel je neviditelný
+    - Přidej **Text (TextMeshPro)**: _"Vyhrál jsi! Stiskni mezerník"_
+    - WinPanel: odškrtni checkbox vedle názvu → panel je neviditelný
 4. Canvas → **UI** → **Text (TextMeshPro)** → pojmenuj **"ScreenText"** (vpravo nahoře)
 5. Canvas → **UI** → **Text (TextMeshPro)** → pojmenuj **"BestScreenText"** (pod ScreenText)
 
 Notes:
-WinPanel musí být deaktivovaný při startu — UIManager.Start() ho nastaví. Deaktivace v Editoru = bezpečná výchozí hodnota.
+WinPanel musí být deaktivovaný při startu — UIManager.Start() ho nastaví. Deaktivace v Editoru = bezpečná výchozí
+hodnota.
 
 ---
 
@@ -199,7 +201,8 @@ WinPanel doporučené nastavení:
 GameManager restartuje scénu na Space → vše se resetuje. Ale PlayerPrefs přežívá restart scény — **rekord zůstane!**
 
 Notes:
-Tato slide je dobrý moment na diskusi o persistenci dat. PlayerPrefs.DeleteKey("JKBestScreen") smaže rekord ručně — ukažte to v konzoli.
+Tato slide je dobrý moment na diskusi o persistenci dat. PlayerPrefs.DeleteKey("JKBestScreen") smaže rekord ručně —
+ukažte to v konzoli.
 
 ---
 
@@ -208,6 +211,7 @@ Tato slide je dobrý moment na diskusi o persistenci dat. PlayerPrefs.DeleteKey(
 Vytvoř prázdný GameObject **"GameManager"**, přiřaď oba skripty:
 
 **UIManager SerializeFields:**
+
 - Start Panel → přetáhni StartPanel z Hierarchy
 - Win Panel → přetáhni WinPanel z Hierarchy
 - Screen Text → přetáhni ScreenText
@@ -215,14 +219,17 @@ Vytvoř prázdný GameObject **"GameManager"**, přiřaď oba skripty:
 - Camera Controller → přetáhni Main Camera
 
 **CameraController (na Main Camera):**
+
 - Player → přetáhni "Hráč"
 - Total Screens → **3**
 
 **GameManager SerializeFields:**
+
 - UIManager → přetáhni komponent
 
 Notes:
-Propojení v Inspektoru = nejčastější chyba workshopu. Projděte to se studenty krok za krokem. NullReferenceException při startu = něco není propojené.
+Propojení v Inspektoru = nejčastější chyba workshopu. Projděte to se studenty krok za krokem. NullReferenceException při
+startu = něco není propojené.
 
 ---
 
@@ -241,7 +248,8 @@ Testovací scénář:
 7. **Space** → restart, rekord zůstal
 
 Notes:
-Nejčastější problémy: (1) chybí Tag "Ground" na plošinách, (2) UIManager není propojen, (3) CameraController nemá Player. Chyba v konzoli = NullReferenceException → hledej nepropojený SerializeField.
+Nejčastější problémy: (1) chybí Tag "Ground" na plošinách, (2) UIManager není propojen, (3) CameraController nemá
+Player. Chyba v konzoli = NullReferenceException → hledej nepropojený SerializeField.
 
 ---
 

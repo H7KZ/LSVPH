@@ -28,7 +28,7 @@ export const presentations: Presentation[] = [
 	{ slug: 'unity-dinosaur-1', subjectSlug: 'project', title: 'Dinosaur: část 1' },
 	{ slug: 'unity-dinosaur-2', subjectSlug: 'project', title: 'Dinosaur: část 2' },
 	{ slug: 'unity-jumpking-1', subjectSlug: 'project', title: 'Jump King: část 1' },
-	{ slug: 'unity-jumpking-2', subjectSlug: 'project', title: 'Jump King: část 2' },
+	{ slug: 'unity-jumpking-2', subjectSlug: 'project', title: 'Jump King: část 2' }
 ]
 
 export function findPresentationBySlug(slug: string): Presentation | undefined {

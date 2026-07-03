@@ -24,10 +24,9 @@ Ukažte hotovou hru nejdřív alespoň minutu. Studenti vidí cíl před tím ne
 3. Název: `FlappyBird`, zvol složku
 4. Klikni **Create project** a počkej
 
-![Nový 2D projekt v Unity Hub](/images/flappy/placeholder-new-project.svg)
-
 Notes:
-2D Core = bez nadbytečných balíčků. Počkejte než se projekt otevře — může trvat minutu. Mezitím ukažte strukturu složek v Exploreru.
+2D Core = bez nadbytečných balíčků. Počkejte než se projekt otevře — může trvat minutu. Mezitím ukažte strukturu složek
+v Exploreru.
 
 ---
 
@@ -59,10 +58,10 @@ public class PlayerMovement : MonoBehaviour
 }
 ```
 
-| Metoda | Kdy se volá |
-|--------|------------|
-| `Start` | jednou po aktivaci objektu |
-| `Update` | každý snímek hry |
+| Metoda   | Kdy se volá                |
+| -------- | -------------------------- |
+| `Start`  | jednou po aktivaci objektu |
+| `Update` | každý snímek hry           |
 
 Notes:
 Toto je základ Unity programování. Dědí z MonoBehaviour → lze přiřadit na GameObject.
@@ -76,9 +75,7 @@ Toto je základ Unity programování. Dědí z MonoBehaviour → lze přiřadit 
 3. Unity vytvoří `GameObject` se `SpriteRenderer`
 4. Přejmenuj ho na `Bird` (F2 v Hierarchy)
 
-<img src="/images/flappy/bird.png" alt="Bird sprite" style="height:120px">
-
-![Bird sprite v Inspektoru](/images/flappy/placeholder-bird-sprite.svg)
+![Bird sprite v Inspektoru](/images/flappy/bird-sprite.png)
 
 Notes:
 SpriteRenderer = komponenta která kreslí 2D obrázek. Inspector ukáže Sprite, Color, atd.
@@ -90,15 +87,16 @@ SpriteRenderer = komponenta která kreslí 2D obrázek. Inspector ukáže Sprite
 1. Vyber `Bird` v Hierarchy
 2. V Inspektoru → **Add Component** → hledej `Rigidbody 2D`
 3. Nastav v Inspektoru:
-   - **Gravity Scale:** `1`
-   - **Freeze Rotation → Z:** ✓ zaškrtni
+    - **Gravity Scale:** `1`
+    - **Freeze Rotation → Z:** ✓ zaškrtni
 
-![Rigidbody2D nastavení v Inspektoru](/images/flappy/placeholder-rigidbody.svg)
+![Rigidbody2D nastavení v Inspektoru](/images/flappy/rigidbody.png)
 
 **Spusť Play Mode (▶)** → ptáček padá dolů ✓
 
 Notes:
-Gravity Scale = 1 = normální gravitace. Bez Freeze Rotation se ptáček otočí při první kolizi. Experimentujte s Gravity Scale 0.5 / 2 / 5.
+Gravity Scale = 1 = normální gravitace. Bez Freeze Rotation se ptáček otočí při první kolizi. Experimentujte s Gravity
+Scale 0.5 / 2 / 5.
 
 ---
 
@@ -128,7 +126,7 @@ Nemusíme gravitaci programovat — Rigidbody2D ji dělá za nás. My jen nastav
 3. Zaškrtni **Is Trigger** ✓
 4. Uprav velikost: tlačítko **Edit Collider** → táhni zelené body
 
-![BoxCollider2D — Is Trigger zaškrtnuté](/images/flappy/placeholder-collider-trigger.svg)
+![BoxCollider2D — Is Trigger zaškrtnuté](/images/flappy/collider-trigger.png)
 
 Notes:
 IsTrigger = objekt proletí skrz, ale Unity zavolá callback. Bez IsTrigger by fyzika ptáčka odrážela od rour.
@@ -137,10 +135,10 @@ IsTrigger = objekt proletí skrz, ale Unity zavolá callback. Bez IsTrigger by f
 
 ## Trigger vs. fyzická kolize
 
-| Typ | Is Trigger | Chování |
-|-----|-----------|---------|
-| Fyzická kolize | ☐ | Blokuje průchod, odraz |
-| Trigger zóna | ✓ | Proletí skrz, jen event |
+| Typ            | Is Trigger | Chování                 |
+| -------------- | ---------- | ----------------------- |
+| Fyzická kolize | ☐          | Blokuje průchod, odraz  |
+| Trigger zóna   | ✓          | Proletí skrz, jen event |
 
 ```csharp
 // fyzická kolize:
@@ -151,7 +149,8 @@ void OnTriggerEnter2D(Collider2D col)    { }
 ```
 
 Notes:
-Fyzická kolize = divné odrazy ptáčka. Trigger = my rozhodneme co se stane. Ptáček má trigger, roury mají normální collider.
+Fyzická kolize = divné odrazy ptáčka. Trigger = my rozhodneme co se stane. Ptáček má trigger, roury mají normální
+collider.
 
 ---
 
@@ -200,10 +199,10 @@ Input.GetKey(KeyCode.Space)     // TRUE každý snímek při držení ✗
 
 Vyzkoušej: změň `GetKeyDown` na `GetKey` → ptáček letí dokud držíš mezerník
 
-| Metoda | Výsledek ve Flappy |
-|--------|------------------|
-| `GetKeyDown` | skok jednou na stisk ✓ |
-| `GetKey` | ptáček stoupá bez omezení ✗ |
+| Metoda       | Výsledek ve Flappy          |
+| ------------ | --------------------------- |
+| `GetKeyDown` | skok jednou na stisk ✓      |
+| `GetKey`     | ptáček stoupá bez omezení ✗ |
 
 Notes:
 Nechte studenty skutečně zkusit obě varianty. Experimentování = nejlepší učení.
@@ -232,10 +231,11 @@ public odkrývá pole celé codebase = jiné skripty mohou náhodně přepsat ho
 3. V poli **Rb:** přetáhni komponentu `Rigidbody 2D` z Inspektoru ptáčka
 4. **Game Manager:** zatím prázdné — přidáme odpoledne
 
-![PlayerMovement — pole v Inspektoru](/images/flappy/placeholder-playermove-inspector.svg)
+![PlayerMovement — pole v Inspektoru](/images/flappy/playermove-inspector.png)
 
 Notes:
-Drag & drop Rigidbody2D přímo z panelu komponent do pole Rb. Bez reference → NullReferenceException v Console při spuštění.
+Drag & drop Rigidbody2D přímo z panelu komponent do pole Rb. Bez reference → NullReferenceException v Console při
+spuštění.
 
 ---
 

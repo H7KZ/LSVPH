@@ -19,7 +19,8 @@ Chybí:
 - ❌ GameManager — správa stavu, zrychlování, restart
 
 Notes:
-Krátké opakování dopoledne. Pusťte Play — dino skáče, pozadí scrolluje. Připomeňte každý skript. Dnes napíšeme zbytek a hra bude kompletní.
+Krátké opakování dopoledne. Pusťte Play — dino skáče, pozadí scrolluje. Připomeňte každý skript. Dnes napíšeme zbytek a
+hra bude kompletní.
 
 ---
 
@@ -28,9 +29,9 @@ Krátké opakování dopoledne. Pusťte Play — dino skáče, pozadí scrolluje
 **Vytvoř kaktus a ulož jako prefab:**
 
 1. `2D Object → Sprite` → `Kaktus`
-   - Sprite: `Cactus.png`, Position: `(12, -2.8, 0)`
+    - Sprite: `Cactus.png`, Position: `(12, -2.8, 0)`
 2. `Add Component` → **`BoxCollider2D`**
-   - Is Trigger: **`✓`** ← trigger, ne fyzická kolize!
+    - Is Trigger: **`✓`** ← trigger, ne fyzická kolize!
 3. Tag: **`Obstacle`** (vytvoř tag pokud neexistuje)
 4. **Přetáhni `Kaktus` z Hierarchy do `Assets/Prefabs/`** → vznikne prefab
 5. Smaž `Kaktus` z Hierarchy (spawner ho vytvoří za běhu)
@@ -40,7 +41,8 @@ Krátké opakování dopoledne. Pusťte Play — dino skáče, pozadí scrolluje
 <img src="/images/dinosaur/cactus.png" style="max-height:100px; image-rendering:pixelated">
 
 Notes:
-Is Trigger = dino proletí fyzicky bez odrazu, ale OnTriggerEnter2D v DinosaurController se spustí. Modré ohraničení v Scene view = trigger. Zelené = fyzický collider. Prefab = šablona objektu ze které spawner vytváří kopie.
+Is Trigger = dino proletí fyzicky bez odrazu, ale OnTriggerEnter2D v DinosaurController se spustí. Modré ohraničení v
+Scene view = trigger. Zelené = fyzický collider. Prefab = šablona objektu ze které spawner vytváří kopie.
 
 ---
 
@@ -69,7 +71,8 @@ public class Obstacle : MonoBehaviour
 ```
 
 Notes:
--20 je bezpečně za kamerou (kamera vidí X: -8 až +8). Bez Destroy = memory leak — paměť narůstá s každým kaktusem donekonečna. Každý Instantiate vytvoří kaktus v paměti; Destroy ho odstraní.
+-20 je bezpečně za kamerou (kamera vidí X: -8 až +8). Bez Destroy = memory leak — paměť narůstá s každým kaktusem
+donekonečna. Každý Instantiate vytvoří kaktus v paměti; Destroy ho odstraní.
 
 ---
 
@@ -85,7 +88,8 @@ Notes:
 <img src="/images/dinosaur/placeholder-cactus-prefab.svg" style="max-height:350px; width:100%">
 
 Notes:
-X = +12 je vpravo za okrajem kamery (kamera vidí cca ±8). Kaktusy se spawnou a rovnou pohybují doleva — student neuvidí "teleportaci" kaktusu na scénu.
+X = +12 je vpravo za okrajem kamery (kamera vidí cca ±8). Kaktusy se spawnou a rovnou pohybují doleva — student
+neuvidí "teleportaci" kaktusu na scénu.
 
 ---
 
@@ -126,7 +130,8 @@ public class ObstacleSpawner : MonoBehaviour
 ```
 
 Notes:
-Proč ruční timer místo InvokeRepeating? Ruční timer umožní v budoucnu zmenšovat interval jak hra zrychluje. Random.Range vrátí náhodné float mezi min a max — každý kaktus přijde v jiném čase.
+Proč ruční timer místo InvokeRepeating? Ruční timer umožní v budoucnu zmenšovat interval jak hra zrychluje. Random.Range
+vrátí náhodné float mezi min a max — každý kaktus přijde v jiném čase.
 
 ---
 
@@ -136,19 +141,21 @@ Proč ruční timer místo InvokeRepeating? Ruční timer umožní v budoucnu zm
 
 1. `UI → Canvas` (Render Mode: Screen Space - Overlay)
 2. Pod Canvas → `Create Empty` → `StartPanel`
-   - Child: `UI → Text - TextMeshPro` → `"Stiskni mezerník nebo ↑"`
-   - StartPanel nastav jako **neaktivní** v Inspektoru
+    - Child: `UI → Text - TextMeshPro` → `"Stiskni mezerník nebo ↑"`
+    - StartPanel nastav jako **neaktivní** v Inspektoru
 3. Pod Canvas → `Create Empty` → `GameOverPanel`
-   - Child TextMeshPro: `"KONEC HRY"`
-   - Druhý Child: `"Stiskni mezerník pro restart"`
-   - GameOverPanel nastav jako **neaktivní**
+    - Child TextMeshPro: `"KONEC HRY"`
+    - Druhý Child: `"Stiskni mezerník pro restart"`
+    - GameOverPanel nastav jako **neaktivní**
 4. Pod Canvas (přímo): `UI → Text - TextMeshPro` → `ScoreText` → `"00000"`
 5. Pod Canvas (přímo): `UI → Text - TextMeshPro` → `HighScoreText` → `"HI 00000"`
 
 <img src="/images/dinosaur/placeholder-canvas.svg" style="max-height:350px; width:100%">
 
 Notes:
-Oba panely nastavte jako neaktivní v Inspektoru (odškrtněte checkbox). StartPanel: GameManager.Start() ho aktivuje (zobrazí "Stiskni mezerník"), StartGame() ho deaktivuje. GameOverPanel: TriggerGameOver() ho aktivuje. Takhle funguje show/hide UI bez mazání objektů.
+Oba panely nastavte jako neaktivní v Inspektoru (odškrtněte checkbox). StartPanel: GameManager.Start() ho aktivuje (
+zobrazí "Stiskni mezerník"), StartGame() ho deaktivuje. GameOverPanel: TriggerGameOver() ho aktivuje. Takhle funguje
+show/hide UI bez mazání objektů.
 
 ---
 
@@ -196,7 +203,8 @@ public class ScoreManager : MonoBehaviour
 ```
 
 Notes:
-Skóre = rychlost × čas = ujetá vzdálenost. "D5" = vždy 5 číslic: "00042". PlayerPrefs uloží do registru Windows — rekord přežije zavření Unity i restart počítače.
+Skóre = rychlost × čas = ujetá vzdálenost. "D5" = vždy 5 číslic: "00042". PlayerPrefs uloží do registru Windows — rekord
+přežije zavření Unity i restart počítače.
 
 ---
 
@@ -251,7 +259,8 @@ public class GameManager : MonoBehaviour
 ```
 
 Notes:
-Singleton = jen jedna instance. Enum GameState = jasné pojmenované stavy místo "if isStarted && !isDead" spaghetti. `{ get; private set; }` = čitelné zvenku, zapisovatelné jen uvnitř třídy.
+Singleton = jen jedna instance. Enum GameState = jasné pojmenované stavy místo "if isStarted && !isDead" spaghetti.
+`{ get; private set; }` = čitelné zvenku, zapisovatelné jen uvnitř třídy.
 
 ---
 
@@ -288,7 +297,8 @@ Přidej metody (dokončení třídy GameManager):
 ```
 
 Notes:
-Guard v TriggerGameOver: DinosaurController může zavolat TriggerGameOver vícekrát za snímek (kaktusy se překrývají). Guard zajistí GameOver jen jednou. SceneManager.LoadScene = vše se inicializuje znovu od nuly.
+Guard v TriggerGameOver: DinosaurController může zavolat TriggerGameOver vícekrát za snímek (kaktusy se překrývají).
+Guard zajistí GameOver jen jednou. SceneManager.LoadScene = vše se inicializuje znovu od nuly.
 
 ---
 
@@ -300,15 +310,16 @@ Guard v TriggerGameOver: DinosaurController může zavolat TriggerGameOver více
 2. Přidej skript **`GameManager`**
 3. Přidej skript **`ScoreManager`**
 4. V Inspektoru propoj:
-   - **Start Panel** → přetáhni `StartPanel`
-   - **Game Over Panel** → přetáhni `GameOverPanel`
-   - **Score Text** → přetáhni `ScoreText`
-   - **High Score Text** → přetáhni `HighScoreText`
+    - **Start Panel** → přetáhni `StartPanel`
+    - **Game Over Panel** → přetáhni `GameOverPanel`
+    - **Score Text** → přetáhni `ScoreText`
+    - **High Score Text** → přetáhni `HighScoreText`
 
 <img src="/images/dinosaur/placeholder-gameover.svg" style="max-height:350px; width:100%">
 
 Notes:
-Audio pole (Background Music, Sfx Source, Game Over Clip) jsou volitelná. Bez zvuku hra funguje normálně. GameManager a ScoreManager sdílejí jeden GameObject — oba řídí "správu hry".
+Audio pole (Background Music, Sfx Source, Game Over Clip) jsou volitelná. Bez zvuku hra funguje normálně. GameManager a
+ScoreManager sdílejí jeden GameObject — oba řídí "správu hry".
 
 ---
 
@@ -338,7 +349,8 @@ Audio pole (Background Music, Sfx Source, Game Over Clip) jsou volitelná. Bez z
 ```
 
 Notes:
-Pusťte Play — hra by měla fungovat kompletně: čekání na mezerník, scrollující pozadí, kaktusy přicházejí, hra zrychluje, kolize = Game Over, restart. Pokud něco nefunguje — Console okno ukáže chybu.
+Pusťte Play — hra by měla fungovat kompletně: čekání na mezerník, scrollující pozadí, kaktusy přicházejí, hra zrychluje,
+kolize = Game Over, restart. Pokud něco nefunguje — Console okno ukáže chybu.
 
 ---
 
@@ -357,7 +369,8 @@ Náš Dinosaur umí:
 - ✅ Restart (`SceneManager.LoadScene`)
 
 Notes:
-Gratulujte studentům! Mají kompletní hru s fyzikou, prefaby, spawnem, UI, stavovým automatem a persistentním rekordem. To jsou základy každé profesionální Unity hry.
+Gratulujte studentům! Mají kompletní hru s fyzikou, prefaby, spawnem, UI, stavovým automatem a persistentním rekordem.
+To jsou základy každé profesionální Unity hry.
 
 ---
 
@@ -372,23 +385,24 @@ Kdo chce jít dál:
 - **Mobilní ovládání** — `Input.GetMouseButtonDown(0)` pro tap
 
 Notes:
-20 minut volného experimentování. Připomeňte koncepty dne: fyzika (Rigidbody, ForceMode), kolize (fyzické vs. trigger), prefaby (Instantiate/Destroy), UI, singleton, stavový automat, PlayerPrefs.
+20 minut volného experimentování. Připomeňte koncepty dne: fyzika (Rigidbody, ForceMode), kolize (fyzické vs. trigger),
+prefaby (Instantiate/Destroy), UI, singleton, stavový automat, PlayerPrefs.
 
 ---
 
 ## Shrnutí workshopu
 
-| Koncept | Kde jsme ho použili |
-|---|---|
-| `[RequireComponent]` | DinosaurController |
-| Cache v `Awake` | Všechny skripty s komponentami |
-| `AddForce(Impulse)` | DinosaurController.Jump() |
-| Fyzická vs. Trigger kolize | Zem vs. Kaktus |
-| Prefab + Instantiate/Destroy | Kaktus spawn systém |
-| Singleton pattern | GameManager.Instance |
-| Enum stavový automat | GameManager.GameState |
-| PlayerPrefs | ScoreManager rekord |
-| `SceneManager.LoadScene` | GameManager restart |
+| Koncept                      | Kde jsme ho použili            |
+| ---------------------------- | ------------------------------ |
+| `[RequireComponent]`         | DinosaurController             |
+| Cache v `Awake`              | Všechny skripty s komponentami |
+| `AddForce(Impulse)`          | DinosaurController.Jump()      |
+| Fyzická vs. Trigger kolize   | Zem vs. Kaktus                 |
+| Prefab + Instantiate/Destroy | Kaktus spawn systém            |
+| Singleton pattern            | GameManager.Instance           |
+| Enum stavový automat         | GameManager.GameState          |
+| PlayerPrefs                  | ScoreManager rekord            |
+| `SceneManager.LoadScene`     | GameManager restart            |
 
 Notes:
 Tyto koncepty jsou základy profesionálního Unity vývoje. Studenti je budou používat v každé hře.

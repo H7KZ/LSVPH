@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 // PipeSpawner pravidelně vytváří nové roury na náhodné výšce.
 // Přiřazen na prázdný GameObject vpravo od obrazovky.
@@ -20,6 +22,9 @@ public class PipeSpawner : MonoBehaviour
             transform.position.x,
             Random.Range(-heightRange, heightRange)
         );
+
+        Debug.Log($"Spawning pipe at position: {position}");
+
         Instantiate(pipe, position, Quaternion.identity, transform);
     }
 }

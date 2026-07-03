@@ -23,7 +23,8 @@ Figma je zdarma — stačí e-mail nebo Google účet.
 Studentský plán zdarma: [figma.com/education](https://www.figma.com/education/)
 
 Notes:
-Počkat, než jsou všichni přihlášeni — cca 3 minuty. Pomoci těm, kdo nemají Google účet (mohou použít školní e-mail). Dokumentace: help.figma.com/hc/en-us/articles/360039811114
+Počkat, než jsou všichni přihlášeni — cca 3 minuty. Pomoci těm, kdo nemají Google účet (mohou použít školní e-mail).
+Dokumentace: help.figma.com/hc/en-us/articles/360039811114
 
 ---
 
