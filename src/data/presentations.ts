@@ -22,7 +22,9 @@ export const presentations: Presentation[] = [
 	{ slug: '3d-blender-edit-mode', subjectSlug: '3d', title: 'Blender: Modelování' },
 	{ slug: '3d-blender-tvorba-assetu', subjectSlug: '3d', title: 'Blender: Tvorba assetu a export' },
 	{ slug: 'gamedesign-uvod', subjectSlug: 'gamedesign', title: 'Úvod do předmětu' },
-	{ slug: 'unity-uvod', subjectSlug: 'unity', title: 'Úvod do předmětu' }
+	{ slug: 'unity-uvod', subjectSlug: 'unity', title: 'Úvod do předmětu' },
+	{ slug: 'unity-flappy-1', subjectSlug: 'project', title: 'Flappy: část 1' },
+	{ slug: 'unity-flappy-2', subjectSlug: 'project', title: 'Flappy: část 2' }
 ]
 
 export function findPresentationBySlug(slug: string): Presentation | undefined {
