@@ -2,7 +2,7 @@
 
 Od modelování k hotovému modelu ve tvé hře.
 
-*Základy 3D grafiky · LŠVPH 2026*
+_Základy 3D grafiky · LŠVPH 2026_
 
 Notes:
 Cílem této přednášky je projít si kompletní postup (pipeline) tvorby 3D assetu: od pokročilejšího modelování s Boolean operacemi, přes rozbalení UV mapy a malování textury, až po export a import do Unity.
@@ -11,10 +11,10 @@ Cílem této přednášky je projít si kompletní postup (pipeline) tvorby 3D a
 
 ## Co se tady naučíme
 
-* Jak spojovat a řezat objekty pomocí **Booleans**.
-* Jak model "rozbalit" (**UV Unwrap**) pro barvení.
-* Jak vytvořit a nanést **texturu**.
-* Jak správně exportovat model a nahrát ho do **Unity**.
+- Jak spojovat a řezat objekty pomocí **Booleans**.
+- Jak model "rozbalit" (**UV Unwrap**) pro barvení.
+- Jak vytvořit a nanést **texturu**.
+- Jak správně exportovat model a nahrát ho do **Unity**.
 
 Notes:
 Vysvětlit, že dnes propojíme všechny dosavadní znalosti Blenderu a dotáhneme model do stavu, kdy ho můžeme použít přímo ve hře.
@@ -74,10 +74,11 @@ Vysvětlit analogii s čokoládovým Mikulášem nebo globusem, který rozloží
 
 ## Textury: Malujeme na model
 
-* **Texture Paint**: Blender má vestavěný režim pro kreslení. Najdeš ho v záložkách úplně nahoře.
-* **Příprava (Zabránění fialové chybě)**: Vpravo v panelu *Active Tool* (nebo pod záložkou *Material*) klikni na **+ Add Texture** a zvol **Base Color** (vyber barvu a rozlišení, např. 2048x2048).
-* **Kreslení**: Můžeš kreslit štětcem přímo na 3D model! Blender barvy automaticky promítá na rozbalenou UV mapu.
- > **Pozor:** Kreslená textura se **NEUKLÁDÁ** do `.blend` souboru! V okně *Image Editoru* (vlevo) musíš jít do **Image → Save As** (nebo zmáčknout **Alt + S**) a uložit obrázek jako `.png` na disk. Pokud to neuděláš, po zavření Blenderu o celou práci přijdeš.
+- **Texture Paint**: Blender má vestavěný režim pro kreslení. Najdeš ho v záložkách úplně nahoře.
+- **Příprava (Zabránění fialové chybě)**: Vpravo v panelu _Active Tool_ (nebo pod záložkou _Material_) klikni na **+ Add Texture** a zvol **Base Color** (vyber barvu a rozlišení, např. 2048x2048).
+- **Kreslení**: Můžeš kreslit štětcem přímo na 3D model! Blender barvy automaticky promítá na rozbalenou UV mapu.
+
+> **Pozor:** Kreslená textura se **NEUKLÁDÁ** do `.blend` souboru! V okně _Image Editoru_ (vlevo) musíš jít do **Image → Save As** (nebo zmáčknout **Alt + S**) a uložit obrázek jako `.png` na disk. Pokud to neuděláš, po zavření Blenderu o celou práci přijdeš.
 
 Notes:
 Zdůraznit nutnost uložení obrázku. Studenti na to velmi často zapomínají a pak se diví, proč se jim textura po restartu Blenderu smazala.
@@ -102,9 +103,10 @@ Zdůraznit nutnost uložení obrázku. Studenti na to velmi často zapomínají 
 
 ## Jak nastavit Origin (Střed) na spodek?
 
-Pokud má tvůj model oranžový středový bod (Origin) uprostřed, bude se v Unity propadat pod zem. 
+Pokud má tvůj model oranžový středový bod (Origin) uprostřed, bude se v Unity propadat pod zem.
 
 **Jednoduchý trik, jak ho posunout na zem:**
+
 1. Přepni se do **Edit Módu (Tab)** a označ celý model (**A**).
 2. Posuň model nahoru (**G → Z**) tak, aby jeho spodní hrana ležela přesně na šedé souřadnicové mřížce (na 3D Cursoru).
 3. Přepni se zpět do **Object Módu (Tab)**. Oranžová tečka (střed) zůstane na mřížce pod modelem.
@@ -120,10 +122,10 @@ Tímto způsobem zajistíme, že v Unity bude model po přetažení do scény st
 1. Přetáhni vyexportovaný soubor `.fbx` a uloženou texturu (`.png`) do složky **Assets** v Unity.
 2. Přetáhni model z Assets přímo do tvé 3D scény.
 3. **Přiřazení textury (Správný postup)**:
-   * Unity má materiály uvnitř `.fbx` zamčené. Vytvoříme si proto vlastní:
-   * Klikni pravým tlačítkem v Assets → **Create → Material** (pojmenuj ho).
-   * Přetáhni naši texturu do políčka **Albedo** (nebo *Base Map*) u nového materiálu.
-   * Přetáhni tento nový materiál myší přímo na model ve scéně.
+    - Unity má materiály uvnitř `.fbx` zamčené. Vytvoříme si proto vlastní:
+    - Klikni pravým tlačítkem v Assets → **Create → Material** (pojmenuj ho).
+    - Přetáhni naši texturu do políčka **Albedo** (nebo _Base Map_) u nového materiálu.
+    - Přetáhni tento nový materiál myší přímo na model ve scéně.
 4. **Tvorba Prefabu**: Nastavený model ze scény přetáhni zpět do složky Assets. Vznikne **Prefab** (šablona), kterou pak můžeš ve hře používat opakovaně.
 
 Notes:
@@ -131,14 +133,13 @@ Ukázat studentům živě v Unity. Jakmile vytvoří Prefab, mohou ho nakopírov
 
 ---
 
-
 ## Zadání
 
-* **1. Modelování**: Vytvoř jednoduchý herní model (např. truhlu, meč, barel nebo auto).
-* **2. Detaily**: Zkus použít nějaký modifier pro extra detaily - nedestruktivní modelování.
-* **3. UV Mapa**: Rozbal model.
-* **4. Barvení**: Vybarvi model v režimu **Texture Paint** a nezapomeň texturu uložit jako obrázek.
-* **5. Hra**: Vyčisti transform (**Ctrl + A**), exportuj do **FBX** a naimportuj model i s texturou do **Unity**.
+- **1. Modelování**: Vytvoř jednoduchý herní model (např. truhlu, meč, barel nebo auto).
+- **2. Detaily**: Zkus použít nějaký modifier pro extra detaily - nedestruktivní modelování.
+- **3. UV Mapa**: Rozbal model.
+- **4. Barvení**: Vybarvi model v režimu **Texture Paint** a nezapomeň texturu uložit jako obrázek.
+- **5. Hra**: Vyčisti transform (**Ctrl + A**), exportuj do **FBX** a naimportuj model i s texturou do **Unity**.
 
 Notes:
 Chodit u zadání kolem, ať si každý něco zkouší.

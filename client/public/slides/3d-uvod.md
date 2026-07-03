@@ -1,4 +1,5 @@
 ## Základy 3D grafiky
+
 <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:center">
 <div style="text-align:left">
 <h2>Základy 3D grafiky</h2>
@@ -40,4 +41,3 @@ Když to umíš, můžeš si **celou hru postavit od nuly** přesně podle své 
 ---
 
 ## Pojďme modelovat!
-

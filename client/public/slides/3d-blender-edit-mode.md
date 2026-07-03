@@ -1,8 +1,6 @@
 ## Blender: Edit Mode a Modelování
 
-
-
-*Základy 3D grafiky · LŠVPH 2026*
+_Základy 3D grafiky · LŠVPH 2026_
 
 Notes:
 V minulé přednášce jsme si ukázali, jak hýbat s celými objekty, barvit je a věšet na ně modifikátory. Dnes se podíváme dovnitř objektů. Naučíme se, jak z obyčejné kostky vymodelovat v podstatě cokoliv – od hrnku na kafe až po meč či raketu.
@@ -57,11 +55,11 @@ Ukázat studentům ikonky v levém horním rohu Viewportu, které se objeví pou
 
 Než s něčím pohneme, musíme to správně vybrat:
 
-* **Základní výběr**: Klikni **levým tlačítkem** na bod/hranu/plošku.
-* **Více věcí naráz**: Drž **Shift** a klikej na další prvky.
-* **Vybrat všechno**: Klávesa **A** vybere celou síť objektu.
-* **Zrušit celý výběr**: Rychlé dvojité stisknutí **A** (nebo **Alt + A**).
-* **Loop Select (Výběr smyčky)**: Drž **Alt** a klikni na hranu. Blender vybere celý okruh navazujících hran/plošek. Obrovský pomocník!
+- **Základní výběr**: Klikni **levým tlačítkem** na bod/hranu/plošku.
+- **Více věcí naráz**: Drž **Shift** a klikej na další prvky.
+- **Vybrat všechno**: Klávesa **A** vybere celou síť objektu.
+- **Zrušit celý výběr**: Rychlé dvojité stisknutí **A** (nebo **Alt + A**).
+- **Loop Select (Výběr smyčky)**: Drž **Alt** a klikni na hranu. Blender vybere celý okruh navazujících hran/plošek. Obrovský pomocník!
 
 Notes:
 Předvést Loop Select zejména na Subdivision kostce nebo válci – ukázat, jak to ušetří čas oproti klikání na 20 plošek ručně s Shiftem.
@@ -72,9 +70,9 @@ Předvést Loop Select zejména na Subdivision kostce nebo válci – ukázat, j
 
 Dobrá zpráva: Zkratky z minulé lekce fungují úplně stejně! Rozdíl je v tom, že deformují jen to, co máte zrovna vybrané.
 
-* **G** (Grab) — Posune vybrané body/hrany/plošky.
-* **R** (Rotate) — Otočí vybrané prvky.
-* **S** (Scale) — Změní velikost (např. roztáhne horní plošku kostky do šířky).
+- **G** (Grab) — Posune vybrané body/hrany/plošky.
+- **R** (Rotate) — Otočí vybrané prvky.
+- **S** (Scale) — Změní velikost (např. roztáhne horní plošku kostky do šířky).
 
 > **Tip:** Zamykání do os (**X, Y, Z**) zde funguje také. Například `G` → `Z` vytáhne vybraný bod přesně kolmo nahoru.
 
@@ -87,9 +85,9 @@ Nechat studenty vybrat jednu horní plošku kostky, zmáčknout S a pohnout myš
 
 **Extrude (Vytlačení)** je nejdůležitější nástroj pro tvorbu nové geometrie. Nevytahuje stávající plošku, ale vytvoří novou a "vypěstuje" z ní nový kus hmoty.
 
-* **Jak na to:** Vyber plošku (nebo hranu/bod) a stiskni **E**.
-* **Co se stane:** Pohybem myši vytahuješ novou část objektu.
-* Blender automaticky uzamkne pohyb kolmo na vybranou plošku (podle její normály).
+- **Jak na to:** Vyber plošku (nebo hranu/bod) a stiskni **E**.
+- **Co se stane:** Pohybem myši vytahuješ novou část objektu.
+- Blender automaticky uzamkne pohyb kolmo na vybranou plošku (podle její normály).
 
 Notes:
 Předvést živě: Vybrat horní plošku kostky, stisknout E, popotáhnout nahoru, kliknout. Pak stisknout S (zmenšit), pak znovu E (vytáhnout nahoru). Tímto způsobem ukázat, jak rychle vzniká např. věž nebo hradba.
@@ -123,10 +121,11 @@ Ukázat kombinaci: Vybrat plošku kostky -> `I` (uděláme menší čtverec uvni
 
 Když potřebujeme přidat detaily doprostřed objektu, musíme ho "přeříznout" a přidat nové body.
 
-* **Jak na to:** Stiskni **Ctrl + R** a najeď myší na objekt.
-* **Náhled:** Objeví se žlutá čára naznačující, kudy řez povede.
-* **Počet řezů:** Než klikneš, **točením kolečka myši** můžeš přidat víc řezů naráz.
-* **Dokončení:** 1. Klikni **levým tlačítkem** (tím potvrdíš řez).
+- **Jak na to:** Stiskni **Ctrl + R** a najeď myší na objekt.
+- **Náhled:** Objeví se žlutá čára naznačující, kudy řez povede.
+- **Počet řezů:** Než klikneš, **točením kolečka myši** můžeš přidat víc řezů naráz.
+- **Dokončení:** 1. Klikni **levým tlačítkem** (tím potvrdíš řez).
+
 2. Nyní můžeš řezem posouvat po objektu.
 3. Klikni **znovu levým** pro uložení na místě, nebo **pravým tlačítkem** pro vycentrování přesně doprostřed.
 
@@ -137,17 +136,14 @@ Ukázat na dlouhém kvádru. `Ctrl + R`, vyrobit 5 řezů kolečkem myši, potvr
 
 ## Spojování a mazání (F a X)
 
-* **F (Fill / Vyplnit)**: Spojování prvků.
-* Vyber dva body a stiskni **F** → Blender mezi nimi natáhne hranu.
-* Vyber čtyři hrany (nebo body) a stiskni **F** → Blender mezi nimi vytvoří plochu.
+- **F (Fill / Vyplnit)**: Spojování prvků.
+- Vyber dva body a stiskni **F** → Blender mezi nimi natáhne hranu.
+- Vyber čtyři hrany (nebo body) a stiskni **F** → Blender mezi nimi vytvoří plochu.
 
-
-* **X (Delete / Smazat)**: Když stisknete **X** (nebo *Delete*), Blender se zeptá, CO přesně chcete smazat:
-* **Vertices (Body)** — Smaže body a vše, co na nich drželo (vnikne velká díra).
-* **Faces (Plošky)** — Odstraní jen stěnu, ale drátěná kostra (hrany) zůstane.
-* **Dissolve (Rozpustit)** — Kouzelná funkce. Smaže hranu nebo bod, ale neudělá díru – čistě je zahladí do okolních ploch. Udržuje síť čistou.
-
-
+- **X (Delete / Smazat)**: Když stisknete **X** (nebo _Delete_), Blender se zeptá, CO přesně chcete smazat:
+- **Vertices (Body)** — Smaže body a vše, co na nich drželo (vnikne velká díra).
+- **Faces (Plošky)** — Odstraní jen stěnu, ale drátěná kostra (hrany) zůstane.
+- **Dissolve (Rozpustit)** — Kouzelná funkce. Smaže hranu nebo bod, ale neudělá díru – čistě je zahladí do okolních ploch. Udržuje síť čistou.
 
 Notes:
 Předvést rozdíl mezi "Delete Faces" (zůstane prázdná klec) a "Dissolve Edges" (hrana zmizí a plošky se spojí bez poškození povrchu).
@@ -156,14 +152,14 @@ Předvést rozdíl mezi "Delete Faces" (zůstane prázdná klec) a "Dissolve Edg
 
 ## Shrnutí: Tvůj tahák pro Edit Mode
 
-* **Tab** — Přepínání Object / Edit Mode.
-* **1 / 2 / 3** — Přepínání výběru: Body / Hrany / Plošky.
-* **E** — Extrude (Vytlačení nové hmoty).
-* **I** — Inset (Vytvoření plošky uvnitř plošky).
-* **Ctrl + R** — Loop Cut (Rozříznutí sítě, kolečko myši pro víc řezů).
-* **Ctrl + B** — Bevel (Zkosení a zaoblení hran).
-* **F** — Fill (Vytvoření plošky/hrany mezi vybranými prvky).
-* **X** — Mazání (Delete vs. Dissolve).
+- **Tab** — Přepínání Object / Edit Mode.
+- **1 / 2 / 3** — Přepínání výběru: Body / Hrany / Plošky.
+- **E** — Extrude (Vytlačení nové hmoty).
+- **I** — Inset (Vytvoření plošky uvnitř plošky).
+- **Ctrl + R** — Loop Cut (Rozříznutí sítě, kolečko myši pro víc řezů).
+- **Ctrl + B** — Bevel (Zkosení a zaoblení hran).
+- **F** — Fill (Vytvoření plošky/hrany mezi vybranými prvky).
+- **X** — Mazání (Delete vs. Dissolve).
 
 Notes:
 Nechat tento slide svítit na projektoru. Zadání pro studenty na zbytek hodiny: Vyzkoušejte si vyrobit jednoduchý hrnek na kafe (Válec -> Inset horní plošky -> Extrude dovnitř -> Loop cut zvenku -> Extrude ucha) nebo jednoduchý meč. Obcházet třídu a pomáhat se zákysy.
