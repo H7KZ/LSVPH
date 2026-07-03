@@ -9,7 +9,7 @@ public class Pipe : MonoBehaviour
     // Time.deltaTime = čas od minulého snímku → rychlost nezávisí na FPS.
     void Update()
     {
-        transform.position += Vector3.left * speed * Time.deltaTime;
+        transform.position +=  Time.deltaTime * speed * Vector3.left;
     }
 
     // PipeDestroy je prázdný GO s Trigger Colliderem vlevo od kamery.

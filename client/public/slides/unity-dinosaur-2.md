@@ -148,7 +148,7 @@ Proč ruční timer místo InvokeRepeating? Ruční timer umožní v budoucnu zm
 <img src="/images/dinosaur/placeholder-canvas.svg" style="max-height:350px; width:100%">
 
 Notes:
-StartPanel = aktivní na začátku, GameManager.Start() ho aktivuje, StartGame() deaktivuje. GameOverPanel = neaktivní, TriggerGameOver() ho aktivuje. Oba panely nastavte jako neaktivní v Inspektoru — odškrtněte checkbox vlevo od názvu v Hierarchy.
+Oba panely nastavte jako neaktivní v Inspektoru (odškrtněte checkbox). StartPanel: GameManager.Start() ho aktivuje (zobrazí "Stiskni mezerník"), StartGame() ho deaktivuje. GameOverPanel: TriggerGameOver() ho aktivuje. Takhle funguje show/hide UI bez mazání objektů.
 
 ---
 
