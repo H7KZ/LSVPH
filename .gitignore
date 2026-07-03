@@ -27,3 +27,6 @@ docs/superpowers/
 .env
 .env.local
 .env.*.local
+
+# Claude
+**/.claude/files/
