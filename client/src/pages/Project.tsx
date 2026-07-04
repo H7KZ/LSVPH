@@ -24,10 +24,14 @@ export default function Project() {
 	const completed = projectCompletedCount(project)
 
 	return (
-		<div className="mx-auto max-w-2xl">
+		<div className="mx-auto max-w-4xl">
 			<p className="text-muted mb-4 text-sm">
+				<Link to="/" className="hover:underline">
+					← Domů
+				</Link>
+				{' / '}
 				<Link to="/projects" className="hover:underline">
-					← Projekty
+					Projekty
 				</Link>{' '}
 				/ {project.title}
 			</p>

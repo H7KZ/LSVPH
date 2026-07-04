@@ -1,5 +1,7 @@
 ## Lekce 2: Konverze a podmínky
 
+Letní škola vývoje her 2026 · Matyáš
+
 - Čtení vstupu od uživatele
 - Převod typů (string → int a zpět)
 - Logické operátory: `&&`, `||`, `!`

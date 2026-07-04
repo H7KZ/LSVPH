@@ -1,95 +1,129 @@
-## Jump King — Lekce 3: Platformy a level design
+## Jump King — Lekce 3: Plošiny a level design
 
-Letní škola vývoje her 2026
+Letní škola vývoje her 2026 · Honza
 
 ---
 
 ## Co postavíme dnes
 
-Tilemap Collider, komposite collider a layout platformové úrovně.
+Přidáme plošiny do 3 pater — hráč musí skákat nahoru od patra k patru.
 
-**Výsledek:** postava stojí na platformách, pádí při překročení okraje
+**Výsledek:** level se 3 patry, postava stojí na plošinách a může na ně skákat
 
 Notes:
-Bez kolizí byl dosud level jen vizuální. Teď ho oživíme. Level design je kreativní část — nechat studenty navrhovat
-vlastní layout.
+Level design je kreativní část — nechat studenty navrhovat vlastní rozmístění plošin. Jen připomenout pravidla.
 
 ---
 
-## Tilemap Collider 2D
-
-1. Vyber `Ground` Tilemap v Hierarchy
-2. **Add Component → Tilemap Collider 2D**
-3. **Add Component → Composite Collider 2D**
-    - Unity automaticky přidá Rigidbody2D → nastav **Body Type: Static**
-4. V Tilemap Collider 2D zaškrtni **Used By Composite**
-
-Notes:
-Composite Collider = slije všechny malé tile collidery do jednoho. Lépe výkonné a méně bugů s kolizemi.
-
----
-
-## Tag "Ground" na Tilemap
-
-1. Vyber `Ground` v Hierarchy
-2. Inspector → **Tag → Add Tag** → `Ground`
-3. Nastav Tag na `Ground`
-
-Teď `OnCollisionEnter2D` v PlayerController detekuje dopad ✓
-
-Notes:
-Teď otestovat skok — postava by měla stát na Tilemapě. Pokud propadá: zkontrolovat Composite Collider 2D nastavení.
-
----
-
-## Level design — principy
+## Jak je level rozdělený
 
 ```
-Dobrý Jump King level:
-✓ Platformy různých výšek → výzva
-✓ Mírně přesahující platformy → "skok na okraj"
-✓ Slepé uličky → hráč musí přemýšlet
-✓ Viditelný cíl nahoře → motivace
+PATRO 3 (vrchol) ─── cíl hry
+────────────────────────────────
+PATRO 2           ─── plošiny
+────────────────────────────────
+PATRO 1 (přízemí) ─── podlaha + první plošiny
+```
+
+Kamera vždy zobrazuje jedno patro — při přechodu "skočí" na další.
+
+Výška každého patra = `Camera.orthographicSize × 2` Unity jednotek.
+
+Notes:
+orthographicSize výchozí = 5, tedy 1 patro = 10 jednotek. Plošiny v patře 2 začínají na Y = 10, patro 3 na Y = 20.
+
+---
+
+## Přidání plošiny
+
+1. Přetáhni `Platform.png` do scény
+2. Přejmenuj na `Platform_1` (čísluj)
+3. Nastav **Scale X** podle šířky plošiny (např. `3`)
+4. Nastav **pozici Y** dle patra:
+    - Patro 1: `Y: -4` až `4`
+    - Patro 2: `Y: 6` až `14`
+    - Patro 3: `Y: 16` a výš
+5. **Add Component → Box Collider 2D**
+6. **Tag: Ground**
+
+Notes:
+Každá plošina potřebuje Tag "Ground" — jinak hráč propadne. Opakovat pro každou plošinu.
+
+---
+
+> 📸 **Ukázka:** Scene view se třemi patry a plošinami na různých výškách
+
+Notes:
+Ukázat studentům příklad rozmístění — pak jim dát volnost.
+
+---
+
+## Principy dobrého level designu
+
+```
+✓ Plošiny různých výšek → různá obtížnost skoku
+✓ Plošiny mírně přesahující okraj → "skok na okraj"
+✓ Mezery mezi plošinami → napětí při přistání
+✓ Vždy viditelná cesta nahoru → hráč ví co dělat
+✗ Příliš úzké plošiny → frustrující, ne zábavné
+✗ Rovné sloupce → nudné, žádná strategie
 ```
 
 Notes:
-Nechat studenty 10 minut kreslit vlastní level ve Tile Palette. Ukázat jak smazat dlaždice (Shift+klik).
+Jump King je o čtení levelu a plánování skoku. Slepé uličky jsou v pořádku — hráč se poučí.
 
 ---
 
-## Přidání dalšího Tilemaps pro platformy
+## Duplikace plošin (šetří čas)
 
-1. Klikni pravým na `Grid` → **2D Object → Tilemap**
-2. Pojmenuj `Platforms`
-3. Přidej **Tilemap Collider 2D** + **Composite Collider 2D** (Body Type: Static)
-4. Nastav Tag: `Ground`
-5. Kresli platformy v různých výškách
+Místo přidávání jedné po druhé:
+
+1. Vyber plošinu v Hierarchy
+2. **Ctrl+D** — duplikuj
+3. Přesuň na novou pozici
+
+> 📸 **Ukázka:** Hierarchy s pojmenovanými Platform_1 až Platform_8
 
 Notes:
-Dvě Tilapy (Ground + Platforms) = podlaha je oddělena od platforem. Snadnější editace a přehled.
+Studenti mají tendenci přidávat příliš moc plošin. Doporučit: 2–3 plošiny na patro, alespoň 1 mezerou.
 
 ---
 
-## Pád z platformy
+## Collision Detection — rychlé objekty
 
-Pokud postava při pádu z platformy přechází skrz:
+Pokud postava při pádu prochází plošinou:
 
-1. Zkontroluj že Composite Collider 2D je nastaven
-2. V Rigidbody2D postavy: **Collision Detection → Continuous**
-3. Zvyš **Fixed Timestep** (Edit → Project Settings → Time → Fixed Timestep: 0.01)
+1. Vyber `Player` v Hierarchy
+2. Inspector → **Rigidbody2D**
+3. **Collision Detection:** `Continuous`
 
 Notes:
-Continuous Collision Detection = Unity počítá kolize i mezi snímky. Důležité pro rychle pohybující se objekty.
+Continuous = Unity počítá kolize i mezi snímky. Důležité pro objekty pohybující se rychle (vysoký skok + Gravity Scale
+3).
+
+---
+
+## Test level designu
+
+▶ **Play** a ověř:
+
+- Hráč stojí na všech plošinách (ne propadá)
+- Na každou plošinu lze doskočit (zkus různé skoky)
+- Ze třetího patra je vidět "co bude cíl"
+
+Notes:
+Pokud hráč propadá plošinou: 1. Box Collider 2D přidán? 2. Tag "Ground" nastaven? 3. Collision Detection Continuous?
 
 ---
 
 ## Shrnutí lekce 3
 
-- ✅ Tilemap Collider 2D + Composite Collider
-- ✅ Alespoň 3 platformy na různých výškách
-- ✅ isGrounded funguje při dopadu
+- ✅ Plošiny ve 3 patrech s Box Collider 2D
+- ✅ Tag "Ground" na každé plošině
+- ✅ Level design: hráč může doskočit na každou plošinu
+- ✅ Collision Detection: Continuous
 
-**Další lekce:** Cinemachine kamera sledující postavu
+**Další lekce:** kamera, která přepíná patra Jump King stylem
 
 Notes:
-Ověřit: postava stojí, skáče a přistává na platformách. Level design je osobní — povzbudit studenty kreativitu.
+Uložit scénu (Ctrl+S). Připomenout: zatím chybí kamera — vidíme jen jedno patro. To opravíme příští lekci.

@@ -1,6 +1,6 @@
 ## Blender: Edit Mode a Modelování
 
-_Základy 3D grafiky · LŠVPH 2026_
+Letní škola vývoje her 2026 · David
 
 Notes:
 V minulé přednášce jsme si ukázali, jak hýbat s celými objekty, barvit je a věšet na ně modifikátory. Dnes se podíváme

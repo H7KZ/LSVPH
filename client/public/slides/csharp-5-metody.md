@@ -1,5 +1,7 @@
 ## Lekce 5: Metody a funkce
 
+Letní škola vývoje her 2026 · Matyáš
+
 - Proč metody? Znovupoužitelnost kódu
 - Syntaxe: návratový typ, název, parametry
 - void metody vs. metody s návratovou hodnotou

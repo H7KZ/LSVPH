@@ -1,5 +1,7 @@
 ## Úvod do Game Designu
 
+Letní škola vývoje her 2026 · Ondřej
+
 ---
 
 ## Co se naučíš

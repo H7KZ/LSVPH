@@ -1,6 +1,6 @@
 ## Dinosaur Runner — Lekce 1: Scéna a dino
 
-Letní škola vývoje her 2026
+Letní škola vývoje her 2026 · Honza
 
 ---
 

@@ -9,10 +9,7 @@ import 'reveal.js/reveal.css'
 import 'reveal.js/theme/white.css'
 import '../reveal-theme.css'
 
-const validSlugs = new Set([
-	...presentations.map(p => p.slug),
-	...projects.flatMap(p => p.lessons.map(l => l.slug)),
-])
+const validSlugs = new Set([...presentations.map(p => p.slug), ...projects.flatMap(p => p.lessons.map(l => l.slug))])
 
 export default function Presentation() {
 	const { slug } = useParams<{ slug: string }>()
@@ -24,8 +21,12 @@ export default function Presentation() {
 		setMarkdown(null)
 		fetch(`/slides/${slug}.md`)
 			.then(r => r.text())
-			.then(text => { if (active) setMarkdown(text) })
-		return () => { active = false }
+			.then(text => {
+				if (active) setMarkdown(text)
+			})
+		return () => {
+			active = false
+		}
 	}, [slug])
 
 	if (!slug || !validSlugs.has(slug)) return <Navigate to="/" replace />

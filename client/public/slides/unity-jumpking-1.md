@@ -1,115 +1,145 @@
 ## Jump King — Lekce 1: Scéna a postava
 
-Letní škola vývoje her 2026
+Letní škola vývoje her 2026 · Honza
 
 ---
 
 ## Co postavíme dnes
 
-Unity projekt s Tilemap podlahou a postavou, která se pohybuje.
+Nový Unity projekt, podlaha a postava, která stojí na zemi a pohybuje se.
 
-**Výsledek:** postava chodí doleva a doprava, stojí na podlaze
+**Výsledek:** postava se pohybuje doleva a doprava, nestojí ve vzduchu
 
 Notes:
-Jump King zavádí Tilemap — mocný nástroj pro 2D platformery. Věnuj čas vysvětlení rozdílu Tilemap vs. běžný Sprite.
+Čistě přípravná lekce. Cíl: scéna funguje, postava nestojí ve vzduchu. Skok přijde v lekci 2.
 
 ---
 
-## Nový Unity projekt
+## Nový projekt
 
 1. **Unity Hub → New Project → 2D (Core)**
 2. Název: `JumpKing`
-3. Složky: `Graphics/`, `Scripts/`, `Tiles/`
+3. Složky v Assets: **Graphics/**, **Scripts/**
+
+> 📸 **Ukázka:** Unity Hub — záložka Projects, New Project, šablona 2D Core
 
 Notes:
-Studenti, kteří dělali předchozí hry, to zvládnou rychle. Zaměř se na nové studenty.
+2D Core = žádné nadbytečné balíčky. Tilemap a URP jsou součástí.
 
 ---
 
-## Tilemap — co to je?
+## Import grafiky
 
-**Tilemap** = síť dlaždic (tiles) pro stavbu 2D světa.
+Přetáhni soubory do složky **Graphics/**:
 
-```
-Výhody oproti jednotlivým Sprite objektům:
-✓ Efektivní rendering (jedna draw call)
-✓ Snadné kreslení úrovní "štětcem"
-✓ Automatická kolize přes Tilemap Collider
-```
+- `Player.png` — sprite postavy
+- `Platform.png` — sprite plošiny / podlahy
+
+> 📸 **Ukázka:** Project okno → složka Graphics s oběma PNG soubory
 
 Notes:
-Analogie: Tilemap je jako stavění z Lega. Každá dlaždice = jeden blok Lega. Posunovat celou zeď = přestavit jeden blok.
+Unity importuje automaticky při přetažení. Pixel Per Unit: 100 (výchozí).
 
 ---
 
-## Vytvoření Tilemaps
+## Podlaha
 
-1. **GameObject → 2D Object → Tilemap → Rectangular**
-    - Unity vytvoří `Grid` a `Tilemap`
-2. Přejmenuj `Tilemap` na `Ground`
-3. Otevři **Tile Palette** (Window → 2D → Tile Palette)
-4. Přetáhni `Platform.png` do Tile Palette → vytvoří Tile asset
-
-Notes:
-Grid je rodičovský objekt — pohybem Gridu pohybujeme celou mapou najednou.
-
----
-
-## Kreslení podlahy
-
-1. V Tile Palette vyber dlaždici `Platform`
-2. Vyber štětec (klávesa B)
-3. Kresli kliknutím do Scene view — vytáhni podlahu na spodku scény
-
-**Tip:** Shift+klik = mazání dlaždic
+1. Přetáhni `Platform.png` do **Scene view** (nebo Hierarchy)
+2. Přejmenuj na `Ground`
+3. Nastav pozici: `Y: -4` (spodek scény)
+4. Nastav **Scale X** na `20` — vytáhni podlahu přes celou scénu
+5. **Add Component → Box Collider 2D**
 
 Notes:
-Nechat studenty 2–3 minuty volně kreslit. Zdůraznit: přidáme Collider až příště — teď je to jen vizuální.
+Scale X = roztáhnutí spritu. Alternativa: více menších Platform objektů.
 
 ---
 
 ## Postava
 
-1. Přetáhni `Player.png` do scény → pojmenuj `Player`
-2. Nastav pozici nad podlahu: `Y: 0` nebo výš
-3. Přidej `Rigidbody2D` → **Gravity Scale: 3**, **Freeze Rotation Z: ✓**
-4. Přidej `Box Collider 2D` (přizpůsob velikost)
+1. Přetáhni `Player.png` do scény
+2. Přejmenuj na `Player`
+3. Nastav pozici: `Y: -2` (nad podlahou)
+4. **Add Component → Rigidbody2D**
+    - **Gravity Scale:** `3`
+    - **Freeze Rotation Z:** ✓
+5. **Add Component → Box Collider 2D** — přizpůsob velikost tělu
+
+> 📸 **Ukázka:** Inspector s Rigidbody2D — zvýrazni Gravity Scale a Freeze Rotation Z
 
 Notes:
-Bez Tilemap Collider (přidáme příště) postava propadne skrz. Nejdřív uvést pohyb, pak kolize.
+Gravity Scale 3 = trojnásobná gravitace. Freeze Rotation = postava se nenakloní. Bez toho by se válela po zemi.
 
 ---
 
-## PlayerController.cs — základní pohyb
+## Tag "Ground"
+
+Tag umožní skriptu rozlišit, na čem hráč stojí.
+
+1. Vyber `Ground` v Hierarchy
+2. Inspector → klikni na **Tag** → **Add Tag**
+3. Přidej tag `Ground`
+4. Znovu vyber `Ground` → nastav Tag: **Ground**
+
+Notes:
+Tag musíme nastavit hned — PlayerController ho bude potřebovat v lekci 2.
+
+---
+
+## PlayerController.cs
+
+Vytvoř skript `Scripts/PlayerController.cs`:
 
 ```csharp
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 4f;
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float maxHorizontalSpeed = 5f;
+
+    private Rigidbody2D rb;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
-        float x = Input.GetAxisRaw("Horizontal"); // -1, 0, nebo 1
-        rb.linearVelocity = new Vector2(x * moveSpeed, rb.linearVelocity.y);
+        // GetAxisRaw vrátí -1, 0 nebo 1 (bez interpolace)
+        float x = Input.GetAxisRaw("Horizontal");
+        rb.linearVelocity = new Vector2(x * maxHorizontalSpeed, rb.linearVelocity.y);
     }
 }
 ```
 
 Notes:
-`GetAxisRaw` = okamžitá hodnota bez interpolace (0 nebo ±1). `GetAxis` by dávalo plynulejší pohyb s setrvačností.
+linearVelocity.y zachováváme — nechceme přepisovat gravitaci. GetAxisRaw = okamžitá odezva.
+
+---
+
+## Přiřazení skriptu
+
+1. Ulož skript (Ctrl+S)
+2. Přetáhni `PlayerController.cs` na GameObject `Player`
+3. ▶ **Play** — pohyb funguje?
+
+**Zkouška:** A/D nebo šipky doleva/doprava
+
+Notes:
+Nejčastější bug: skript přiřazen na špatný objekt, nebo zapomenuta reference. Rigidbody2D najde sám díky GetComponent.
 
 ---
 
 ## Shrnutí lekce 1
 
-- ✅ Tilemap s nakreslenou podlahou
-- ✅ Postava s Rigidbody2D
-- ✅ Pohyb doleva/doprava
+- ✅ 2D projekt s grafickými assety
+- ✅ Podlaha s Box Collider 2D
+- ✅ Postava s Rigidbody2D (Gravity Scale 3)
+- ✅ Pohyb doleva a doprava
 
-**Další lekce:** Nabíjený skok — hlavní mechanika Jump King
+**Další lekce:** nabíjený skok — hlavní mechanika Jump Kinga
 
 Notes:
-Ověřit: postava se pohybuje. Propadá skrz zem? Normální — Tilemap Collider přidáme v lekci 3.
+Ověřit: postava stojí na podlaze a pohybuje se. Propadá? Zkontrolovat Box Collider 2D na Ground i Player.

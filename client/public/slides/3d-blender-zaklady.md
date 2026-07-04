@@ -1,8 +1,8 @@
 ## Blender: Ovládnutí UI
 
-První krůčky ve světě 3D grafiky, modifikátorů a materiálů.
+_První krůčky ve světě 3D grafiky, modifikátorů a materiálů._
 
-_Základy 3D grafiky · LŠVPH 2026_
+Letní škola vývoje her 2026 · David
 
 Notes:
 Cílem této přednášky je zbavit se strachu ze složitého rozhraní Blenderu, naučit se základy pohybu a transformace celých

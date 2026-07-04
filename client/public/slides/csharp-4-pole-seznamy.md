@@ -1,5 +1,7 @@
 ## Lekce 4: Pole a seznamy
 
+Letní škola vývoje her 2026 · Matyáš
+
 - Pole — pevná kolekce hodnot
 - Přístup přes index, řazení pole
 - Vícerozměrná pole — herní mřížka

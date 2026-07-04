@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     public GameState CurrentState { get; private set; } = GameState.WaitingToStart;
 
-    // RYCHLOST — čtou ji GroundScroller, Obstacle, ScoreManager
+    // RYCHLOST — čtou ji GroundScroller, Cactus, ScoreManager
     [SerializeField] private float initialSpeed = 5f;
     [SerializeField] private float speedIncreasePerSecond = 0.5f;
     [SerializeField] private float maxSpeed = 25f;

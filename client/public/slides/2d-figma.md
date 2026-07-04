@@ -1,8 +1,8 @@
 ## Figma: Tvoříme jako profíci
 
-Vektorová grafika v prohlížeči — zdarma, bez instalace.
+_Vektorová grafika v prohlížeči — zdarma, bez instalace._
 
-_Základy 2D grafiky · LŠVPH 2026_
+Letní škola vývoje her 2026 · Honza
 
 Notes:
 Zeptat se: "Kdo už někdy slyšel o Figmě?" Cílem je zbořit strach — dnes vytvoříme grafiku, kterou herní studia platí

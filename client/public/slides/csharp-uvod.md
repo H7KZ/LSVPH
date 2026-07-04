@@ -1,5 +1,7 @@
 ## Základy programování v C#
 
+Letní škola vývoje her 2026 · Matyáš
+
 ---
 
 ## Co se naučíš

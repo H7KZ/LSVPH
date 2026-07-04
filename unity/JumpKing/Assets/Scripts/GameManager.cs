@@ -1,23 +1,29 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// GameManager řídí stav hry a přechody mezi nimi.
+// Řídí stav celé hry a přechody mezi stavy.
 //
-// SINGLETON vzor: přistup odkudkoliv přes GameManager.Instance
+// SINGLETON VZOR — jeden GameManager existuje v celé hře.
+// Ostatní skripty k němu přistupují přes: GameManager.Instance
+//
+// STAVOVÝ STROJ:
+//   WaitingToStart → Playing (Space na start obrazovce)
+//   Playing        → Win     (CameraController zavolá TriggerWin)
+//   Win            → restart scény (Space na win obrazovce)
+//
+// Pozor: pád není GameOver — hráč spadne o patro níž, hra pokračuje.
 //
 // NASTAVENÍ VE SCÉNĚ:
-//   1. Vytvoř prázdný GameObject "GameManager"
-//   2. Přiřaď GameManager + UIManager skripty na stejný GameObject
+//   1. Prázdný GameObject pojmenuj "GameManager"
+//   2. Přiřaď GameManager + UIManager skripty
 //   3. Propoj UIManager v Inspektoru
 [RequireComponent(typeof(UIManager))]
 public class GameManager : MonoBehaviour
 {
-    // SINGLETON
+    // Singleton — jeden globální přístupový bod
     public static GameManager Instance { get; private set; }
 
-    // STAV HRY
-    // Tři stavy: čekání na start, hra běží, výhra.
-    // Není GameOver — pád je součást hry, ne smrt.
+    // Tři stavy hry (pád = součást hry, ne smrt → žádný GameOver stav)
     public enum GameState { WaitingToStart, Playing, Win }
     public GameState CurrentState { get; private set; } = GameState.WaitingToStart;
 
@@ -25,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        // Pokud Instance už existuje, zničíme duplikát
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
     }
@@ -43,7 +50,7 @@ public class GameManager : MonoBehaviour
         uiManager.ShowGame();
     }
 
-    // Volá CameraController když hráč dosáhne vrcholu.
+    // Volá CameraController, když hráč dosáhne vrcholu levelu
     public void TriggerWin()
     {
         if (CurrentState != GameState.Playing) return;

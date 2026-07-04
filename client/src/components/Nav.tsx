@@ -10,7 +10,7 @@ const links = [
 export default function Nav() {
 	return (
 		<nav className="border-ink bg-ink border-b-2 px-4 py-3 sm:px-6">
-			<div className="flex flex-wrap items-center justify-between gap-y-2">
+			<div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-2">
 				<NavLink to="/" className="font-display text-accent text-xl font-bold tracking-tight">
 					LŠVPH 2026
 				</NavLink>

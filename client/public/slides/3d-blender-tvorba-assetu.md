@@ -1,8 +1,8 @@
 ## Blender: Tvorba assetu a export
 
-Od modelování k hotovému modelu ve tvé hře.
+_Od modelování k hotovému modelu ve tvé hře._
 
-_Základy 3D grafiky · LŠVPH 2026_
+Letní škola vývoje her 2026 · David
 
 Notes:
 Cílem této přednášky je projít si kompletní postup (pipeline) tvorby 3D assetu: od pokročilejšího modelování s Boolean

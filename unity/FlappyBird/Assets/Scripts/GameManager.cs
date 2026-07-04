@@ -5,14 +5,14 @@ using UnityEngine;
 // Přiřazen prázdnému GameObjectu ve scéně.
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI scoreText;
+	[SerializeField] private TextMeshProUGUI scoreText;
 
-    private int score;
+	private int score;
 
-    // Voláno z PlayerMovement.OnTriggerEnter2D při průchodu ScoreTriggerem.
-    public void AddPoints(int points)
-    {
-        score += points;
-        scoreText.text = score.ToString();
-    }
+	// Voláno z PlayerMovement.OnTriggerEnter2D při průchodu ScoreTriggerem.
+	public void AddPoints(int points)
+	{
+		score += points;
+		scoreText.text = score.ToString();
+	}
 }

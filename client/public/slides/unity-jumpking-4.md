@@ -1,88 +1,168 @@
-## Jump King — Lekce 4: Kamera a scrolling
+## Jump King — Lekce 4: Kamera po patrech
 
-Letní škola vývoje her 2026
+Letní škola vývoje her 2026 · Honza
 
 ---
 
 ## Co postavíme dnes
 
-Cinemachine kamera, která sleduje postavu a zůstane v hranicích mapy.
+Kamera, která "skočí" na nové patro, když hráč přejde okraj obrazovky.
 
-**Výsledek:** kamera plynule sleduje postavu, neopouští hranice levelu
+**Výsledek:** level se chová jako originální Jump King — kamera nepřejíždí plynule, ale přepíná patra
 
 Notes:
-Cinemachine je profesionální kamera systém zdarma v Unity. Jde ho nainstalovat přes Package Manager.
+Jump King má specifickou kameru — ne Cinemachine follow, ale snap přepínání obrazovek. To napíšeme sami.
 
 ---
 
-## Instalace Cinemachine
-
-1. **Window → Package Manager**
-2. Vlevo: **Unity Registry**
-3. Hledej `Cinemachine` → **Install**
-
-Notes:
-Cinemachine je součástí Unity balíčků — zdarma, udržovaný. Starší projekty mohou mít verzi 2.x, novější 3.x — API se
-mírně liší.
-
----
-
-## Cinemachine Virtual Camera
-
-1. **GameObject → Cinemachine → Cinemachine Camera** (nebo Virtual Camera)
-2. Unity přidá CinemachineCamera komponentu
-3. V Inspektoru:
-    - **Follow:** přetáhni `Player` z Hierarchy
-    - **Look At:** nechej prázdné (2D)
-
-**Play Mode (▶)** → kamera sleduje postavu ✓
-
-Notes:
-Cinemachine Camera = "virtuální" kamera. Skutečná Main Camera čte její pozici. Možno mít více Virtual kamer a mezi nimi
-přepínat.
-
----
-
-## Nastavení pro 2D hru
-
-V CinemachineCamera komponentě:
+## Jak kamera funguje
 
 ```
-Lens → Orthographic Size: 5  (stejná jako Main Camera)
-Body → Transposer nebo Framing Transposer
-  → Lookahead Time: 0
-  → X/Y Damping: 0.5 (plynulé sledování)
+Level = 3 patra, každé patro = 1 výška obrazovky
+
+Hráč přešel HORNÍ okraj → currentScreen++, kamera snapne nahoru
+Hráč přešel DOLNÍ okraj → currentScreen--, kamera snapne dolů
+currentScreen >= totalScreens → TriggerWin (konec hry)
 ```
 
+Kamera se nikdy nepohybuje plynule — záměrně, tak to funguje v Jump Kingu.
+
 Notes:
-Damping = zpoždění kamery za postavou. 0 = okamžitě. 0.5 = mírně opožděné (hezčí pocit).
+orthographicSize = polovina výšky. Celá výška = orthographicSize × 2. Výchozí orthographicSize = 5 → patro = 10
+jednotek.
 
 ---
 
-## Confiner — hranice kamery
+## CameraController.cs
 
-1. Vytvoř prázdný GameObject → pojmenuj `CameraBounds`
-2. Přidej **Polygon Collider 2D**
-3. Nastav Is Trigger: ✓
-4. Edituj body collideru tak, aby ohraničily celý level
+Vytvoř skript `Scripts/CameraController.cs`:
 
-V CinemachineCamera:
+```csharp
+using UnityEngine;
 
-- **Extensions → Add Extension → Cinemachine Confiner 2D**
-- **Bounding Shape 2D:** přetáhni `CameraBounds`
+public class CameraController : MonoBehaviour
+{
+    [SerializeField] private Transform player;
+    [SerializeField] private int totalScreens = 3;
+
+    private int currentScreen;
+    private float screenHeight;
+
+    public int CurrentScreen => currentScreen;
+
+    void Awake()
+    {
+        // orthographicSize × 2 = celá výška obrazovky
+        screenHeight = Camera.main.orthographicSize * 2f;
+        SnapCamera();
+    }
+```
 
 Notes:
-Confiner 2D zabraňuje kameře vidět za hrany mapy. Polygon Collider = přesné hranice, nemusí být obdélník.
+CurrentScreen je veřejná vlastnost — UIManager ji čte pro zobrazení "Patro: X/3".
+
+---
+
+## CameraController.cs — Update()
+
+```csharp
+    void Update()
+    {
+        if (GameManager.Instance == null) return;
+        if (GameManager.Instance.CurrentState != GameManager.GameState.Playing) return;
+
+        float camY = transform.position.y;
+        float halfHeight = screenHeight * 0.5f;
+
+        // Hráč přešel horní okraj → přejdi o patro výš
+        if (player.position.y > camY + halfHeight)
+        {
+            currentScreen++;
+            if (currentScreen >= totalScreens)
+            {
+                currentScreen = totalScreens - 1;
+                SnapCamera();
+                GameManager.Instance.TriggerWin();
+                return;
+            }
+            SnapCamera();
+        }
+
+        // Hráč přešel dolní okraj → přejdi o patro níž
+        if (player.position.y < camY - halfHeight)
+        {
+            currentScreen = Mathf.Max(0, currentScreen - 1);
+            SnapCamera();
+        }
+    }
+
+    void SnapCamera()
+    {
+        transform.position = new Vector3(0f, screenHeight * (currentScreen + 0.5f), -10f);
+    }
+}
+```
+
+Notes:
+Mathf.Max(0, ...) = hráč nemůže klesnout pod patro 0. Z = -10 = standardní pozice 2D kamery v Unity.
+
+---
+
+## Přiřazení v Inspektoru
+
+1. Vyber **Main Camera** v Hierarchy
+2. **Add Component → CameraController**
+3. Přetáhni `Player` do pole **Player**
+4. **Total Screens:** `3`
+
+▶ **Play** → skoč do horní části scény
+
+> 📸 **Ukázka:** Inspector Main Camera s CameraController — zvýrazni pole Player a Total Screens
+
+Notes:
+Pokud kamera neskočí: zkontrolovat, že Player má správnou pozici Y. SnapCamera v Awake nastaví kameru na patro 0 při
+startu.
+
+---
+
+## Jak SnapCamera počítá pozici
+
+```
+screenHeight = 10  (orthographicSize 5 × 2)
+
+Patro 0 (přízemí): Y = 10 × (0 + 0.5) = 5
+Patro 1:           Y = 10 × (1 + 0.5) = 15
+Patro 2 (vrchol):  Y = 10 × (2 + 0.5) = 25
+```
+
+Kamera je vždy na středu svého patra.
+
+Notes:
+Studenti mohou ověřit: v Play Mode sledovat Y souřadnici Main Camera v Inspektoru při přechodu mezi patry.
+
+---
+
+## Test kamery
+
+▶ **Play** a ověř:
+
+- Skoč na horní okraj → kamera přeskočí na patro 2
+- Skoč zpět dolů → kamera přeskočí zpět
+- Z patra 3 → hra skončí (bude v lekci 5)
+
+Notes:
+Pokud kamera neskáče: TriggerWin volá GameManager.Instance — ten musí existovat ve scéně (přidáme v lekci 5). Zatím
+ignorovat.
 
 ---
 
 ## Shrnutí lekce 4
 
-- ✅ Cinemachine Camera nainstalována a sleduje postavu
-- ✅ Cinemachine Confiner 2D s hranicemi mapy
+- ✅ CameraController přepíná patra (snap, ne plynulé sledování)
+- ✅ Kamera detekuje horní i dolní přechod
+- ✅ Dosažení vrcholu připraví volání TriggerWin
 
-**Další lekce:** Cílová zóna, vítězná obrazovka a zvuky
+**Další lekce:** GameManager, start obrazovka, výhra a rekord
 
 Notes:
-Ověřit: kamera sleduje postavu, nepřejíždí za okraje. Pokud kamera nefunguje: zkontrolovat že Main Camera má Cinemachine
-Brain komponentu (přidává se automaticky).
+Uložit scénu. Bez GameManager kamera hodí NullReference — to je normální, opravíme v lekci 5.

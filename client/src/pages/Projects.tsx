@@ -4,10 +4,18 @@ import { projectCompletedCount, projects } from '../data/projects'
 export default function Projects() {
 	return (
 		<div className="mx-auto max-w-4xl">
+			<p className="text-muted mb-4 text-sm">
+				<Link to="/" className="hover:underline">
+					← Domů
+				</Link>{' '}
+				/ Projekty
+			</p>
+
 			<h1 className="font-display mb-2 text-4xl font-extrabold">Projekty</h1>
 			<p className="text-muted mb-10 max-w-prose">
 				Vyber hru a postupuj lekci po lekci. Každá lekce má prezentaci a checklist — odškrtni splněné kroky a jdi dál.
 			</p>
+
 			<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{projects.map(project => {
 					const completed = projectCompletedCount(project)

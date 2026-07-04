@@ -1,131 +1,254 @@
-## Jump King — Lekce 5: Cíl a polish
+## Jump King — Lekce 5: GameManager, UI a rekord
 
-Letní škola vývoje her 2026
+Letní škola vývoje her 2026 · Honza
 
 ---
 
 ## Co postavíme dnes
 
-Cílová zóna nahoře levelu, vítězná obrazovka a alespoň jeden zvukový efekt.
+GameManager (start / hra / výhra), UI panely a ukládání osobního rekordu.
 
-**Výsledek:** kompletní Jump King — dosáhnutím cíle se zobrazí vítězná obrazovka
+**Výsledek:** kompletní Jump King — start obrazovka, výhra, rekord přetrvá i po restartu
 
 Notes:
-Finální lekce! Studenti vidí hotovou hru. Zvuky přidají velký pocit ze hry za malou práci.
+Finální lekce! Studenti vidí hotovou hru. Rekord přes PlayerPrefs je "wow moment" — přetrvá po zavření hry.
 
 ---
 
-## Cílová zóna
+## GameManager — stavový stroj
 
-1. Přidej dlaždice nebo Sprite nahoře levelu jako vizuální cíl (hvězda, koruna, brána)
-2. Vytvoř prázdný GameObject → pojmenuj `GoalZone`
-3. Nastav pozici na vrchol levelu
-4. Přidej **Box Collider 2D** → **Is Trigger: ✓**
-5. Nastav **Tag:** `Goal`
+```
+START hry:
+  WaitingToStart ──(Space)──► Playing
+
+VÝHRA (dosažení vrcholu):
+  Playing ──(CameraController)──► Win
+
+RESTART:
+  Win ──(Space)──► načti scénu znovu
+```
+
+GameManager je **Singleton** — přistup odkudkoliv: `GameManager.Instance`
 
 Notes:
-Vizuální reprezentace cíle je důležitá — hráč musí vědět kam míří. I jednoduchý žlutý čtverec funguje.
+Singleton vzor: jeden objekt existuje v celé hře, ostatní ho najdou přes statickou vlastnost Instance.
 
 ---
 
-## WinScreen — vítězná obrazovka
+## GameManager.cs
 
-1. **GameObject → UI → Canvas** (nebo přidej do existujícího)
-2. Přidej **Panel** (tmavé pozadí, poloprůhledné)
-3. Do Panelu přidej **TextMeshPro:** `Vyhrál jsi! 🎉`
-4. Přidej **Button:** `Hrát znovu`
-5. Panel nastav jako **inactive** (odškrtni v Inspektoru)
-
-Notes:
-Panel začíná neaktivní → zobrazíme ho skriptem při dosažení cíle.
-
----
-
-## GameManager.cs pro Jump King
+Vytvoř skript `Scripts/GameManager.cs`:
 
 ```csharp
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(UIManager))]
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject winPanel;
+    public static GameManager Instance { get; private set; }
 
-    public void Win()
+    public enum GameState { WaitingToStart, Playing, Win }
+    public GameState CurrentState { get; private set; } = GameState.WaitingToStart;
+
+    [SerializeField] private UIManager uiManager;
+
+    void Awake()
     {
-        winPanel.SetActive(true);
-        Time.timeScale = 0f;
+        if (Instance != null) { Destroy(gameObject); return; }
+        Instance = this;
     }
 
-    public void Restart()
+    void Update()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (!Input.GetKeyDown(KeyCode.Space)) return;
+        if (CurrentState == GameState.WaitingToStart) StartGame();
+        else if (CurrentState == GameState.Win) RestartGame();
     }
+
+    public void StartGame() { CurrentState = GameState.Playing; uiManager.ShowGame(); }
+
+    public void TriggerWin()
+    {
+        if (CurrentState != GameState.Playing) return;
+        CurrentState = GameState.Win;
+        uiManager.ShowWin();
+    }
+
+    void RestartGame() { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
 }
 ```
 
-Přiřaď `Restart()` na tlačítko "Hrát znovu" → OnClick.
-
 Notes:
-`winPanel.SetActive(true)` = zobrazit panel. `Time.timeScale = 0` = zastavit hru.
+RequireComponent = Unity automaticky přidá UIManager spolu s GameManager. Singleton guard: druhý GameManager se zničí.
 
 ---
 
-## GoalTrigger.cs
+## UI Canvas — struktura
+
+Vytvoř canvas a panely:
+
+```
+Canvas
+├── StartPanel          ← "Stiskni Space pro start"
+│   └── Text (TMP)
+├── WinPanel            ← "Vyhrál jsi!"
+│   ├── Text (TMP)
+│   └── Text "Hrát znovu: Space"
+└── HUD
+    ├── ScreenText      ← "Patro: 1/3"
+    └── BestScreenText  ← "Nejlepší: 3/3"
+```
+
+**WinPanel** i **StartPanel** nastav jako **Inactive** v Inspektoru.
+
+Notes:
+TMP = TextMeshPro. Pokud chybí balíček, Unity nabídne instalaci při prvním použití TMP komponentu.
+
+---
+
+> 📸 **Ukázka:** Hierarchy — Canvas s StartPanel, WinPanel a HUD; StartPanel a WinPanel jsou šedé (inactive)
+
+Notes:
+Šedá ikona = inactive. Studenti si to snadno pletou — ukázat jak vypadá aktivní vs. inactive objekt.
+
+---
+
+## UIManager.cs
+
+Vytvoř skript `Scripts/UIManager.cs`:
 
 ```csharp
 using UnityEngine;
+using TMPro;
 
-public class GoalTrigger : MonoBehaviour
+[RequireComponent(typeof(GameManager))]
+public class UIManager : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
+    [Header("Panely")]
+    [SerializeField] private GameObject startPanel;
+    [SerializeField] private GameObject winPanel;
 
-    void OnTriggerEnter2D(Collider2D col)
+    [Header("HUD")]
+    [SerializeField] private TextMeshProUGUI screenText;
+    [SerializeField] private TextMeshProUGUI bestScreenText;
+    [SerializeField] private CameraController cameraController;
+
+    private const string BestScreenKey = "JKBestScreen";
+
+    void Start()
     {
-        if (col.CompareTag("Player"))
-            gameManager.Win();
+        startPanel.SetActive(true);
+        winPanel.SetActive(false);
+        UpdateBestScreenText();
+    }
+
+    void Update()
+    {
+        if (cameraController == null) return;
+        screenText.text = $"Patro: {cameraController.CurrentScreen + 1}/3";
+    }
+```
+
+Notes:
+CurrentScreen je 0-indexované → +1 pro zobrazení "Patro: 1/3". BestScreenKey = klíč pro PlayerPrefs.
+
+---
+
+## UIManager.cs — ShowWin a rekord
+
+```csharp
+    public void ShowGame() { startPanel.SetActive(false); }
+
+    public void ShowWin()
+    {
+        winPanel.SetActive(true);
+
+        // Ulož rekord pokud hráč dosáhl vyššího patra než dřív
+        int reached = cameraController.CurrentScreen + 1;
+        int best = PlayerPrefs.GetInt(BestScreenKey, 0);
+        if (reached > best)
+        {
+            PlayerPrefs.SetInt(BestScreenKey, reached);
+            PlayerPrefs.Save();
+        }
+        UpdateBestScreenText();
+    }
+
+    void UpdateBestScreenText()
+    {
+        int best = PlayerPrefs.GetInt(BestScreenKey, 0);
+        bestScreenText.text = best > 0 ? $"Nejlepší: {best}/3" : "";
     }
 }
 ```
 
-Přiřaď na `GoalZone`. Nastav **Tag:** `Player` na postavě.
-
 Notes:
-Propojit GameManager v Inspektoru GoalTrigger skriptu.
+PlayerPrefs = Unity vestavěná databáze klíč-hodnota. Přetrvá i po restartu hry i po zavření Unity Editoru.
 
 ---
 
-## Zvukové efekty
+## Propojení ve scéně
 
-1. Stáhni WAV nebo MP3 soubory (skok, vítězství) do `Audio/` složky
-2. Přidej `AudioSource` komponentu na `Player`
-3. Do `PlayerController.cs` přidej:
+1. Vytvoř prázdný GameObject → pojmenuj `GameManager`
+2. **Add Component → GameManager** (přidá i UIManager automaticky)
+3. Propoj v Inspektoru:
+    - UIManager → StartPanel, WinPanel, ScreenText, BestScreenText, CameraController (Main Camera)
+    - GameManager → UIManager (Inspector slot)
 
-```csharp
-[SerializeField] private AudioSource audioSource;
-[SerializeField] private AudioClip jumpSound;
-
-// v části kde skáčeme:
-audioSource.PlayOneShot(jumpSound);
-```
+> 📸 **Ukázka:** Inspector GameManager objektu — zvýrazni propojené reference
 
 Notes:
-`PlayOneShot` = přehraje zvuk jednou, nepřeruší ostatní zvuky. Vhodné pro efekty. `audioSource.Play()` by zastavilo
-předchozí přehrávání.
+Nejčastější bug: prázdná reference (None) v Inspektoru → NullReferenceException. Projít každé pole.
+
+---
+
+## PlayerController — blokování vstupu
+
+GameManager řídí kdy hráč může hrát. Přidej guard na začátek `Update()`:
+
+```csharp
+void Update()
+{
+    if (GameManager.Instance == null) return;
+    if (GameManager.Instance.CurrentState != GameManager.GameState.Playing) return;
+
+    // ... zbytek kódu ...
+}
+```
+
+Na start obrazovce a win obrazovce hráč nemůže skákat.
+
+Notes:
+Stejný guard patří i do CameraController.Update() — tam už je.
 
 ---
 
 ## Finální test
 
-Zkontroluj:
+▶ **Play** a ověř celý průběh:
 
-- ✅ Cílová zóna nahoře levelu
-- ✅ Vítězná obrazovka při dosažení cíle
-- ✅ Tlačítko "Hrát znovu" restartuje hru
-- ✅ Zvuk skoku při odpichnutí
-
-**Gratulace — dokončil jsi Jump King!** 👑
+- ✅ Start obrazovka se zobrazí
+- ✅ Space spustí hru (start panel zmizí)
+- ✅ HUD zobrazuje aktuální patro
+- ✅ Dosažení vrcholu → Win panel
+- ✅ Rekord se uloží a zobrazí
+- ✅ Space restartuje hru
 
 Notes:
-Volitelná rozšíření: čas od spuštění hry, počítadlo skoků, různé typy platforem (ledové = klouzání), parallax pozadí.
+Volitelná rozšíření: animace postavy (Animator), zvuky (AudioSource.PlayOneShot), parallax pozadí, více skin platforem.
+
+---
+
+## Gratulace — Jump King dokončen! 👑
+
+**4 skripty, které jste napsali:**
+
+- `PlayerController` — nabíjený skok
+- `CameraController` — přepínání pater
+- `GameManager` — stavový stroj
+- `UIManager` — panely + PlayerPrefs rekord
+
+Notes:
+Ukázat studentům hotovou hru. Připomenout co se naučili: Rigidbody2D, kolize, singleton, stavový stroj, PlayerPrefs, UI
+Canvas.

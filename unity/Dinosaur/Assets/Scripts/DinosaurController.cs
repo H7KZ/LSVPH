@@ -7,8 +7,8 @@ using UnityEngine;
 //   2. Rigidbody2D: Gravity Scale = 2, Freeze Rotation Z = ✓
 //   3. BoxCollider2D: Is Trigger = ✗
 //   4. AudioSource: Play On Awake = ✗
-//   5. Tag GroundCollider jako "Ground"
-//   6. Kaktus prefab: BoxCollider2D Is Trigger = ✓, Tag = "Obstacle"
+//   5. Tag podlahy nastav na "Ground"
+//   6. Kaktus prefab: BoxCollider2D Is Trigger = ✓, Tag = "Cactus"
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(AudioSource))]
 public class DinosaurController : MonoBehaviour
@@ -63,7 +63,7 @@ public class DinosaurController : MonoBehaviour
     // Trigger kolize s kaktusem (Is Trigger = ✓)
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Obstacle"))
+        if (other.CompareTag("Cactus"))
         {
             rb.simulated = false; // zamrazíme fyziku — dino zůstane na místě
             GameManager.Instance.TriggerGameOver();

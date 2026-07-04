@@ -5,6 +5,13 @@ import { subjects } from '../data/subjects'
 export default function Presentations() {
 	return (
 		<div className="mx-auto max-w-4xl">
+			<p className="text-muted mb-4 text-sm">
+				<Link to="/" className="hover:underline">
+					← Domů
+				</Link>{' '}
+				/ Prezentace
+			</p>
+
 			<h1 className="font-display mb-2 text-4xl font-extrabold">Prezentace</h1>
 			<p className="text-muted mb-10 max-w-prose">Prezentace k jednotlivým předmětům. Klikni na některou a spusť ji.</p>
 

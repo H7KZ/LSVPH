@@ -1,17 +1,17 @@
 ## Flappy Bird — Lekce 3: Skok a ovládání
 
-Letní škola vývoje her 2026
+Letní škola vývoje her 2026 · Honza
 
 ---
 
 ## Co postavíme dnes
 
-Napíšeme skript, který ptáčkovi umožní skákat při stisku mezerníku.
+Napíšeme skript `PlayerMovement.cs`, který ptáčkovi umožní skákat při stisku mezerníku.
 
 **Výsledek:** ptáček reaguje na vstup hráče a skáče nahoru
 
 Notes:
-První C# skript! Dej si čas — studenti potřebují vidět kde skript vytvořit, jak ho přiřadit, a jak Debug.Log funguje.
+První C# skript! Ukáž kde ho vytvořit, jak přiřadit, jak Debug.Log funguje.
 
 ---
 
@@ -31,43 +31,46 @@ public class PlayerMovement : MonoBehaviour
 | `Update` | každý snímek hry           |
 
 Notes:
-MonoBehaviour = základ Unity skriptingu. Dědění od MonoBehaviour znamená, že Unity skript "ví" o herní smyčce.
+MonoBehaviour = základ Unity skriptingu. Dědění od MonoBehaviour dává skriptu přístup ke herní smyčce.
 
 ---
 
 ## Vytvoření skriptu
 
-1. V **Project** okně: pravý klik na `Scripts/` → **Create → C# Script**
-2. Název: `PlayerMovement` (bez mezer, s velkými písmeny)
-3. Dvakrát klikni → otevře se VS Code nebo Rider
-4. Smaž obsah `Start()` a `Update()` — budeme psát od začátku
+1. **Project** → pravý klik na `Scripts/` → **Create → C# Script**
+2. Název: `PlayerMovement` (bez mezer, PascalCase)
+3. Dvakrát klikni → otevře se VS Code / Rider
+4. Smaž obsah `Start()` — budeme psát od začátku
 
 Notes:
-Název souboru musí odpovídat názvu třídy! Unity to vyžaduje. Pokud se liší, skript nepůjde přiřadit.
+Název souboru musí odpovídat názvu třídy! Unity to vyžaduje.
 
 ---
 
-## PlayerMovement.cs — píšeme spolu
+## PlayerMovement.cs — skok
 
 ```csharp
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float jumpForce = 4f;
     [SerializeField] private Rigidbody2D rb;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Okamžitě nastaví rychlost nahoru.
+            // Gravitace Rigidbody2D ji pak snižuje → parabolický oblouk.
             rb.linearVelocity = Vector2.up * jumpForce;
+        }
     }
 }
 ```
 
 Notes:
-Pište řádek po řádku. Vysvětlete každou část. `rb.linearVelocity = Vector2.up * jumpForce` = okamžitě nastavíme rychlost
-nahoru (ne AddForce — to by se kumulovalo).
+Pište řádek po řádku. linearVelocity = okamžité nastavení rychlosti, ne AddForce (ta by se kumulovala).
 
 ---
 
@@ -81,48 +84,52 @@ Input.GetKey(KeyCode.Space)     // TRUE každý snímek při držení  ✗
 Vyzkoušej: změň na `GetKey` → ptáček letí dokud držíš mezerník
 
 Notes:
-Nechte studenty skutečně vyzkoušet obě varianty. Rozdíl je okamžitě viditelný a zapamatovatelný.
+Nechte studenty vyzkoušet obě varianty — rozdíl je okamžitě viditelný a zapamatovatelný.
 
 ---
 
-## SerializeField — propojení v Inspektoru
+## [SerializeField] — propojení v Inspektoru
 
 ```csharp
-[SerializeField] private float jumpForce = 5f; // číslo nastavitelné v Inspektoru
+[SerializeField] private float jumpForce = 4f; // číslo nastavitelné v Inspektoru
 [SerializeField] private Rigidbody2D rb;       // přetáhneme z Hierarchy
 ```
 
-**Proč ne `public`?**  
-`public` = jakýkoliv skript může hodnotu změnit = chaos  
-`[SerializeField] private` = jen Inspector vidí pole, ale kód je chráněný ✓
+**Proč ne `public`?**
+
+`public` → jakýkoliv skript může hodnotu změnit  
+`[SerializeField] private` → jen Inspector vidí pole, kód je chráněný ✓
 
 Notes:
-Toto je best practice Unity vývoje. `public` funguje, ale je to špatný zvyk.
+Toto je best practice Unity vývoje. public funguje, ale je to špatný zvyk.
 
 ---
 
-## Přiřazení skriptu a propojení
+## Přiřazení skriptu
 
-1. Přetáhni skript `PlayerMovement` na `Bird` v Hierarchy (nebo Add Component)
-2. V Inspektoru skriptu:
-    - **Jump Force:** nech na 5
-    - **Rb:** přetáhni komponentu `Rigidbody 2D` z ptáčkova Inspektoru
+1. Přetáhni `PlayerMovement` na `Bird` v Hierarchy
+2. Inspector → propoj reference:
+    - **Jump Force:** 4
+    - **Rb:** přetáhni komponentu `Rigidbody 2D` z Inspektoru ptáčka
 
-**Spusť Play Mode (▶)** → mezerník = skok ✓
+**Play Mode (▶)** → mezerník = skok ✓
 
 Notes:
-Bez reference na Rb Unity vyhodí NullReferenceException. Ukázat chybu v Console a jak ji opravit — cenná lekce.
+Bez reference na Rb Unity vyhodí NullReferenceException. Ukázat chybu v Console — cenná lekce.
+
+---
+
+> 📸 **Ukázka:** Inspector — PlayerMovement skript, pole Jump Force: 4, Rb: propojeno
+
+Notes:
+Ukázat Inspector s komponentou PlayerMovement a vyplněnými poli.
 
 ---
 
 ## Shrnutí lekce 3
 
-- ✅ C# skript `PlayerMovement.cs` vytvořen
-- ✅ Skok na mezerník s okamžitým nastavením rychlosti
-- ✅ `[SerializeField]` pro nastavení v Inspektoru
+- ✅ `PlayerMovement.cs` — skok na mezerník
+- ✅ `rb.linearVelocity` — okamžité nastavení rychlosti nahoru
+- ✅ `[SerializeField]` — nastavení hodnot v Inspektoru
 
-**Další lekce:** Roury, spawner a detekce kolize
-
-Notes:
-Ověřit: všichni mají funkční skok. Tipovat: jumpForce mezi 4–7 závisí na Gravity Scale. Nechte 5 minut na
-experimentování.
+**Příští lekce:** Roury, spawner a detekce kolize

@@ -127,13 +127,24 @@ export const projects: Project[] = [
 			},
 			{
 				slug: 'unity-dinosaur-4',
-				title: 'Skóre a obtížnost',
-				description: 'Počítadlo, zrychlení hry, high score',
+				title: 'GameManager a herní stav',
+				description: 'Singleton, enum stavů, Game Over panel, zrychlení',
+				duration: 25,
+				checklist: [
+					{ id: 'game-starts', label: 'Hra začne po stisku mezerníku' },
+					{ id: 'game-over', label: 'Game Over panel zobrazí se při kolizi' },
+					{ id: 'speed-increases', label: 'Hra se postupně zrychluje' }
+				]
+			},
+			{
+				slug: 'unity-dinosaur-5',
+				title: 'Skóre a high score',
+				description: 'TextMeshPro, PlayerPrefs, ScoreManager',
 				duration: 20,
 				checklist: [
 					{ id: 'score-displayed', label: 'Skóre zobrazeno na obrazovce' },
-					{ id: 'speed-increases', label: 'Hra se postupně zrychluje' },
-					{ id: 'highscore-saved', label: 'High score uložen v PlayerPrefs' }
+					{ id: 'highscore-saved', label: 'High score uložen v PlayerPrefs' },
+					{ id: 'game-complete', label: 'Celý průchod hrou je funkční' }
 				]
 			}
 		]

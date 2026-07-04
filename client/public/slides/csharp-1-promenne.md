@@ -1,5 +1,7 @@
 ## Lekce 1: Proměnné a datové typy
 
+Letní škola vývoje her 2026 · Matyáš
+
 - Struktura C# souboru
 - Výstup na konzoli
 - Datové typy — čísla, text, pravda/lež

@@ -2,7 +2,6 @@ export type Subject = {
 	slug: string
 	title: string
 	lecturer: string
-	description: string
 	accent: string // hex color, applied via style={{ backgroundColor }}
 }
 
@@ -11,36 +10,37 @@ export const subjects: Subject[] = [
 		slug: 'csharp',
 		title: 'Základy programování v C#',
 		lecturer: 'Matyáš, Eliška, Honza, Ondřej, Šimon, Adam',
-		description: 'Proměnné, podmínky, cykly, třídy a základy OOP.',
 		accent: '#c7dfff'
 	},
 	{
 		slug: '2d',
 		title: 'Základy 2D grafiky',
 		lecturer: 'Honza, Šimon',
-		description: 'Vektorová vs. rastrová grafika. Práce ve Figmě.',
 		accent: '#fcd7ec'
 	},
 	{
 		slug: '3d',
 		title: 'Základy 3D grafiky',
 		lecturer: 'David, Eliška',
-		description: 'Blender pro herní vývojáře. Tvorba a export herních assetů.',
 		accent: '#d4ffe3'
 	},
 	{
 		slug: 'gamedesign',
 		title: 'Základy gamedesignu',
 		lecturer: 'Matyáš, Ondřej',
-		description: 'Co dělá hru zábavnou. Herní mechaniky, smyčky, balance.',
 		accent: '#ffeed9'
 	},
 	{
 		slug: 'unity',
 		title: 'Základy Unity',
 		lecturer: 'Matyáš, Honza, Ondřej, Adam, Tobiáš, David',
-		description: 'GameObjects, komponenty, fyzika a tvorba první 3D hry.',
 		accent: '#f5c6c4'
+	},
+	{
+		slug: 'project',
+		title: 'Projektová práce',
+		lecturer: 'Matyáš, Honza, Šimon, Ondřej, David, Adam',
+		accent: '#dabef7'
 	}
 ]
 

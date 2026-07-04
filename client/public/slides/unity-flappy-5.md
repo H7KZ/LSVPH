@@ -1,41 +1,48 @@
 ## Flappy Bird — Lekce 5: Skóre a konec hry
 
-Letní škola vývoje her 2026
+Letní škola vývoje her 2026 · Honza
 
 ---
 
 ## Co postavíme dnes
 
-Počítadlo skóre a Game Over obrazovka.
+Score zóna pro počítání bodů a UI text zobrazující skóre.
 
-**Výsledek:** kompletní Flappy Bird — skóre roste, při Game Over vidíš výsledek
+**Výsledek:** kompletní Flappy Bird — skóre roste při průletu rourou
 
 Notes:
-Poslední lekce! Studenti jsou motivovaní — konec je blízko. Skóre + UI + GameManager = základ každé hry.
+Poslední lekce! Studenti jsou motivovaní. GameManager + UI = základ každé hry.
 
 ---
 
 ## Canvas — UI systém Unity
 
-1. **GameObject → UI → Canvas** (Unity vytvoří Canvas + EventSystem)
-2. Nastav **Canvas Scaler → UI Scale Mode:** `Scale With Screen Size`
-3. Nastav **Reference Resolution:** `1920 × 1080`
+1. **GameObject → UI → Canvas**
+2. Inspector → **Canvas Scaler → UI Scale Mode:** `Scale With Screen Size`
+3. **Reference Resolution:** `1920 × 1080`
 
 Notes:
-Canvas = "průhledná fólie" přes celou scénu. Všechny UI prvky jsou uvnitř Canvasu.
+Canvas = průhledná fólie přes celou scénu. Všechny UI prvky jsou uvnitř Canvasu.
+
+---
+
+> 📸 **Ukázka:** Hierarchy — Canvas s EventSystem, Inspector — Canvas Scaler nastaven
+
+Notes:
+Ukázat vytvořený Canvas, EventSystem a nastavení Canvas Scaler v Inspektoru.
 
 ---
 
 ## Text Mesh Pro — skóre
 
-1. Klikni pravým na Canvas → **UI → Text - TextMeshPro**
+1. Pravý klik na Canvas → **UI → Text - TextMeshPro**
 2. Pojmenuj ho `ScoreText`
 3. Nastav pozici: horní střed obrazovky
-4. Nastav velikost písma, barvu (bílá nebo žlutá)
+4. Velikost písma: 48, barva: bílá nebo černá
 5. Výchozí text: `0`
 
 Notes:
-TextMeshPro je moderní alternativa k starému UI Text. Pokud TMP není nainstalován, Unity nabídne instalaci.
+TextMeshPro je moderní alternativa k starému UI Text. Unity nabídne instalaci TMP pokud chybí.
 
 ---
 
@@ -45,70 +52,94 @@ TextMeshPro je moderní alternativa k starému UI Text. Pokud TMP není nainstal
 using TMPro;
 using UnityEngine;
 
+// Uchovává skóre a aktualizuje UI text.
+// Přiřazen prázdnému GameObjectu ve scéně.
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
+
     private int score;
 
+    // Voláno z PlayerMovement.OnTriggerEnter2D při průchodu Score zónou.
     public void AddPoints(int points)
     {
         score += points;
         scoreText.text = score.ToString();
     }
-
-    public void GameOver()
-    {
-        Time.timeScale = 0f; // zastavíme čas
-    }
 }
 ```
 
 Notes:
-`Time.timeScale = 0` zmrazí veškerou fyziku a Update smyčky. Jednoduchý ale efektivní způsob zastavení hry.
+GameManager drží skóre centrálně — jedna instance, všechny skripty ji mohou volat přes SerializeField referenci.
+
+---
+
+## Přiřazení GameManager
+
+1. Vytvoř prázdný GameObject → pojmenuj `GameManager`
+2. Přiřaď skript `GameManager.cs`
+3. Inspector → **Score Text:** přetáhni `ScoreText` z Hierarchy
+
+Notes:
+GameManager je prázdný GO — jen drží data a logiku, nevykresluje nic samo.
 
 ---
 
 ## Score zóna — bod za průlet
 
-1. Vytvoř prázdný GameObject uvnitř Pipe prefabu → pojmenuj `ScoreZone`
-2. Přidej **Box Collider 2D** → zaškrtni **Is Trigger**
-3. Nastav **Tag:** `Score`
-4. Umísti zónu do středu mezery mezi rourami
+1. Otevři **Pipe prefab** (dvakrát klikni v Project okně)
+2. Pravý klik na Pipe → **Create Empty** → pojmenuj `ScoreZone`
+3. Přidej **Box Collider 2D** → ✓ **Is Trigger**
+4. Nastav **Tag:** `Score` (Add Tag → přidej nový tag)
+5. Umísti do středu mezery mezi rourami
 
-V `PlayerMovement.cs` doplň do `OnTriggerEnter2D`:
-
-```csharp
-if (collision.CompareTag("Score"))
-    gameManager.AddPoints(1);
-```
-
-Nezapomeň přidat `[SerializeField] private GameManager gameManager;` a propojit v Inspektoru.
+ScoreZone je child prefabu → pohybuje se s rourou automaticky ✓
 
 Notes:
-ScoreZone je child objekt Pipe prefabu → pohybuje se s rourou automaticky.
+ScoreZone jako child objekt znamená, že stačí nastavit jednou v prefabu — platí pro všechny instance.
 
 ---
 
-## Game Over — update kolize
+> 📸 **Ukázka:** Pipe prefab — ScoreZone jako child objekt, Box Collider 2D s Is Trigger
 
-Uprav `OnTriggerEnter2D` v `PlayerMovement.cs`:
+Notes:
+Ukázat ScoreZone v hierarchii prefab editoru a jeho Collider v Inspektoru.
+
+---
+
+## Kompletní PlayerMovement.cs
 
 ```csharp
-void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.CompareTag("Pipe"))
-        gameManager.GameOver();
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-    if (collision.CompareTag("Score"))
-        gameManager.AddPoints(1);
+public class PlayerMovement : MonoBehaviour
+{
+    [SerializeField] private float jumpForce = 4f;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameManager gameManager;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            rb.linearVelocity = Vector2.up * jumpForce;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Pipe"))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        if (collision.CompareTag("Score"))
+            gameManager.AddPoints(1);
+    }
 }
 ```
 
-Smaž původní `SceneManager.LoadScene` — teď zavoláme `GameOver()`.
+Propoj **Game Manager** v Inspektoru ptáčka → přetáhni GameObject `GameManager`.
 
 Notes:
-Time.timeScale = 0 zastaví hru, ale nezobrazí žádný panel. Volitelné rozšíření: Game Over panel s textem a tlačítkem
-Restart.
+Přidat SerializeField GameManager a propojit v Inspektoru. Bez toho AddPoints vyhodí NullReferenceException.
 
 ---
 
@@ -117,11 +148,25 @@ Restart.
 Spusť Play Mode a zkontroluj:
 
 - ✅ Skóre roste při průletu rourou
-- ✅ Při kolizi s rourou se hra zastaví
-- ✅ Skóre zůstane viditelné po Game Over
+- ✅ Kolize s rourou restartuje hru (skóre se resetuje)
+- ✅ Roury se generují na náhodných výškách
 
-**Gratulace — dokončil jsi Flappy Bird!** 🎉
+**Gratulace — Flappy Bird je hotový!** 🎉
 
 Notes:
-Nech studenty 5–10 minut hrát navzájem jejich hry. Soutěž o nejvyšší skóre. Volitelná rozšíření: restart tlačítko,
-animace ptáčka, zvuky.
+Nech studenty 5–10 minut hrát navzájem. Soutěž o nejvyšší skóre.
+
+---
+
+## Volitelná rozšíření
+
+Hotov dřív? Zkus:
+
+- **Restart tlačítko** — `Button` v UI, `OnClick` → `SceneManager.LoadScene`
+- **Animace ptáčka** — `Animator` component, přepínání sprite
+- **Zvuky** — `AudioSource`, `AudioClip`, `audioSource.Play()`
+- **Best score** — `PlayerPrefs.SetInt("best", score)` + zobrazení
+- **Dvě roury** — horní a dolní s mezerou, `ScoreZone` uprostřed
+
+Notes:
+Tato rozšíření jsou nad rámec kurzu — pro rychlé a motivované studenty.

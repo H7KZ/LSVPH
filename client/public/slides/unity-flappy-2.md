@@ -1,6 +1,6 @@
 ## Flappy Bird — Lekce 2: Ptáček a fyzika
 
-Letní škola vývoje her 2026
+Letní škola vývoje her 2026 · Honza
 
 ---
 
@@ -11,7 +11,7 @@ Ptáček na scéně s fyzikou — padá dolů jako ve skutečné hře.
 **Výsledek:** GameObject ptáčka s Rigidbody2D, který padá pod vlivem gravitace
 
 Notes:
-Lekce zavádí klíčové pojmy Unity: GameObject, Component, Inspector, Rigidbody2D. Dej si čas na vysvětlení.
+Tato lekce zavádí klíčové pojmy Unity: GameObject, Component, Inspector, Rigidbody2D.
 
 ---
 
@@ -27,7 +27,7 @@ V Unity je vše **GameObject**. Vlastnosti mu dávají **komponenty**.
 | `Collider2D`     | detekce kolizí           |
 
 Notes:
-Analogie: GameObject = herec. Komponenty = kostým, hlas, pohyb. Bez komponent je GameObject prázdná krabice.
+Analogie: GameObject = herec. Komponenty = kostým, hlas, pohyb. Bez komponent je GO prázdná krabice.
 
 ---
 
@@ -35,26 +35,40 @@ Analogie: GameObject = herec. Komponenty = kostým, hlas, pohyb. Bez komponent j
 
 1. V **Project** → `Graphics/` přetáhni `Bird.png` do **Scene**
 2. Unity vytvoří GameObject se `SpriteRenderer`
-3. Přejmenuj ho na `Bird` (F2 v Hierarchy)
-4. Nastav **Position** v Inspektoru: `X: -2, Y: 0, Z: 0`
+3. Přejmenuj na `Bird` (F2 v Hierarchy)
+4. Inspector → **Position:** `X: -2, Y: 0, Z: 0`
 
 Notes:
-Přejmenování je důležité — až budeme hledat objekt ve skriptu, název nás zachrání.
+Přejmenování je důležité — v skriptu na objekt odkazujeme.
+
+---
+
+> 📸 **Ukázka:** Hierarchy — objekt Bird, Inspector — Transform a komponenta SpriteRenderer
+
+Notes:
+Ukázat přejmenovaný Bird objekt a komponentu SpriteRenderer v Inspektoru.
 
 ---
 
 ## Rigidbody2D — přidání fyziky
 
 1. Vyber `Bird` v Hierarchy
-2. V Inspektoru → **Add Component** → hledej `Rigidbody 2D`
+2. Inspector → **Add Component** → `Rigidbody 2D`
 3. Nastav:
-    - **Gravity Scale:** `1.5` (trochu rychlejší pád)
-    - **Freeze Rotation → Z:** ✓ zaškrtni
+    - **Gravity Scale:** `1.5`
+    - **Constraints → Freeze Rotation Z:** ✓
 
-**Spusť Play Mode (▶)** → ptáček padá dolů ✓
+**Play Mode (▶)** → ptáček padá dolů ✓
 
 Notes:
-Freeze Rotation Z = ptáček se neobrátí při první kolizi (fyzika by ho jinak roztočila). Experimentujte s Gravity Scale.
+Freeze Rotation Z = ptáček se neobrátí při první kolizi. Vyzkoušejte různé hodnoty Gravity Scale.
+
+---
+
+> 📸 **Ukázka:** Inspector — Rigidbody2D, Gravity Scale: 1.5, Freeze Rotation Z zaškrtnutý
+
+Notes:
+Ukázat všechna nastavení Rigidbody2D v Inspektoru.
 
 ---
 
@@ -63,59 +77,54 @@ Freeze Rotation Z = ptáček se neobrátí při první kolizi (fyzika by ho jina
 ```
 Každý snímek:  velocity.y -= gravitace × deltaTime
 
-Gravity Scale 1.0 → mírný pád (jako na Měsíci)
-Gravity Scale 1.5 → přirozený pád
+Gravity Scale 1.0 → pomalý pád
+Gravity Scale 1.5 → přirozený pád  ← použijeme
 Gravity Scale 3.0 → rychlý pád (těžší hra)
 ```
 
-Vyzkoušej různé hodnoty v Inspektoru **během Play Mode**
+Vyzkoušej různé hodnoty **během Play Mode**
 
 Notes:
-V Play Mode lze měnit hodnoty v Inspektoru — ale změny se po ukončení Play Mode neuloží! To je časté překvapení pro
-začátečníky.
+Hodnoty v Play Mode se po ukončení NEuloží! Časté překvapení pro začátečníky.
 
 ---
 
-## BoxCollider2D — přidání kolizní zóny
+## BoxCollider2D — kolizní zóna
 
 1. Vyber `Bird` v Hierarchy
 2. **Add Component** → `Box Collider 2D`
 3. ✓ Zaškrtni **Is Trigger**
-4. Uprav velikost: tlačítko **Edit Collider** → táhni zelené body tak, aby odpovídaly tvaru ptáčka
+4. **Edit Collider** → přizpůsob tvar ptáčkovi
 
 Notes:
-Is Trigger = jiné objekty "proletí" skrz, ale Unity nás upozorní (callback). Bez Is Trigger by fyzika ptáčka odrážela od
-objektů.
+Is Trigger = průlet skrz, ale dostaneme callback. Bez Is Trigger by se ptáček fyzicky odrážel.
 
 ---
 
 ## Trigger vs. fyzická kolize
 
-| Typ            | Is Trigger | Chování                    |
-| -------------- | ---------- | -------------------------- |
-| Fyzická kolize | ☐          | Blokuje průchod, odraz     |
-| Trigger zóna   | ✓          | Proletí skrz, jen callback |
+| Typ            | Is Trigger | Chování                   |
+| -------------- | ---------- | ------------------------- |
+| Fyzická kolize | ☐          | Blokuje průchod, odraz    |
+| Trigger zóna   | ✓          | Průlet skrz, jen callback |
 
 ```csharp
 // fyzická kolize:
 void OnCollisionEnter2D(Collision2D col) { }
 
-// trigger zóna:
-void OnTriggerEnter2D(Collider2D col)    { }
+// trigger:
+void OnTriggerEnter2D(Collider2D col)   { }
 ```
 
 Notes:
-Pro Flappy Bird chceme trigger — jinak by se ptáček odrážel od rour divně. My sami rozhodneme, co se při kontaktu stane.
+Pro Flappy Bird chceme trigger — sami rozhodujeme co se při kontaktu stane.
 
 ---
 
 ## Shrnutí lekce 2
 
 - ✅ Ptáček jako GameObject se SpriteRenderer
-- ✅ Rigidbody2D — gravitace, Freeze Rotation Z
+- ✅ Rigidbody2D — Gravity Scale 1.5, Freeze Rotation Z
 - ✅ BoxCollider2D s Is Trigger
 
-**Další lekce:** Skript pro skok při stisku mezerníku
-
-Notes:
-Ověřit: všichni mají ptáčka, který padá dolů při Play Mode. Collider nemusí být perfektní — přibližně stačí.
+**Příští lekce:** Skript pro skok při stisku mezerníku

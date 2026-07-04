@@ -22,7 +22,12 @@ export const presentations: Presentation[] = [
 	{ slug: '3d-blender-edit-mode', subjectSlug: '3d', title: 'Blender: Modelování' },
 	{ slug: '3d-blender-tvorba-assetu', subjectSlug: '3d', title: 'Blender: Tvorba assetu a export' },
 	{ slug: 'gamedesign-uvod', subjectSlug: 'gamedesign', title: 'Úvod do předmětu' },
-	{ slug: 'unity-uvod', subjectSlug: 'unity', title: 'Úvod do předmětu' }
+	{ slug: 'unity-uvod', subjectSlug: 'unity', title: 'Úvod do předmětu' },
+	{ slug: 'unity-jumpking-1', subjectSlug: 'unity', title: 'Jump King 1: Scéna a postava' },
+	{ slug: 'unity-jumpking-2', subjectSlug: 'unity', title: 'Jump King 2: Nabíjený skok' },
+	{ slug: 'unity-jumpking-3', subjectSlug: 'unity', title: 'Jump King 3: Plošiny a level design' },
+	{ slug: 'unity-jumpking-4', subjectSlug: 'unity', title: 'Jump King 4: Kamera po patrech' },
+	{ slug: 'unity-jumpking-5', subjectSlug: 'unity', title: 'Jump King 5: GameManager, UI a rekord' }
 ]
 
 export function findPresentationBySlug(slug: string): Presentation | undefined {
