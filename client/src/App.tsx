@@ -5,6 +5,8 @@ import Lunch from './pages/Lunch'
 import NotFound from './pages/NotFound'
 import Presentation from './pages/Presentation'
 import Presentations from './pages/Presentations'
+import Project from './pages/Project'
+import Projects from './pages/Projects'
 import Timetable from './pages/Timetable'
 
 export default function App() {
@@ -16,6 +18,8 @@ export default function App() {
 					<Route path="/timetable" element={<Timetable />} />
 					<Route path="/lunch" element={<Lunch />} />
 					<Route path="/presentations" element={<Presentations />} />
+					<Route path="/projects" element={<Projects />} />
+					<Route path="/projects/:slug" element={<Project />} />
 					<Route path="*" element={<NotFound />} />
 				</Route>
 				<Route path="/presentation/:slug" element={<Presentation />} />

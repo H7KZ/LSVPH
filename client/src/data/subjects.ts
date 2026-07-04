@@ -42,13 +42,6 @@ export const subjects: Subject[] = [
 		description: 'GameObjects, komponenty, fyzika a tvorba první 3D hry.',
 		accent: '#f5c6c4'
 	},
-	{
-		slug: 'project',
-		title: 'Projektová práce',
-		lecturer: 'Matyáš, Honza, Šimon, Ondřej, David, Adam',
-		description: 'GameObjects, komponenty, fyzika a tvorba první 3D hry.',
-		accent: '#dabef7'
-	}
 ]
 
 export function findSubjectBySlug(slug: string): Subject | undefined {

@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom'
 const links = [
 	{ to: '/timetable', label: 'Rozvrh' },
 	{ to: '/lunch', label: 'Obědy' },
-	{ to: '/presentations', label: 'Prezentace' }
+	{ to: '/presentations', label: 'Prezentace' },
+	{ to: '/projects', label: 'Projekty' },
 ]
 
 export default function Nav() {

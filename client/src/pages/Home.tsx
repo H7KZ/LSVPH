@@ -28,6 +28,12 @@ export default function Home() {
 					>
 						Prezentace
 					</Link>
+					<Link
+						to="/projects"
+						className="border-ink hover:bg-ink hover:text-bg inline-block border-2 px-5 py-2 text-sm font-bold tracking-widest uppercase transition-colors"
+					>
+						Projekty
+					</Link>
 				</div>
 			</div>
 
