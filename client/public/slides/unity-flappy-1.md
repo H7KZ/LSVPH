@@ -1,135 +1,100 @@
-## Flappy Bird — Část 1: Ptáček
+## Flappy Bird — Lekce 1: Projekt a scéna
 
-Letní škola vývoje her 2026
+Letní škola vývoje her 2026 · Honza
 
 ---
 
-## Co dnes postavíme
+## Co postavíme dnes
 
-Flappy Bird klon od základu:
+Nastavíme Unity projekt a připravíme scénu pro Flappy Bird.
 
-- Ptáček který padá díky gravitaci
-- Skok mezerníkem
-- Roury jako překážky
-- Skóre a restart
-
-**Cíl dopoledne:** funkční ptáček s fyzikou a kolekcí kolizí
+**Výsledek:** prázdná 2D scéna se složkovou strukturou a importovanými assety
 
 Notes:
-Ukažte hotovou hru nejdřív alespoň minutu. Studenti by měli vidět konečný cíl před tím než začneme. Pak otevřete projekt a jdeme na to.
+Čistě přípravná lekce — cca 15 minut. Rychlejší studenti mohou prozkoumávat Unity UI.
+
+---
+
+## Nový Unity projekt
+
+1. Otevři **Unity Hub** → **New Project**
+2. Vyber šablonu **2D (Core)**
+3. Název: `FlappyBird`, zvol složku
+4. **Create project** — vyčkej ~1 minutu
+
+Notes:
+2D Core = bez nadbytečných balíčků. Během čekání ukažte co je Unity Hub a Unity Editor.
+
+---
+
+> 📸 **Ukázka:** Unity Hub — záložka Projects, tlačítko New Project, výběr šablony 2D (Core)
+
+Notes:
+Projděte studentům kde kliknout na New Project a jak vybrat šablonu.
 
 ---
 
 ## Struktura projektu
 
-Čtyři scripty, každý má jednu zodpovědnost:
-
-| Script           | Co dělá                                   |
-| ---------------- | ----------------------------------------- |
-| `PlayerMovement` | Vstup hráče, skok, detekce kolizí         |
-| `Pipe`           | Pohyb roury doleva, zničení za obrazovkou |
-| `PipeSpawner`    | Pravidelné vytváření nových rour          |
-| `GameManager`    | Skóre a aktualizace UI                    |
-
-Notes:
-Otevřete projekt ve Visual Studio. Ukažte strukturu složek v Unity Project okně. Jeden script = jedna zodpovědnost = jednodušší debugging. Pokud script dělá příliš mnoho věcí, je čas ho rozdělit.
-
----
-
-## Fyzika ptáčka
-
-`Rigidbody2D` — fyzikální komponenta pro 2D objekty
+V **Project** okně: pravý klik → **Create → Folder**
 
 ```
-Gravity Scale = 1   →   ptáček padá dolů
-linearVelocity = Vector2.up * 4   →   ptáček vyletí nahoru
+Assets/
+├── Graphics/    ← obrázky (Bird.png, Pipe.png)
+├── Scripts/     ← C# skripty
+└── Prefabs/     ← hotové herní objekty
 ```
 
-Gravitace pak velocity postupně snižuje → parabolický oblouk
-
 Notes:
-Přidejte Rigidbody2D komponentu na ptáčka v Inspectoru (Add Component → Physics 2D → Rigidbody2D). Ukažte co se stane v Play Mode - ptáček padá. Experimentujte s Gravity Scale živě (hodnoty 0.5, 2, 5).
+Ukázat Project okno. Drag & drop do Graphics složky — Unity importuje automaticky.
 
 ---
 
-## PlayerMovement.cs — skok
+## Import assetů
 
-```csharp
-void Update()
-{
-    if (Input.GetKeyDown(KeyCode.Space))
-    {
-        // Nastavíme okamžitou rychlost nahoru
-        // Gravitace pak velocity postupně snižuje
-        rb.linearVelocity = Vector2.up * jumpForce;
-    }
-}
-```
+1. Stáhni assety ze sdíleného odkazu (učitel pošle do chatu)
+2. Přetáhni `Bird.png` a `Pipe.png` do složky **Graphics**
+3. Unity vytvoří importovaný Sprite automaticky
 
-`Update()` = každý snímek (60× za sekundu)
-
-`GetKeyDown` = pouze v moment zmáčknutí, ne při držení
+**Ověření:** V Project okně vidíš náhledy obrázků ✓
 
 Notes:
-Rozdíl: GetKey (každý snímek při držení), GetKeyDown (jen první snímek), GetKeyUp (při puštění). Pro skok chceme GetKeyDown - jedno zmáčknutí = jeden skok. Ukažte rozdíl živě.
+Bez assetů: libovolná PNG nebo nakreslený placeholder funguje stejně dobře.
 
 ---
 
-## Trigger vs Collider
-
-Dva typy `BoxCollider2D`:
-
-|                | `IsTrigger = false`  | `IsTrigger = true`              |
-| -------------- | -------------------- | ------------------------------- |
-| Fyzická kolize | ✅ objekty se odrazí | ❌ projdou skrz                 |
-| Callback       | `OnCollisionEnter2D` | `OnTriggerEnter2D`              |
-| Použití        | Pevné zdi, podlaha   | Neviditelné zóny, sběr předmětů |
+> 📸 **Ukázka:** Project okno — složky Graphics, Scripts, Prefabs s importovanými sprity
 
 Notes:
-Ukažte v Inspectoru na ptáčkovi - BoxCollider2D s IsTrigger = true. Fyzická kolize s rourou by způsobila divné odrážení. Trigger nám jen řekne "dotkli jste se" a my rozhodneme co se stane.
+Ukázat hotovou strukturu složek a náhledy importovaných obrázků.
 
 ---
 
-## OnTriggerEnter2D — tagy
+## Nastavení kamery
 
-```csharp
-private void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.CompareTag("Pipe"))
-    {
-        // Trefili jsme rouru → restartujeme scénu
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    if (collision.CompareTag("Score"))
-    {
-        // Prošli jsme mezerou → přidáme bod
-        gameManager.AddPoints(1);
-    }
-}
-```
-
-**Tag** = štítek na GameObject (nastavit v Inspectoru → Tag dropdown)
+1. Klikni na **Main Camera** v Hierarchy
+2. Inspector → nastav:
+    - **Projection:** Orthographic
+    - **Size:** 5
+    - **Background Color:** světle modrá
 
 Notes:
-Ukažte tagy na rouře v Inspectoru. CompareTag je rychlejší než == "Pipe" (nemusí alokovat string). SceneManager.LoadScene restartuje celou scénu - vše se vrátí do počátečního stavu.
+Orthographic = 2D pohled bez perspektivy. Size 5 = 10 Unity jednotek výšky viditelné scény.
 
 ---
 
-## Shrnutí části 1
-
-Naučili jsme se:
-
-- ✅ `Rigidbody2D` — fyzika, gravitace, velocity
-- ✅ `Update()` + `GetKeyDown` — vstup hráče
-- ✅ `BoxCollider2D` + `IsTrigger` — detekce kontaktu
-- ✅ `OnTriggerEnter2D` + tagy — reakce na kolize
-
-Po obědě přidáme:
-
-- 🍽 Roury které se spawnují a pohybují
-- 🍽 Skóre a UI
-- 🍽 Kompletní herní smyčku
+> 📸 **Ukázka:** Inspector — Main Camera, Projection: Orthographic, Size: 5
 
 Notes:
-Dejte studentům 10 minut na experimentování - změna jumpForce, gravity scale, přidání dalšího klíče. Pak přestávka na oběd.
+Ukázat Inspector kamery se všemi nastaveními.
+
+---
+
+## Shrnutí lekce 1
+
+- ✅ Unity 2D projekt vytvořen
+- ✅ Složky Graphics / Scripts / Prefabs
+- ✅ Assety importovány
+- ✅ Kamera nastavena
+
+**Příští lekce:** Ptáček, Rigidbody2D a gravitace

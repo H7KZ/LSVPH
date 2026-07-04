@@ -1,5 +1,7 @@
 ## Lekce 6: Třídy a OOP
 
+Letní škola vývoje her 2026 · Matyáš
+
 - Co je třída a objekt
 - Vytvoření objektu pomocí `new`
 - Konstruktor

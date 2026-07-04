@@ -1,5 +1,7 @@
 ## Lekce 7: Opakování a cvičení
 
+Letní škola vývoje her 2026 · Matyáš
+
 Co jsme za týden prošli:
 
 - Proměnné, typy, operátory, Math

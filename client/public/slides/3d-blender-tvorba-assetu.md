@@ -1,11 +1,12 @@
 ## Blender: Tvorba assetu a export
 
-Od modelování k hotovému modelu ve tvé hře.
+_Od modelování k hotovému modelu ve tvé hře._
 
-_Základy 3D grafiky · LŠVPH 2026_
+Letní škola vývoje her 2026 · David
 
 Notes:
-Cílem této přednášky je projít si kompletní postup (pipeline) tvorby 3D assetu: od pokročilejšího modelování s Boolean operacemi, přes rozbalení UV mapy a malování textury, až po export a import do Unity.
+Cílem této přednášky je projít si kompletní postup (pipeline) tvorby 3D assetu: od pokročilejšího modelování s Boolean
+operacemi, přes rozbalení UV mapy a malování textury, až po export a import do Unity.
 
 ---
 
@@ -17,7 +18,8 @@ Cílem této přednášky je projít si kompletní postup (pipeline) tvorby 3D a
 - Jak správně exportovat model a nahrát ho do **Unity**.
 
 Notes:
-Vysvětlit, že dnes propojíme všechny dosavadní znalosti Blenderu a dotáhneme model do stavu, kdy ho můžeme použít přímo ve hře.
+Vysvětlit, že dnes propojíme všechny dosavadní znalosti Blenderu a dotáhneme model do stavu, kdy ho můžeme použít přímo
+ve hře.
 
 ---
 
@@ -36,7 +38,8 @@ Vysvětlit, že dnes propojíme všechny dosavadní znalosti Blenderu a dotáhne
 </div>
 
 Notes:
-Boolean modifikátor je extrémně silný pro rychlé otvory. Například u hrnku můžeme ucho a tělo sjednotit (Union), nebo válcem vykrojit vnitřek hrnku (Difference).
+Boolean modifikátor je extrémně silný pro rychlé otvory. Například u hrnku můžeme ucho a tělo sjednotit (Union), nebo
+válcem vykrojit vnitřek hrnku (Difference).
 
 ---
 
@@ -49,7 +52,8 @@ Boolean modifikátor je extrémně silný pro rychlé otvory. Například u hrnk
 5. Jakmile jsi spokojený, klikni na šipku u modifikátoru a dej **Apply** (tím se řez zafixuje do sítě).
 
 Notes:
-Upozornit studenty, že řezací objekt po kliknutí kapátkem nezmizí — stále překrývá výsledek. Musíme ho skrýt (H) nebo mu nastavit zobrazení jako "Wire" v nastavení objektu, abychom viděli díru.
+Upozornit studenty, že řezací objekt po kliknutí kapátkem nezmizí — stále překrývá výsledek. Musíme ho skrýt (H) nebo mu
+nastavit zobrazení jako "Wire" v nastavení objektu, abychom viděli díru.
 
 ---
 
@@ -68,20 +72,25 @@ Upozornit studenty, že řezací objekt po kliknutí kapátkem nezmizí — stá
 </div>
 
 Notes:
-Vysvětlit analogii s čokoládovým Mikulášem nebo globusem, který rozložíme na mapu světa. Pokud nerozbalíme UV mapu, textura se na modelu ošklivě roztáhne nebo nebude vidět vůbec.
+Vysvětlit analogii s čokoládovým Mikulášem nebo globusem, který rozložíme na mapu světa. Pokud nerozbalíme UV mapu,
+textura se na modelu ošklivě roztáhne nebo nebude vidět vůbec.
 
 ---
 
 ## Textury: Malujeme na model
 
 - **Texture Paint**: Blender má vestavěný režim pro kreslení. Najdeš ho v záložkách úplně nahoře.
-- **Příprava (Zabránění fialové chybě)**: Vpravo v panelu _Active Tool_ (nebo pod záložkou _Material_) klikni na **+ Add Texture** a zvol **Base Color** (vyber barvu a rozlišení, např. 2048x2048).
+- **Příprava (Zabránění fialové chybě)**: Vpravo v panelu _Active Tool_ (nebo pod záložkou _Material_) klikni na **+ Add
+  Texture** a zvol **Base Color** (vyber barvu a rozlišení, např. 2048x2048).
 - **Kreslení**: Můžeš kreslit štětcem přímo na 3D model! Blender barvy automaticky promítá na rozbalenou UV mapu.
 
-> **Pozor:** Kreslená textura se **NEUKLÁDÁ** do `.blend` souboru! V okně _Image Editoru_ (vlevo) musíš jít do **Image → Save As** (nebo zmáčknout **Alt + S**) a uložit obrázek jako `.png` na disk. Pokud to neuděláš, po zavření Blenderu o celou práci přijdeš.
+> **Pozor:** Kreslená textura se **NEUKLÁDÁ** do `.blend` souboru! V okně _Image Editoru_ (vlevo) musíš jít do **Image →
+> Save As** (nebo zmáčknout **Alt + S**) a uložit obrázek jako `.png` na disk. Pokud to neuděláš, po zavření Blenderu o
+> celou práci přijdeš.
 
 Notes:
-Zdůraznit nutnost uložení obrázku. Studenti na to velmi často zapomínají a pak se diví, proč se jim textura po restartu Blenderu smazala.
+Zdůraznit nutnost uložení obrázku. Studenti na to velmi často zapomínají a pak se diví, proč se jim textura po restartu
+Blenderu smazala.
 
 ---
 
@@ -113,7 +122,8 @@ Pokud má tvůj model oranžový středový bod (Origin) uprostřed, bude se v U
 4. Stiskni **Ctrl + A** a zvol **All Transforms**, aby se vše vynulovalo a potvrdilo.
 
 Notes:
-Tímto způsobem zajistíme, že v Unity bude model po přetažení do scény stát rovně na zemi a bude se otáčet kolem své základny, nikoli kolem svého středu. Nebo vysvětlit Object mode, tool, affect only origins.
+Tímto způsobem zajistíme, že v Unity bude model po přetažení do scény stát rovně na zemi a bude se otáčet kolem své
+základny, nikoli kolem svého středu. Nebo vysvětlit Object mode, tool, affect only origins.
 
 ---
 
@@ -126,10 +136,12 @@ Tímto způsobem zajistíme, že v Unity bude model po přetažení do scény st
     - Klikni pravým tlačítkem v Assets → **Create → Material** (pojmenuj ho).
     - Přetáhni naši texturu do políčka **Albedo** (nebo _Base Map_) u nového materiálu.
     - Přetáhni tento nový materiál myší přímo na model ve scéně.
-4. **Tvorba Prefabu**: Nastavený model ze scény přetáhni zpět do složky Assets. Vznikne **Prefab** (šablona), kterou pak můžeš ve hře používat opakovaně.
+4. **Tvorba Prefabu**: Nastavený model ze scény přetáhni zpět do složky Assets. Vznikne **Prefab** (šablona), kterou pak
+   můžeš ve hře používat opakovaně.
 
 Notes:
-Ukázat studentům živě v Unity. Jakmile vytvoří Prefab, mohou ho nakopírovat 50x do scény a všechny kopie budou sdílet stejné nastavení a materiály.
+Ukázat studentům živě v Unity. Jakmile vytvoří Prefab, mohou ho nakopírovat 50x do scény a všechny kopie budou sdílet
+stejné nastavení a materiály.
 
 ---
 

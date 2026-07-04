@@ -1,12 +1,8 @@
 ## Základy 3D grafiky
 
-<div style="display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:center">
-<div style="text-align:left">
-<h2>Základy 3D grafiky</h2>
-<p>První krůčky ve světě 3D modelování, materiálů a tvorby vlastních herních assetů.</p>
-</div>
-<img src="/slides/assets/blender_hero_island.jpg" style="width:100%;border:2px solid #000">
-</div>
+_První krůčky ve světě 3D modelování, materiálů a tvorby vlastních herních assetů._
+
+Letní škola vývoje her 2026 · David
 
 ---
 

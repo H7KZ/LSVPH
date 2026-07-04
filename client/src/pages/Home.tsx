@@ -12,7 +12,7 @@ export default function Home() {
 				<div className="mt-6 flex flex-wrap gap-3">
 					<Link
 						to="/timetable"
-						className="border-ink bg-accent hover:bg-ink hover:text-accent inline-block border-2 px-5 py-2 text-sm font-bold tracking-widest uppercase transition-colors"
+						className="border-ink hover:bg-ink hover:text-bg inline-block border-2 px-5 py-2 text-sm font-bold tracking-widest uppercase transition-colors"
 					>
 						Rozvrh
 					</Link>
@@ -27,6 +27,12 @@ export default function Home() {
 						className="border-ink hover:bg-ink hover:text-bg inline-block border-2 px-5 py-2 text-sm font-bold tracking-widest uppercase transition-colors"
 					>
 						Prezentace
+					</Link>
+					<Link
+						to="/projects"
+						className="border-ink hover:bg-ink hover:text-bg inline-block border-2 px-5 py-2 text-sm font-bold tracking-widest uppercase transition-colors"
+					>
+						Projekty
 					</Link>
 				</div>
 			</div>
