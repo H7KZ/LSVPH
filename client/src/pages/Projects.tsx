@@ -31,7 +31,7 @@ export default function Projects() {
 										{project.lessons.length} lekcí
 									</span>
 									<span className="border-ink border px-2 py-0.5 text-xs">
-										{project.lessons.reduce((sum, l) => sum + parseInt(l.duration), 0)} min
+										{project.lessons.reduce((sum, l) => sum + l.duration, 0)} min
 									</span>
 									{completed > 0 && (
 										<span className="border-ink border bg-[#d4ffe3] px-2 py-0.5 text-xs">

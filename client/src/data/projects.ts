@@ -7,7 +7,7 @@ export type Lesson = {
 	slug: string
 	title: string
 	description: string
-	duration: string
+	duration: number
 	checklist: ChecklistItem[]
 }
 
@@ -32,7 +32,7 @@ export const projects: Project[] = [
 				slug: 'unity-flappy-1',
 				title: 'Projekt a scéna',
 				description: 'Nový 2D projekt, importování assetů, hlavní scéna',
-				duration: '15 min',
+				duration: 15,
 				checklist: [
 					{ id: 'project-created', label: 'Unity projekt vytvořen' },
 					{ id: 'folders-ready', label: 'Složky Graphics, Scripts, Prefabs vytvořeny' },
@@ -43,7 +43,7 @@ export const projects: Project[] = [
 				slug: 'unity-flappy-2',
 				title: 'Ptáček a fyzika',
 				description: 'Sprite, Rigidbody2D, gravitace, první skript',
-				duration: '20 min',
+				duration: 20,
 				checklist: [
 					{ id: 'sprite-placed', label: 'Sprite ptáčka na scéně' },
 					{ id: 'rigidbody-added', label: 'Rigidbody2D přidán a nakonfigurován' },
@@ -54,7 +54,7 @@ export const projects: Project[] = [
 				slug: 'unity-flappy-3',
 				title: 'Skok a ovládání',
 				description: 'AddForce, Input.GetKeyDown, BoxCollider2D',
-				duration: '20 min',
+				duration: 20,
 				checklist: [
 					{ id: 'script-created', label: 'PlayerMovement.cs skript vytvořen' },
 					{ id: 'jump-works', label: 'Skok funguje na mezerník' },
@@ -65,7 +65,7 @@ export const projects: Project[] = [
 				slug: 'unity-flappy-4',
 				title: 'Překážky a kolize',
 				description: 'Prefab roury, spawner, pohyb, OnTriggerEnter',
-				duration: '25 min',
+				duration: 25,
 				checklist: [
 					{ id: 'pipe-prefab', label: 'Prefab roury vytvořen' },
 					{ id: 'spawner-works', label: 'Spawner generuje roury' },
@@ -76,7 +76,7 @@ export const projects: Project[] = [
 				slug: 'unity-flappy-5',
 				title: 'Skóre a konec hry',
 				description: 'UI Text, počítadlo bodů, Game Over obrazovka',
-				duration: '20 min',
+				duration: 20,
 				checklist: [
 					{ id: 'score-ui', label: 'UI skóre zobrazeno na scéně' },
 					{ id: 'score-increments', label: 'Skóre roste při průletu rourou' },
@@ -96,7 +96,7 @@ export const projects: Project[] = [
 				slug: 'unity-dinosaur-1',
 				title: 'Scéna a dino',
 				description: 'Projekt, pozadí, postava, animátor',
-				duration: '20 min',
+				duration: 20,
 				checklist: [
 					{ id: 'project-created', label: 'Unity projekt vytvořen' },
 					{ id: 'dino-placed', label: 'Dinosaurus na scéně se spritem' },
@@ -107,7 +107,7 @@ export const projects: Project[] = [
 				slug: 'unity-dinosaur-2',
 				title: 'Skok a scrolling',
 				description: 'Skok dina, scrollující pozadí, iluze pohybu',
-				duration: '25 min',
+				duration: 25,
 				checklist: [
 					{ id: 'jump-works', label: 'Dino skáče při stisku klávesy' },
 					{ id: 'background-scrolls', label: 'Pozadí se scrolluje doleva' },
@@ -118,7 +118,7 @@ export const projects: Project[] = [
 				slug: 'unity-dinosaur-3',
 				title: 'Překážky a kolize',
 				description: 'Spawner kaktusů, náhodná generace, smrt',
-				duration: '20 min',
+				duration: 20,
 				checklist: [
 					{ id: 'cactus-prefab', label: 'Prefab kaktusu vytvořen' },
 					{ id: 'spawner-works', label: 'Kaktusy se náhodně generují' },
@@ -129,7 +129,7 @@ export const projects: Project[] = [
 				slug: 'unity-dinosaur-4',
 				title: 'Skóre a obtížnost',
 				description: 'Počítadlo, zrychlení hry, high score',
-				duration: '20 min',
+				duration: 20,
 				checklist: [
 					{ id: 'score-displayed', label: 'Skóre zobrazeno na obrazovce' },
 					{ id: 'speed-increases', label: 'Hra se postupně zrychluje' },
@@ -149,7 +149,7 @@ export const projects: Project[] = [
 				slug: 'unity-jumpking-1',
 				title: 'Scéna a postava',
 				description: 'Projekt, tile mapa, základní pohyb',
-				duration: '15 min',
+				duration: 15,
 				checklist: [
 					{ id: 'project-created', label: 'Unity projekt vytvořen' },
 					{ id: 'tilemap-ready', label: 'Tilemap s podlahou na scéně' },
@@ -160,7 +160,7 @@ export const projects: Project[] = [
 				slug: 'unity-jumpking-2',
 				title: 'Nabíjený skok',
 				description: 'Držení klávesy, síla skoku, vizuální feedback',
-				duration: '25 min',
+				duration: 25,
 				checklist: [
 					{ id: 'charge-works', label: 'Držení mezerníku nabíjí skok' },
 					{ id: 'jump-force-varies', label: 'Síla skoku závisí na době nabití' },
@@ -171,7 +171,7 @@ export const projects: Project[] = [
 				slug: 'unity-jumpking-3',
 				title: 'Platformy a level design',
 				description: 'Tilemap kolize, layout úrovně, pád dolů',
-				duration: '20 min',
+				duration: 20,
 				checklist: [
 					{ id: 'tilemap-collision', label: 'Tilemap Collider 2D nastaven' },
 					{ id: 'level-built', label: 'Alespoň 3 platformy v různých výškách' },
@@ -182,7 +182,7 @@ export const projects: Project[] = [
 				slug: 'unity-jumpking-4',
 				title: 'Kamera a scrolling',
 				description: 'Cinemachine, follow kamera, hranice mapy',
-				duration: '20 min',
+				duration: 20,
 				checklist: [
 					{ id: 'cinemachine-added', label: 'Cinemachine Virtual Camera přidána' },
 					{ id: 'camera-follows', label: 'Kamera sleduje postavu' },
@@ -193,7 +193,7 @@ export const projects: Project[] = [
 				slug: 'unity-jumpking-5',
 				title: 'Cíl a polish',
 				description: 'Cílová zóna, vítězná obrazovka, zvuky',
-				duration: '20 min',
+				duration: 20,
 				checklist: [
 					{ id: 'goal-zone', label: 'Cílová zóna nahoře mapy' },
 					{ id: 'win-screen', label: 'Vítězná obrazovka při dosažení cíle' },
