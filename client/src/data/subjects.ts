@@ -38,7 +38,7 @@ export const subjects: Subject[] = [
 	{
 		slug: 'unity',
 		title: 'Základy Unity',
-		lecturer: 'Matyáš, Honza, Ondřej, Adam, Tobiáš',
+		lecturer: 'Matyáš, Honza, Ondřej, Adam, Tobiáš, David',
 		description: 'GameObjects, komponenty, fyzika a tvorba první 3D hry.',
 		accent: '#f5c6c4'
 	},

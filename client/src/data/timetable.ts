@@ -111,38 +111,38 @@ export const groups: Group[] = [
 						room: '6',
 						lecturers: ['Matyáš', 'Eliška']
 					},
-					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'TBD'] },
-					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'TBD'] },
+					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'David'] },
+					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'David'] },
 					null,
-					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'TBD'] },
-					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'TBD'] },
-					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'TBD'] }
+					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'David'] },
+					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'David'] },
+					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Ondřej', 'David'] }
 				]
 			},
 			{
 				day: 'Čtvrtek',
 				date: '9. 7.',
 				slots: [
-					projekt('6', 'Matyáš', 'David'),
-					projekt('6', 'Matyáš', 'David'),
-					projekt('6', 'Matyáš', 'David'),
+					projekt('6', 'Ondřej', 'David'),
+					projekt('6', 'Ondřej', 'David'),
+					projekt('6', 'Ondřej', 'David'),
 					null,
-					projekt('6', 'Matyáš', 'David'),
-					projekt('6', 'Matyáš', 'David'),
-					projekt('6', 'Matyáš', 'David')
+					projekt('6', 'Ondřej', 'David'),
+					projekt('6', 'Ondřej', 'David'),
+					projekt('6', 'Ondřej', 'David')
 				]
 			},
 			{
 				day: 'Pátek',
 				date: '10. 7.',
 				slots: [
-					projekt('6', 'Matyáš', 'David'),
-					projekt('6', 'Matyáš', 'David'),
-					projekt('6', 'Matyáš', 'David'),
+					projekt('6', 'Ondřej', 'David'),
+					projekt('6', 'Ondřej', 'David'),
+					projekt('6', 'Ondřej', 'David'),
 					null,
-					projekt('6', 'Matyáš', 'David'),
-					projekt('6', 'Matyáš', 'David'),
-					projekt('6', 'Matyáš', 'David')
+					projekt('6', 'Ondřej', 'David'),
+					projekt('6', 'Ondřej', 'David'),
+					projekt('6', 'Ondřej', 'David')
 				]
 			}
 		]
@@ -268,26 +268,26 @@ export const groups: Group[] = [
 				day: 'Čtvrtek',
 				date: '9. 7.',
 				slots: [
-					projekt('109', 'Honza', 'Šimon'),
-					projekt('109', 'Honza', 'Šimon'),
-					projekt('109', 'Honza', 'Šimon'),
+					projekt('109', 'Adam', 'Matyáš'),
+					projekt('109', 'Adam', 'Matyáš'),
+					projekt('109', 'Adam', 'Matyáš'),
 					null,
-					projekt('109', 'Honza', 'Šimon'),
-					projekt('109', 'Honza', 'Šimon'),
-					projekt('109', 'Honza', 'Šimon')
+					projekt('109', 'Adam', 'Matyáš'),
+					projekt('109', 'Adam', 'Matyáš'),
+					projekt('109', 'Adam', 'Matyáš')
 				]
 			},
 			{
 				day: 'Pátek',
 				date: '10. 7.',
 				slots: [
-					projekt('109', 'Honza', 'Šimon'),
-					projekt('109', 'Honza', 'Šimon'),
-					projekt('109', 'Honza', 'Šimon'),
+					projekt('109', 'Adam', 'Matyáš'),
+					projekt('109', 'Adam', 'Matyáš'),
+					projekt('109', 'Adam', 'Matyáš'),
 					null,
-					projekt('109', 'Honza', 'Šimon'),
-					projekt('109', 'Honza', 'Šimon'),
-					projekt('109', 'Honza', 'Šimon')
+					projekt('109', 'Adam', 'Matyáš'),
+					projekt('109', 'Adam', 'Matyáš'),
+					projekt('109', 'Adam', 'Matyáš')
 				]
 			}
 		]
@@ -413,26 +413,26 @@ export const groups: Group[] = [
 				day: 'Čtvrtek',
 				date: '9. 7.',
 				slots: [
-					projekt('13', 'Ondřej', 'Adam'),
-					projekt('13', 'Ondřej', 'Adam'),
-					projekt('13', 'Ondřej', 'Adam'),
+					projekt('13', 'Šimon', 'Honza'),
+					projekt('13', 'Šimon', 'Honza'),
+					projekt('13', 'Šimon', 'Honza'),
 					null,
-					projekt('13', 'Ondřej', 'Adam'),
-					projekt('13', 'Ondřej', 'Adam'),
-					projekt('13', 'Ondřej', 'Adam')
+					projekt('13', 'Šimon', 'Honza'),
+					projekt('13', 'Šimon', 'Honza'),
+					projekt('13', 'Šimon', 'Honza')
 				]
 			},
 			{
 				day: 'Pátek',
 				date: '10. 7.',
 				slots: [
-					projekt('13', 'Ondřej', 'Adam'),
-					projekt('13', 'Ondřej', 'Adam'),
-					projekt('13', 'Ondřej', 'Adam'),
+					projekt('13', 'Šimon', 'Honza'),
+					projekt('13', 'Šimon', 'Honza'),
+					projekt('13', 'Šimon', 'Honza'),
 					null,
-					projekt('13', 'Ondřej', 'Adam'),
-					projekt('13', 'Ondřej', 'Adam'),
-					projekt('13', 'Ondřej', 'Adam')
+					projekt('13', 'Šimon', 'Honza'),
+					projekt('13', 'Šimon', 'Honza'),
+					projekt('13', 'Šimon', 'Honza')
 				]
 			}
 		]
