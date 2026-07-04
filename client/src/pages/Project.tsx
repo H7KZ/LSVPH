@@ -1,14 +1,6 @@
 import { useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
-import {
-	clearProjectProgress,
-	findProjectBySlug,
-	isItemChecked,
-	lessonProgress,
-	projectCompletedCount,
-	setItemChecked,
-	type Lesson,
-} from '../data/projects'
+import { clearProjectProgress, findProjectBySlug, isItemChecked, lessonProgress, projectCompletedCount, setItemChecked, type Lesson } from '../data/projects'
 
 export default function Project() {
 	const { slug } = useParams<{ slug: string }>()
@@ -41,10 +33,7 @@ export default function Project() {
 			</p>
 
 			<div className="border-ink mb-8 flex items-start gap-4 border-b-2 pb-6">
-				<div
-					className="border-ink flex h-14 w-14 shrink-0 items-center justify-center border-2 text-3xl"
-					style={{ backgroundColor: project.accent }}
-				>
+				<div className="border-ink flex h-14 w-14 shrink-0 items-center justify-center border-2 text-3xl" style={{ backgroundColor: project.accent }}>
 					{project.emoji}
 				</div>
 				<div>
@@ -74,29 +63,17 @@ export default function Project() {
 	)
 }
 
-function LessonCard({
-	lesson,
-	index,
-	onCheck,
-}: {
-	lesson: Lesson
-	index: number
-	onCheck: (lessonSlug: string, itemId: string, checked: boolean) => void
-}) {
+function LessonCard({ lesson, index, onCheck }: { lesson: Lesson; index: number; onCheck: (lessonSlug: string, itemId: string, checked: boolean) => void }) {
 	const progress = lessonProgress(lesson)
 
-	const headerBg =
-		progress === 'completed' ? '#d4ffe3' : progress === 'in-progress' ? '#facc15' : undefined
+	const headerBg = progress === 'completed' ? '#d4ffe3' : progress === 'in-progress' ? '#facc15' : undefined
 
 	return (
 		<div className={`border-ink border-2 ${progress === 'not-started' ? 'opacity-60' : ''}`}>
-			<div
-				className="border-ink flex items-center gap-3 border-b-2 px-4 py-3"
-				style={{ backgroundColor: headerBg }}
-			>
+			<div className="border-ink flex items-center gap-3 border-b-2 px-4 py-3" style={{ backgroundColor: headerBg }}>
 				<div
 					className={`flex h-6 w-6 shrink-0 items-center justify-center text-xs font-bold ${
-						progress === 'not-started' ? 'border-ink border-2 text-muted' : 'bg-ink text-accent'
+						progress === 'not-started' ? 'border-ink text-muted border-2' : 'bg-ink text-accent'
 					}`}
 				>
 					{progress === 'completed' ? '✓' : index}
@@ -118,7 +95,7 @@ function LessonCard({
 				</div>
 			</div>
 			<div className="px-4 py-3">
-				<p className="text-muted mb-2 text-xs font-bold uppercase tracking-widest">Checklist</p>
+				<p className="text-muted mb-2 text-xs font-bold tracking-widest uppercase">Checklist</p>
 				<div className="flex flex-col gap-2">
 					{lesson.checklist.map(item => (
 						<label key={item.id} className="flex cursor-pointer items-center gap-2 text-sm">

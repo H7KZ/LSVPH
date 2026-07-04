@@ -11,7 +11,8 @@ Tilemap Collider, komposite collider a layout platformové úrovně.
 **Výsledek:** postava stojí na platformách, pádí při překročení okraje
 
 Notes:
-Bez kolizí byl dosud level jen vizuální. Teď ho oživíme. Level design je kreativní část — nechat studenty navrhovat vlastní layout.
+Bez kolizí byl dosud level jen vizuální. Teď ho oživíme. Level design je kreativní část — nechat studenty navrhovat
+vlastní layout.
 
 ---
 
@@ -20,7 +21,7 @@ Bez kolizí byl dosud level jen vizuální. Teď ho oživíme. Level design je k
 1. Vyber `Ground` Tilemap v Hierarchy
 2. **Add Component → Tilemap Collider 2D**
 3. **Add Component → Composite Collider 2D**
-   - Unity automaticky přidá Rigidbody2D → nastav **Body Type: Static**
+    - Unity automaticky přidá Rigidbody2D → nastav **Body Type: Static**
 4. V Tilemap Collider 2D zaškrtni **Used By Composite**
 
 Notes:

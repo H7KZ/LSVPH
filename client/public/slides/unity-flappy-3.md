@@ -25,10 +25,10 @@ public class PlayerMovement : MonoBehaviour
 }
 ```
 
-| Metoda | Kdy se volá |
-|--------|------------|
-| `Start` | jednou po aktivaci objektu |
-| `Update` | každý snímek hry |
+| Metoda   | Kdy se volá                |
+| -------- | -------------------------- |
+| `Start`  | jednou po aktivaci objektu |
+| `Update` | každý snímek hry           |
 
 Notes:
 MonoBehaviour = základ Unity skriptingu. Dědění od MonoBehaviour znamená, že Unity skript "ví" o herní smyčce.
@@ -66,7 +66,8 @@ public class PlayerMovement : MonoBehaviour
 ```
 
 Notes:
-Pište řádek po řádku. Vysvětlete každou část. `rb.linearVelocity = Vector2.up * jumpForce` = okamžitě nastavíme rychlost nahoru (ne AddForce — to by se kumulovalo).
+Pište řádek po řádku. Vysvětlete každou část. `rb.linearVelocity = Vector2.up * jumpForce` = okamžitě nastavíme rychlost
+nahoru (ne AddForce — to by se kumulovalo).
 
 ---
 
@@ -104,8 +105,8 @@ Toto je best practice Unity vývoje. `public` funguje, ale je to špatný zvyk.
 
 1. Přetáhni skript `PlayerMovement` na `Bird` v Hierarchy (nebo Add Component)
 2. V Inspektoru skriptu:
-   - **Jump Force:** nech na 5
-   - **Rb:** přetáhni komponentu `Rigidbody 2D` z ptáčkova Inspektoru
+    - **Jump Force:** nech na 5
+    - **Rb:** přetáhni komponentu `Rigidbody 2D` z ptáčkova Inspektoru
 
 **Spusť Play Mode (▶)** → mezerník = skok ✓
 
@@ -123,4 +124,5 @@ Bez reference na Rb Unity vyhodí NullReferenceException. Ukázat chybu v Consol
 **Další lekce:** Roury, spawner a detekce kolize
 
 Notes:
-Ověřit: všichni mají funkční skok. Tipovat: jumpForce mezi 4–7 závisí na Gravity Scale. Nechte 5 minut na experimentování.
+Ověřit: všichni mají funkční skok. Tipovat: jumpForce mezi 4–7 závisí na Gravity Scale. Nechte 5 minut na
+experimentování.

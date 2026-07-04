@@ -22,7 +22,8 @@ Cinemachine je profesionální kamera systém zdarma v Unity. Jde ho nainstalova
 3. Hledej `Cinemachine` → **Install**
 
 Notes:
-Cinemachine je součástí Unity balíčků — zdarma, udržovaný. Starší projekty mohou mít verzi 2.x, novější 3.x — API se mírně liší.
+Cinemachine je součástí Unity balíčků — zdarma, udržovaný. Starší projekty mohou mít verzi 2.x, novější 3.x — API se
+mírně liší.
 
 ---
 
@@ -31,13 +32,14 @@ Cinemachine je součástí Unity balíčků — zdarma, udržovaný. Starší pr
 1. **GameObject → Cinemachine → Cinemachine Camera** (nebo Virtual Camera)
 2. Unity přidá CinemachineCamera komponentu
 3. V Inspektoru:
-   - **Follow:** přetáhni `Player` z Hierarchy
-   - **Look At:** nechej prázdné (2D)
+    - **Follow:** přetáhni `Player` z Hierarchy
+    - **Look At:** nechej prázdné (2D)
 
 **Play Mode (▶)** → kamera sleduje postavu ✓
 
 Notes:
-Cinemachine Camera = "virtuální" kamera. Skutečná Main Camera čte její pozici. Možno mít více Virtual kamer a mezi nimi přepínat.
+Cinemachine Camera = "virtuální" kamera. Skutečná Main Camera čte její pozici. Možno mít více Virtual kamer a mezi nimi
+přepínat.
 
 ---
 
@@ -65,6 +67,7 @@ Damping = zpoždění kamery za postavou. 0 = okamžitě. 0.5 = mírně opoždě
 4. Edituj body collideru tak, aby ohraničily celý level
 
 V CinemachineCamera:
+
 - **Extensions → Add Extension → Cinemachine Confiner 2D**
 - **Bounding Shape 2D:** přetáhni `CameraBounds`
 
@@ -81,4 +84,5 @@ Confiner 2D zabraňuje kameře vidět za hrany mapy. Polygon Collider = přesné
 **Další lekce:** Cílová zóna, vítězná obrazovka a zvuky
 
 Notes:
-Ověřit: kamera sleduje postavu, nepřejíždí za okraje. Pokud kamera nefunguje: zkontrolovat že Main Camera má Cinemachine Brain komponentu (přidává se automaticky).
+Ověřit: kamera sleduje postavu, nepřejíždí za okraje. Pokud kamera nefunguje: zkontrolovat že Main Camera má Cinemachine
+Brain komponentu (přidává se automaticky).

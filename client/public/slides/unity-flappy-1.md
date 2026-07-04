@@ -60,9 +60,9 @@ Pokud nemáte přístup k assetům, použijte libovolné PNG obrázky z internet
 
 1. Klikni na **Main Camera** v Hierarchy
 2. V Inspektoru nastav:
-   - **Projection:** Orthographic
-   - **Size:** 5
-   - **Background Color:** světle modrá (klikni na barevný čtverec)
+    - **Projection:** Orthographic
+    - **Size:** 5
+    - **Background Color:** světle modrá (klikni na barevný čtverec)
 
 Notes:
 Orthographic = 2D pohled bez perspektivy. Size 5 = vidíme 10 jednotek Unity výšky scény.

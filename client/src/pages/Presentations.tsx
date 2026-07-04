@@ -6,10 +6,7 @@ export default function Presentations() {
 	return (
 		<div className="mx-auto max-w-4xl">
 			<h1 className="font-display mb-2 text-4xl font-extrabold">Prezentace</h1>
-			<p className="text-muted mb-10 max-w-prose">
-				Prezentace k jednotlivým předmětům. Klikni na některou a spusť ji — ovládáš ji šipkami, klávesa <span className="font-bold">S</span> zobrazí
-				poznámky přednášejícího.
-			</p>
+			<p className="text-muted mb-10 max-w-prose">Prezentace k jednotlivým předmětům. Klikni na některou a spusť ji.</p>
 
 			<div className="space-y-10">
 				{subjects.map(subject => {

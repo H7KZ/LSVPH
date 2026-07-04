@@ -36,8 +36,8 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'project-created', label: 'Unity projekt vytvořen' },
 					{ id: 'folders-ready', label: 'Složky Graphics, Scripts, Prefabs vytvořeny' },
-					{ id: 'scene-open', label: 'Hlavní scéna otevřena v Unity' },
-				],
+					{ id: 'scene-open', label: 'Hlavní scéna otevřena v Unity' }
+				]
 			},
 			{
 				slug: 'unity-flappy-2',
@@ -47,8 +47,8 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'sprite-placed', label: 'Sprite ptáčka na scéně' },
 					{ id: 'rigidbody-added', label: 'Rigidbody2D přidán a nakonfigurován' },
-					{ id: 'bird-falls', label: 'Ptáček v Play Mode padá dolů' },
-				],
+					{ id: 'bird-falls', label: 'Ptáček v Play Mode padá dolů' }
+				]
 			},
 			{
 				slug: 'unity-flappy-3',
@@ -58,8 +58,8 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'script-created', label: 'PlayerMovement.cs skript vytvořen' },
 					{ id: 'jump-works', label: 'Skok funguje na mezerník' },
-					{ id: 'collider-added', label: 'BoxCollider2D (Is Trigger) přidán na ptáčka' },
-				],
+					{ id: 'collider-added', label: 'BoxCollider2D (Is Trigger) přidán na ptáčka' }
+				]
 			},
 			{
 				slug: 'unity-flappy-4',
@@ -69,8 +69,8 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'pipe-prefab', label: 'Prefab roury vytvořen' },
 					{ id: 'spawner-works', label: 'Spawner generuje roury' },
-					{ id: 'collision-works', label: 'Kolize s rourou restartuje scénu' },
-				],
+					{ id: 'collision-works', label: 'Kolize s rourou restartuje scénu' }
+				]
 			},
 			{
 				slug: 'unity-flappy-5',
@@ -80,10 +80,10 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'score-ui', label: 'UI skóre zobrazeno na scéně' },
 					{ id: 'score-increments', label: 'Skóre roste při průletu rourou' },
-					{ id: 'gameover-screen', label: 'Game Over obrazovka funguje' },
-				],
-			},
-		],
+					{ id: 'gameover-screen', label: 'Game Over obrazovka funguje' }
+				]
+			}
+		]
 	},
 	{
 		slug: 'dinosaur',
@@ -100,8 +100,8 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'project-created', label: 'Unity projekt vytvořen' },
 					{ id: 'dino-placed', label: 'Dinosaurus na scéně se spritem' },
-					{ id: 'animator-ready', label: 'Animator Controller nastaven' },
-				],
+					{ id: 'animator-ready', label: 'Animator Controller nastaven' }
+				]
 			},
 			{
 				slug: 'unity-dinosaur-2',
@@ -111,8 +111,8 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'jump-works', label: 'Dino skáče při stisku klávesy' },
 					{ id: 'background-scrolls', label: 'Pozadí se scrolluje doleva' },
-					{ id: 'loop-works', label: 'Pozadí se opakuje bez přechodu' },
-				],
+					{ id: 'loop-works', label: 'Pozadí se opakuje bez přechodu' }
+				]
 			},
 			{
 				slug: 'unity-dinosaur-3',
@@ -122,8 +122,8 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'cactus-prefab', label: 'Prefab kaktusu vytvořen' },
 					{ id: 'spawner-works', label: 'Kaktusy se náhodně generují' },
-					{ id: 'collision-works', label: 'Kolize zastaví hru' },
-				],
+					{ id: 'collision-works', label: 'Kolize zastaví hru' }
+				]
 			},
 			{
 				slug: 'unity-dinosaur-4',
@@ -133,10 +133,10 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'score-displayed', label: 'Skóre zobrazeno na obrazovce' },
 					{ id: 'speed-increases', label: 'Hra se postupně zrychluje' },
-					{ id: 'highscore-saved', label: 'High score uložen v PlayerPrefs' },
-				],
-			},
-		],
+					{ id: 'highscore-saved', label: 'High score uložen v PlayerPrefs' }
+				]
+			}
+		]
 	},
 	{
 		slug: 'jumpking',
@@ -153,8 +153,8 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'project-created', label: 'Unity projekt vytvořen' },
 					{ id: 'tilemap-ready', label: 'Tilemap s podlahou na scéně' },
-					{ id: 'player-moves', label: 'Postava se pohybuje doleva a doprava' },
-				],
+					{ id: 'player-moves', label: 'Postava se pohybuje doleva a doprava' }
+				]
 			},
 			{
 				slug: 'unity-jumpking-2',
@@ -164,8 +164,8 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'charge-works', label: 'Držení mezerníku nabíjí skok' },
 					{ id: 'jump-force-varies', label: 'Síla skoku závisí na době nabití' },
-					{ id: 'visual-feedback', label: 'Vizuální feedback ukazuje sílu nabití' },
-				],
+					{ id: 'visual-feedback', label: 'Vizuální feedback ukazuje sílu nabití' }
+				]
 			},
 			{
 				slug: 'unity-jumpking-3',
@@ -175,8 +175,8 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'tilemap-collision', label: 'Tilemap Collider 2D nastaven' },
 					{ id: 'level-built', label: 'Alespoň 3 platformy v různých výškách' },
-					{ id: 'fall-works', label: 'Pád z platformy funguje správně' },
-				],
+					{ id: 'fall-works', label: 'Pád z platformy funguje správně' }
+				]
 			},
 			{
 				slug: 'unity-jumpking-4',
@@ -186,8 +186,8 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'cinemachine-added', label: 'Cinemachine Virtual Camera přidána' },
 					{ id: 'camera-follows', label: 'Kamera sleduje postavu' },
-					{ id: 'camera-bounded', label: 'Kamera nepřejíždí za hranice mapy' },
-				],
+					{ id: 'camera-bounded', label: 'Kamera nepřejíždí za hranice mapy' }
+				]
 			},
 			{
 				slug: 'unity-jumpking-5',
@@ -197,11 +197,11 @@ export const projects: Project[] = [
 				checklist: [
 					{ id: 'goal-zone', label: 'Cílová zóna nahoře mapy' },
 					{ id: 'win-screen', label: 'Vítězná obrazovka při dosažení cíle' },
-					{ id: 'sounds-added', label: 'Alespoň 1 zvukový efekt přidán' },
-				],
-			},
-		],
-	},
+					{ id: 'sounds-added', label: 'Alespoň 1 zvukový efekt přidán' }
+				]
+			}
+		]
+	}
 ]
 
 export function findProjectBySlug(slug: string): Project | undefined {
@@ -220,9 +220,7 @@ export function setItemChecked(lessonSlug: string, itemId: string, checked: bool
 }
 
 export function clearProjectProgress(project: Project): void {
-	for (const lesson of project.lessons)
-		for (const item of lesson.checklist)
-			localStorage.removeItem(lsKey(lesson.slug, item.id))
+	for (const lesson of project.lessons) for (const item of lesson.checklist) localStorage.removeItem(lsKey(lesson.slug, item.id))
 }
 
 export function lessonProgress(lesson: Lesson): 'not-started' | 'in-progress' | 'completed' {

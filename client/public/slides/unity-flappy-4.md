@@ -88,9 +88,9 @@ Přidej Rigidbody2D na Pipe prefab (Gravity Scale 0, Is Kinematic zapnuto nebo n
 1. Vytvoř prázdný GameObject → pojmenuj `PipeSpawner`
 2. Přiřaď skript `PipeSpawner.cs`
 3. V Inspektoru:
-   - **Pipe Prefab:** přetáhni Prefab z `Prefabs/`
-   - **Spawn Interval:** 2
-   - **Pipe Speed:** 3
+    - **Pipe Prefab:** přetáhni Prefab z `Prefabs/`
+    - **Spawn Interval:** 2
+    - **Pipe Speed:** 3
 
 **Play Mode (▶)** → roury se generují zleva ✓
 
@@ -113,12 +113,14 @@ void OnTriggerEnter2D(Collider2D collision)
 ```
 
 Nezapomeň přidat using na začátek:
+
 ```csharp
 using UnityEngine.SceneManagement;
 ```
 
 Notes:
-CompareTag je efektivnější než `collision.tag == "Pipe"`. SceneManager.LoadScene(jméno scény) = restart. Jednoduché a funkční.
+CompareTag je efektivnější než `collision.tag == "Pipe"`. SceneManager.LoadScene(jméno scény) = restart. Jednoduché a
+funkční.
 
 ---
 
@@ -131,4 +133,5 @@ CompareTag je efektivnější než `collision.tag == "Pipe"`. SceneManager.LoadS
 **Další lekce:** Skóre, UI Text a Game Over obrazovka
 
 Notes:
-Ověřit: ptáček umírá při kontaktu s rourou a hra se restartuje. Doladění obtížnosti (spawnInterval, pipeSpeed) jako bonus pro rychlejší studenty.
+Ověřit: ptáček umírá při kontaktu s rourou a hra se restartuje. Doladění obtížnosti (spawnInterval, pipeSpeed) jako
+bonus pro rychlejší studenty.

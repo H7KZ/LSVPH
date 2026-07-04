@@ -107,7 +107,8 @@ void OnTriggerEnter2D(Collider2D collision)
 Smaž původní `SceneManager.LoadScene` — teď zavoláme `GameOver()`.
 
 Notes:
-Time.timeScale = 0 zastaví hru, ale nezobrazí žádný panel. Volitelné rozšíření: Game Over panel s textem a tlačítkem Restart.
+Time.timeScale = 0 zastaví hru, ale nezobrazí žádný panel. Volitelné rozšíření: Game Over panel s textem a tlačítkem
+Restart.
 
 ---
 
@@ -122,4 +123,5 @@ Spusť Play Mode a zkontroluj:
 **Gratulace — dokončil jsi Flappy Bird!** 🎉
 
 Notes:
-Nech studenty 5–10 minut hrát navzájem jejich hry. Soutěž o nejvyšší skóre. Volitelná rozšíření: restart tlačítko, animace ptáčka, zvuky.
+Nech studenty 5–10 minut hrát navzájem jejich hry. Soutěž o nejvyšší skóre. Volitelná rozšíření: restart tlačítko,
+animace ptáčka, zvuky.

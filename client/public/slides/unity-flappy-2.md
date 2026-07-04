@@ -19,12 +19,12 @@ Lekce zavádí klíčové pojmy Unity: GameObject, Component, Inspector, Rigidbo
 
 V Unity je vše **GameObject**. Vlastnosti mu dávají **komponenty**.
 
-| Komponenta | Co dělá |
-|-----------|---------|
-| `Transform` | pozice, rotace, velikost |
-| `SpriteRenderer` | kreslí 2D obrázek |
-| `Rigidbody2D` | fyzika a gravitace |
-| `Collider2D` | detekce kolizí |
+| Komponenta       | Co dělá                  |
+| ---------------- | ------------------------ |
+| `Transform`      | pozice, rotace, velikost |
+| `SpriteRenderer` | kreslí 2D obrázek        |
+| `Rigidbody2D`    | fyzika a gravitace       |
+| `Collider2D`     | detekce kolizí           |
 
 Notes:
 Analogie: GameObject = herec. Komponenty = kostým, hlas, pohyb. Bez komponent je GameObject prázdná krabice.
@@ -48,8 +48,8 @@ Přejmenování je důležité — až budeme hledat objekt ve skriptu, název n
 1. Vyber `Bird` v Hierarchy
 2. V Inspektoru → **Add Component** → hledej `Rigidbody 2D`
 3. Nastav:
-   - **Gravity Scale:** `1.5` (trochu rychlejší pád)
-   - **Freeze Rotation → Z:** ✓ zaškrtni
+    - **Gravity Scale:** `1.5` (trochu rychlejší pád)
+    - **Freeze Rotation → Z:** ✓ zaškrtni
 
 **Spusť Play Mode (▶)** → ptáček padá dolů ✓
 
@@ -71,7 +71,8 @@ Gravity Scale 3.0 → rychlý pád (těžší hra)
 Vyzkoušej různé hodnoty v Inspektoru **během Play Mode**
 
 Notes:
-V Play Mode lze měnit hodnoty v Inspektoru — ale změny se po ukončení Play Mode neuloží! To je časté překvapení pro začátečníky.
+V Play Mode lze měnit hodnoty v Inspektoru — ale změny se po ukončení Play Mode neuloží! To je časté překvapení pro
+začátečníky.
 
 ---
 
@@ -83,16 +84,17 @@ V Play Mode lze měnit hodnoty v Inspektoru — ale změny se po ukončení Play
 4. Uprav velikost: tlačítko **Edit Collider** → táhni zelené body tak, aby odpovídaly tvaru ptáčka
 
 Notes:
-Is Trigger = jiné objekty "proletí" skrz, ale Unity nás upozorní (callback). Bez Is Trigger by fyzika ptáčka odrážela od objektů.
+Is Trigger = jiné objekty "proletí" skrz, ale Unity nás upozorní (callback). Bez Is Trigger by fyzika ptáčka odrážela od
+objektů.
 
 ---
 
 ## Trigger vs. fyzická kolize
 
-| Typ | Is Trigger | Chování |
-|-----|-----------|---------|
-| Fyzická kolize | ☐ | Blokuje průchod, odraz |
-| Trigger zóna | ✓ | Proletí skrz, jen callback |
+| Typ            | Is Trigger | Chování                    |
+| -------------- | ---------- | -------------------------- |
+| Fyzická kolize | ☐          | Blokuje průchod, odraz     |
+| Trigger zóna   | ✓          | Proletí skrz, jen callback |
 
 ```csharp
 // fyzická kolize:

@@ -111,7 +111,8 @@ audioSource.PlayOneShot(jumpSound);
 ```
 
 Notes:
-`PlayOneShot` = přehraje zvuk jednou, nepřeruší ostatní zvuky. Vhodné pro efekty. `audioSource.Play()` by zastavilo předchozí přehrávání.
+`PlayOneShot` = přehraje zvuk jednou, nepřeruší ostatní zvuky. Vhodné pro efekty. `audioSource.Play()` by zastavilo
+předchozí přehrávání.
 
 ---
 

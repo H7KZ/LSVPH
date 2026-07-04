@@ -41,7 +41,7 @@ export const subjects: Subject[] = [
 		lecturer: 'Matyáš, Honza, Ondřej, Adam, Tobiáš',
 		description: 'GameObjects, komponenty, fyzika a tvorba první 3D hry.',
 		accent: '#f5c6c4'
-	},
+	}
 ]
 
 export function findSubjectBySlug(slug: string): Subject | undefined {

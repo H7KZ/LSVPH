@@ -57,7 +57,8 @@ public class GameManager : MonoBehaviour
 ```
 
 Notes:
-Singleton (`Instance`) = kdokoliv může zavolat `GameManager.Instance.GameOver()` bez SerializeField reference. Vhodné pro manager třídy.
+Singleton (`Instance`) = kdokoliv může zavolat `GameManager.Instance.GameOver()` bez SerializeField reference. Vhodné
+pro manager třídy.
 
 ---
 
@@ -65,8 +66,8 @@ Singleton (`Instance`) = kdokoliv může zavolat `GameManager.Instance.GameOver(
 
 1. **GameObject → UI → Canvas**
 2. Přidej dva **TextMeshPro** prvky:
-   - `ScoreText` (nahoře uprostřed) — výchozí text `0`
-   - `HighScoreText` (nahoře vpravo) — výchozí text `Best: 0`
+    - `ScoreText` (nahoře uprostřed) — výchozí text `0`
+    - `HighScoreText` (nahoře vpravo) — výchozí text `Best: 0`
 3. Propoj oba texty v GameManager Inspektoru
 
 Notes:
@@ -122,7 +123,8 @@ public class CactusSpawner : MonoBehaviour
 ```
 
 Notes:
-Alternativně: BackgroundScroller také zrychluje → vizuálně viditelné zrychlení. Nechte studenty experimentovat s hodnotami.
+Alternativně: BackgroundScroller také zrychluje → vizuálně viditelné zrychlení. Nechte studenty experimentovat s
+hodnotami.
 
 ---
 

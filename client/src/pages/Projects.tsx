@@ -17,22 +17,15 @@ export default function Projects() {
 							to={`/projects/${project.slug}`}
 							className="border-ink block border-2 transition-shadow hover:shadow-[4px_4px_0_#000]"
 						>
-							<div
-								className="border-ink border-b-2 p-6 text-center"
-								style={{ backgroundColor: project.accent }}
-							>
+							<div className="border-ink border-b-2 p-6 text-center" style={{ backgroundColor: project.accent }}>
 								<div className="mb-2 text-4xl">{project.emoji}</div>
 								<h2 className="font-display font-bold">{project.title}</h2>
 							</div>
 							<div className="bg-bg p-4">
 								<p className="text-muted mb-3 text-sm">{project.description}</p>
 								<div className="mb-4 flex flex-wrap gap-2">
-									<span className="border-ink border px-2 py-0.5 text-xs">
-										{project.lessons.length} lekcí
-									</span>
-									<span className="border-ink border px-2 py-0.5 text-xs">
-										{project.lessons.reduce((sum, l) => sum + l.duration, 0)} min
-									</span>
+									<span className="border-ink border px-2 py-0.5 text-xs">{project.lessons.length} lekcí</span>
+									<span className="border-ink border px-2 py-0.5 text-xs">{project.lessons.reduce((sum, l) => sum + l.duration, 0)} min</span>
 									{completed > 0 && (
 										<span className="border-ink border bg-[#d4ffe3] px-2 py-0.5 text-xs">
 											{completed} / {project.lessons.length} ✓

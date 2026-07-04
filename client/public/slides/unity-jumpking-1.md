@@ -45,7 +45,7 @@ Analogie: Tilemap je jako stavění z Lega. Každá dlaždice = jeden blok Lega.
 ## Vytvoření Tilemaps
 
 1. **GameObject → 2D Object → Tilemap → Rectangular**
-   - Unity vytvoří `Grid` a `Tilemap`
+    - Unity vytvoří `Grid` a `Tilemap`
 2. Přejmenuj `Tilemap` na `Ground`
 3. Otevři **Tile Palette** (Window → 2D → Tile Palette)
 4. Přetáhni `Platform.png` do Tile Palette → vytvoří Tile asset

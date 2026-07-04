@@ -4,7 +4,7 @@ const links = [
 	{ to: '/timetable', label: 'Rozvrh' },
 	{ to: '/lunch', label: 'Obědy' },
 	{ to: '/presentations', label: 'Prezentace' },
-	{ to: '/projects', label: 'Projekty' },
+	{ to: '/projects', label: 'Projekty' }
 ]
 
 export default function Nav() {

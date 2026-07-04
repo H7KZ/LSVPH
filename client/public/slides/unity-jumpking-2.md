@@ -118,7 +118,8 @@ Spusť Play Mode a vyzkoušej:
 - Charge bar roste při držení
 
 Notes:
-Postava zatím propadá skrz Tilemap — normální. Tilemap Collider přidáme v lekci 3. Pro testování skoku dočasně přidej Box Collider na prázdný Ground objekt.
+Postava zatím propadá skrz Tilemap — normální. Tilemap Collider přidáme v lekci 3. Pro testování skoku dočasně přidej
+Box Collider na prázdný Ground objekt.
 
 ---
 
@@ -131,4 +132,5 @@ Postava zatím propadá skrz Tilemap — normální. Tilemap Collider přidáme 
 **Další lekce:** Tilemap kolize a level design
 
 Notes:
-Ověřit: nabíjení funguje logicky. Nejčastější bug: chargeTime neresetuje → zkontrolovat že `chargeTime = 0f` je v sekci GetKeyUp.
+Ověřit: nabíjení funguje logicky. Nejčastější bug: chargeTime neresetuje → zkontrolovat že `chargeTime = 0f` je v sekci
+GetKeyUp.
