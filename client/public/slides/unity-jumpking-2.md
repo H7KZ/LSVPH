@@ -1,283 +1,134 @@
-## Jump King — Část 2: Plošiny a cíl
+## Jump King — Lekce 2: Nabíjený skok
 
 Letní škola vývoje her 2026
 
 ---
 
-## Co máme / co chybí
+## Co postavíme dnes
 
-✅ Hráč a nabíjecí skok
-✅ Přepínání obrazovek
+Nabíjený skok — čím déle držíš mezerník, tím výš vyskočíš.
 
-❌ Plošiny (Prefab)
-❌ Rozmístění 3 obrazovek
-❌ GameManager (stav hry)
-❌ UIManager (HUD + panely)
-❌ Win podmínka
+**Výsledek:** skok se nabíjí při držení klávesy, vizuální feedback ukazuje sílu
 
 Notes:
-Projdi checklist se studenty. Ukaž hotovou hru znovu — připomeň co zbývá. Odpoledne je o „zabalení" herní smyčky.
+Toto je HLAVNÍ mechanika Jump King. Dejte hodně času. Studenti budou chtít tuto část experimentovat.
 
 ---
 
-## Plošina Prefab
+## Jak nabíjený skok funguje
 
-![Plošina Prefab nastavení](/images/jumpking/placeholder-platform-prefab.svg)
+```
+Hráč drží mezerník:
+  → chargeTime roste (0 → maxCharge)
 
-1. Hierarchy → **Create Empty** → pojmenuj **"Plošina"**
-2. **Add Component** → **Sprite Renderer** → přetáhni `Platform.png`
-3. **Add Component** → **Box Collider 2D**
-4. Inspector → Tag → **"Ground"**
-5. Project okno → přetáhni **"Plošina"** do složky `Assets/Prefabs/`
-6. Smaž originál ze scény (v Hierarchy)
+Hráč pustí mezerník:
+  → jumpForce = chargeTime / maxCharge × maxJumpForce
+  → rb.linearVelocity = Vector2.up * jumpForce
+  → chargeTime = 0
+```
 
 Notes:
-Prefab = šablona objektu. Každá kopie v Hierarchy je instance. Změna prefabu ovlivní všechny instance najednou.
+Lineární škálování síly. Jump King originál má specifickou fyziku, ale náš model je dostatečně zábavný.
 
 ---
 
-## Rozmístění plošin
+## PlayerController.cs — nabíjení
 
-![Rozmístění plošin ve scéně](/images/jumpking/placeholder-platform-placement.svg)
-
-Každá obrazovka = **9 Unity jednotek** výšky:
-
-| Obrazovka       | Y rozsah plošin |
-| --------------- | --------------- |
-| 0 — přízemí     | 1.5 — 8.0       |
-| 1 — první patro | 10.5 — 17.0     |
-| 2 — druhé patro | 19.5 — 26.0     |
-
-Přetáhni **6–8 kopií** prefabu `Plošina` do každé obrazovky.
-Střídej levou a pravou stranu — plošiny musí být dosažitelné plným skokem.
-
-Notes:
-Studenti mají tvůrčí svobodu v rozmístění. Doporučte testovat každou obrazovku průběžně. Plošiny mimo Y rozsah =
-studenti to sami uvidí při testování.
-
----
-
-## GameManager.cs
-
-Vytvoř `Assets/Scripts/GameManager.cs`:
+Přidej do existujícího skriptu:
 
 ```csharp
-using UnityEngine;
-using UnityEngine.SceneManagement;
+[SerializeField] private float maxJumpForce = 15f;
+[SerializeField] private float maxChargeTime = 1f;
+private float chargeTime;
+private bool isGrounded;
 
-[RequireComponent(typeof(UIManager))]
-public class GameManager : MonoBehaviour
+void Update()
 {
-    public static GameManager Instance { get; private set; }
+    float x = Input.GetAxisRaw("Horizontal");
+    rb.linearVelocity = new Vector2(x * moveSpeed, rb.linearVelocity.y);
 
-    public enum GameState { WaitingToStart, Playing, Win }
-    public GameState CurrentState { get; private set; } = GameState.WaitingToStart;
+    if (Input.GetKey(KeyCode.Space) && isGrounded)
+        chargeTime = Mathf.Min(chargeTime + Time.deltaTime, maxChargeTime);
 
-    [SerializeField] private UIManager uiManager;
-
-    void Awake()
+    if (Input.GetKeyUp(KeyCode.Space) && isGrounded)
     {
-        if (Instance != null) { Destroy(gameObject); return; }
-        Instance = this;
-    }
-
-    void Update()
-    {
-        if (!Input.GetKeyDown(KeyCode.Space)) return;
-        if (CurrentState == GameState.WaitingToStart) StartGame();
-        else if (CurrentState == GameState.Win) RestartGame();
-    }
-
-    public void StartGame()
-    {
-        CurrentState = GameState.Playing;
-        uiManager.ShowGame();
-    }
-
-    public void TriggerWin()
-    {
-        if (CurrentState != GameState.Playing) return;
-        CurrentState = GameState.Win;
-        uiManager.ShowWin();
-    }
-
-    private void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        float force = (chargeTime / maxChargeTime) * maxJumpForce;
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, force);
+        chargeTime = 0f;
     }
 }
 ```
 
 Notes:
-Stejný singleton vzor jako v Dinosaur workshopu. Tři stavy místo čtyř — není GameOver. Pád je součást hry.
+`Mathf.Min` = chargeTime nikdy nepřekročí maxChargeTime. `GetKey` (ne GetKeyDown) = registruje držení.
 
 ---
 
-## UIManager.cs
+## isGrounded — detekce země
 
-Vytvoř `Assets/Scripts/UIManager.cs`:
+Přidej do `PlayerController.cs`:
 
 ```csharp
-using UnityEngine;
-using TMPro;
-
-[RequireComponent(typeof(GameManager))]
-public class UIManager : MonoBehaviour
+void OnCollisionEnter2D(Collision2D col)
 {
-    [SerializeField] private GameObject startPanel;
-    [SerializeField] private GameObject winPanel;
-    [SerializeField] private TextMeshProUGUI screenText;
-    [SerializeField] private TextMeshProUGUI bestScreenText;
-    [SerializeField] private CameraController cameraController;
+    if (col.gameObject.CompareTag("Ground"))
+        isGrounded = true;
+}
 
-    private const string BestScreenKey = "JKBestScreen";
-
-    void Start()
-    {
-        startPanel.SetActive(true);
-        winPanel.SetActive(false);
-        UpdateBestScreenText();
-    }
-
-    void Update()
-    {
-        if (cameraController == null) return;
-        screenText.text = $"Patro: {cameraController.CurrentScreen + 1}/3";
-    }
-
-    public void ShowGame()   { startPanel.SetActive(false); }
-
-    public void ShowWin()
-    {
-        winPanel.SetActive(true);
-        int reached = cameraController.CurrentScreen + 1;
-        int best = PlayerPrefs.GetInt(BestScreenKey, 0);
-        if (reached > best) { PlayerPrefs.SetInt(BestScreenKey, reached); PlayerPrefs.Save(); }
-        UpdateBestScreenText();
-    }
-
-    private void UpdateBestScreenText()
-    {
-        int best = PlayerPrefs.GetInt(BestScreenKey, 0);
-        bestScreenText.text = best > 0 ? $"Nejlepší: {best}/3" : "";
-    }
+void OnCollisionExit2D(Collision2D col)
+{
+    if (col.gameObject.CompareTag("Ground"))
+        isGrounded = false;
 }
 ```
 
 Notes:
-PlayerPrefs = jednoduchá persistence dat mezi spuštěními hry. Klíč "JKBestScreen" ukládá nejvyšší dosažené patro.
+Tag "Ground" musí být nastaven na Tilemap objektu (přidáme v lekci 3 s Tilemap Colliderem).
 
 ---
 
-## Canvas a UI panely
+## Vizuální feedback — charge bar
 
-![Canvas a UI panely](/images/jumpking/placeholder-canvas.svg)
+1. **GameObject → UI → Canvas**
+2. Přidej **Image** → pojmenuj `ChargeBar`
+3. Nastav **Image Type:** `Filled`, **Fill Method:** `Horizontal`
+4. Umísti nad postavu nebo do rohu obrazovky
 
-1. Hierarchy → **UI** → **Canvas** (Screen Space - Overlay)
-2. Canvas → **UI** → **Panel** → pojmenuj **"StartPanel"**
-    - Přidej **Text (TextMeshPro)**: _"Stiskni mezerník pro start"_
-3. Canvas → **UI** → **Panel** → pojmenuj **"WinPanel"**
-    - Přidej **Text (TextMeshPro)**: _"Vyhrál jsi! Stiskni mezerník"_
-    - WinPanel: odškrtni checkbox vedle názvu → panel je neviditelný
-4. Canvas → **UI** → **Text (TextMeshPro)** → pojmenuj **"ScreenText"** (vpravo nahoře)
-5. Canvas → **UI** → **Text (TextMeshPro)** → pojmenuj **"BestScreenText"** (pod ScreenText)
+Do `Update()` v PlayerController přidej:
+
+```csharp
+[SerializeField] private UnityEngine.UI.Image chargeBar;
+
+// na konci Update():
+if (chargeBar != null)
+    chargeBar.fillAmount = chargeTime / maxChargeTime;
+```
 
 Notes:
-WinPanel musí být deaktivovaný při startu — UIManager.Start() ho nastaví. Deaktivace v Editoru = bezpečná výchozí
-hodnota.
+`fillAmount` 0–1 = jak moc je bar zaplněný. Propojit `chargeBar` referenci v Inspektoru.
 
 ---
 
-## Win Panel nastavení
+## Test nabíjecího skoku
 
-![WinPanel v Inspektoru](/images/jumpking/placeholder-win-panel.svg)
+Spusť Play Mode a vyzkoušej:
 
-WinPanel doporučené nastavení:
-
-- Barva pozadí: poloprůhledná černá (alpha ≈ 180)
-- Text 1: **"Vyhrál jsi!"** (velký font, střed)
-- Text 2: **"Stiskni mezerník pro restart"** (menší font)
-
-GameManager restartuje scénu na Space → vše se resetuje. Ale PlayerPrefs přežívá restart scény — **rekord zůstane!**
+- Krátké kliknutí → malý skok
+- Dlouhé držení → vysoký skok
+- Charge bar roste při držení
 
 Notes:
-Tato slide je dobrý moment na diskusi o persistenci dat. PlayerPrefs.DeleteKey("JKBestScreen") smaže rekord ručně —
-ukažte to v konzoli.
+Postava zatím propadá skrz Tilemap — normální. Tilemap Collider přidáme v lekci 3. Pro testování skoku dočasně přidej Box Collider na prázdný Ground objekt.
 
 ---
 
-## Propojení v Inspektoru
+## Shrnutí lekce 2
 
-Vytvoř prázdný GameObject **"GameManager"**, přiřaď oba skripty:
+- ✅ Nabíjení skoku při držení mezerníku
+- ✅ Síla skoku závisí na době nabití
+- ✅ Vizuální charge bar
 
-**UIManager SerializeFields:**
-
-- Start Panel → přetáhni StartPanel z Hierarchy
-- Win Panel → přetáhni WinPanel z Hierarchy
-- Screen Text → přetáhni ScreenText
-- Best Screen Text → přetáhni BestScreenText
-- Camera Controller → přetáhni Main Camera
-
-**CameraController (na Main Camera):**
-
-- Player → přetáhni "Hráč"
-- Total Screens → **3**
-
-**GameManager SerializeFields:**
-
-- UIManager → přetáhni komponent
+**Další lekce:** Tilemap kolize a level design
 
 Notes:
-Propojení v Inspektoru = nejčastější chyba workshopu. Projděte to se studenty krok za krokem. NullReferenceException při
-startu = něco není propojené.
-
----
-
-## Testování
-
-![Hotová hra spuštěná](/images/jumpking/placeholder-final-game.svg)
-
-Testovací scénář:
-
-1. ▶ Spusť → zobrazí se StartPanel, screenText = "Patro: 1/3"
-2. **Space** → hra začne, StartPanel zmizí
-3. Skoč na plošinu → Patro 1/3
-4. Projdi horní okraj → kamera skočí, Patro 2/3
-5. Projdi dolní okraj → kamera jde zpět, Patro 1/3
-6. Dojdi na vrchol → WinPanel se zobrazí, BestScreenText se aktualizuje
-7. **Space** → restart, rekord zůstal
-
-Notes:
-Nejčastější problémy: (1) chybí Tag "Ground" na plošinách, (2) UIManager není propojen, (3) CameraController nemá
-Player. Chyba v konzoli = NullReferenceException → hledej nepropojený SerializeField.
-
----
-
-## Nápady na rozšíření
-
-- 🔊 **Zvuk nabíjení** — přidej AudioSource, `audioSource.Play()` při `isCharging = true`
-- 📊 **Counter pádů** — `int fallCount++` v CameraController při `currentScreen--`
-- 🎨 **Barva per patro** — `Camera.main.backgroundColor` se mění při `SnapCamera()`
-- 🏔️ **Více obrazovek** — `totalScreens = 5`, víc plošin, Y rozsahy +9 za každé patro
-- ⏱️ **Časomíra** — `float timer` v GameManager, zobraz v UIManager při výhře
-
-Notes:
-Nápady pro rychlé studenty nebo domácí práci. Barva per patro je efektní a jednoduchá — dobrý live coding bonus.
-
----
-
-## Shrnutí workshopu
-
-Co jsme postavili:
-
-✅ Nabíjecí skok (drž Space + A/D → pusť)
-✅ Přepínání obrazovek (kamera snaps)
-✅ Plošiny rozmístěné ve 3 patrech
-✅ GameManager se stavovým automatem
-✅ UIManager s HUD a rekord v PlayerPrefs
-✅ Win podmínka
-
-**Gratulujeme — máte vlastní Jump King!**
-
-Notes:
-Dejte studentům 10 minut na testování navzájem. Kdo dojde jako první na vrchol? Uložte projekty — připomeňte git commit.
+Ověřit: nabíjení funguje logicky. Nejčastější bug: chargeTime neresetuje → zkontrolovat že `chargeTime = 0f` je v sekci GetKeyUp.
