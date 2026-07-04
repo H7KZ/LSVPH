@@ -1,13 +1,13 @@
-import { beforeEach, describe, expect, it } from 'vitest'
-import {
-	clearProjectProgress,
-	findProjectBySlug,
-	isItemChecked,
-	lessonProgress,
-	projectCompletedCount,
-	projects,
-	setItemChecked,
-} from './projects'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
+
+const store: Record<string, string> = {}
+vi.stubGlobal('localStorage', {
+	getItem: (k: string) => store[k] ?? null,
+	setItem: (k: string, v: string) => { store[k] = v },
+	removeItem: (k: string) => { delete store[k] },
+	clear: () => { for (const k in store) delete store[k] },
+})
+import { clearProjectProgress, findProjectBySlug, isItemChecked, lessonProgress, projectCompletedCount, projects, setItemChecked } from './projects'
 
 beforeEach(() => {
 	localStorage.clear()
