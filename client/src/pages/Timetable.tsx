@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { findLecturerByName } from '../data/lecturers'
 import { findSubjectBySlug } from '../data/subjects'
 import { groups, timeSlots } from '../data/timetable'
 
@@ -53,7 +55,23 @@ export default function Timetable() {
 												<>
 													<span className="block font-medium">{slot.label}</span>
 													{slot.room && <span className="text-muted block text-xs">Učebna {slot.room}</span>}
-													<span className="text-muted block text-xs">{slot.lecturers.join(', ')}</span>
+													<span className="text-muted block text-xs">
+														{slot.lecturers.map((name, i) => {
+															const lecturer = findLecturerByName(name)
+															return (
+																<span key={name}>
+																	{i > 0 && ', '}
+																	{lecturer ? (
+																		<Link to={`/timetable/lektor/${lecturer.slug}`} className="hover:text-ink hover:underline">
+																			{name}
+																		</Link>
+																	) : (
+																		name
+																	)}
+																</span>
+															)
+														})}
+													</span>
 												</>
 											)}
 										</td>
