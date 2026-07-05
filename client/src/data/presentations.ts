@@ -7,6 +7,7 @@ export type Presentation = {
 // Každý předmět může mít více prezentací. Slajdy se načítají z
 // `public/slides/<slug>.md`. Nové prezentace přidávej sem (a vytvoř .md soubor).
 export const presentations: Presentation[] = [
+	{ slug: 'uvod', subjectSlug: 'uvod', title: 'Úvod do Letní školy' },
 	{ slug: 'csharp-uvod', subjectSlug: 'csharp', title: 'Úvod do předmětu' },
 	{ slug: 'csharp-1-promenne', subjectSlug: 'csharp', title: 'Lekce 1: Proměnné a datové typy' },
 	{ slug: 'csharp-2-konverze-podminky', subjectSlug: 'csharp', title: 'Lekce 2: Konverze a podmínky' },

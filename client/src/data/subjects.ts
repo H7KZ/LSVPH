@@ -7,6 +7,12 @@ export type Subject = {
 
 export const subjects: Subject[] = [
 	{
+		slug: 'uvod',
+		title: 'Úvod do Letní školy',
+		lecturer: 'Eliška, Ondřej, David, Honza, Šimon, Matyáš',
+		accent: '#e5e5e5'
+	},
+	{
 		slug: 'csharp',
 		title: 'Základy programování v C#',
 		lecturer: 'Matyáš, Eliška, Honza, Ondřej, Šimon, Adam',
