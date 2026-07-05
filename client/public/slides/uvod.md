@@ -49,5 +49,6 @@ Letní škola vývoje her 2026
 ---
 
 ## Informace
+
 - V případě dotazů se obracejte na lektory.
 - https://lsvph.ssps.cz
