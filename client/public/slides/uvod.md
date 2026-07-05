@@ -9,13 +9,17 @@ Letní škola vývoje her 2026
 ---
 
 ## Lektoři
-
-- Eliška
-- Ondřej
-- David
-- Honza
-- Šimon
-- Matyáš
+- Učitelé
+  - Matyáš
+  - Šimon
+- Absolventi
+  - Honza
+  - Ondřej
+  - David
+- Studenti
+  - Eliška
+  - Adam
+  - Tobiáš
 
 ---
 
