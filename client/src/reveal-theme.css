@@ -55,8 +55,9 @@
 
 /* Cap image height so text + image slides don't overflow */
 .reveal .slides img {
-	max-height: 240px;
+	max-height: 100%;
 	width: auto;
+	object-fit: cover;
 }
 
 /* Left-align slide content */

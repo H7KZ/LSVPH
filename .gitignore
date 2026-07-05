@@ -23,6 +23,7 @@ Thumbs.db
 .superpowers/
 docs/superpowers/
 docs/specs/
+docs/plans/
 
 # Env
 .env

@@ -47,7 +47,7 @@ takovém nástroji.
 
 ## Rozhraní Figmy
 
-<img src="/slides/assets/figma_ui.png" style="width:90%;border:2px solid #000;margin:0 auto;display:block">
+<img src="/slides/assets/figma_ui.png" style="width:100%;border:2px solid #000;margin:0 auto;display:block">
 
 Notes:
 Ukázat na projektoru živě. Projet každou část — toolbar nahoře, vrstvy vlevo, canvas uprostřed, vlastnosti vpravo.

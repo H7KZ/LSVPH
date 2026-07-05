@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom'
-import { presentationsForSubject } from '../data/presentations'
-import { subjects } from '../data/subjects'
+import { Link } from 'react-router-dom';
+import { presentationsForSubject } from '../data/presentations';
+import { subjects } from '../data/subjects';
+
 
 export default function Presentations() {
 	return (
@@ -23,7 +24,9 @@ export default function Presentations() {
 							<h2 className="font-display border-ink mb-4 border-b-2 pb-2 text-2xl font-bold">{subject.title}</h2>
 
 							{items.length === 0 ? (
-								<p className="text-muted text-sm italic">Prezentace se připravují.</p>
+								<Link to="/projects" className="text-muted text-sm italic hover:underline">
+									Přesunout na projekty →
+								</Link>
 							) : (
 								<ul className="space-y-2">
 									{items.map(p => (
