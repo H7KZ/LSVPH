@@ -56,3 +56,9 @@ Letní škola vývoje her 2026
 
 - V případě dotazů se obracejte na lektory.
 - https://lsvph.ssps.cz
+
+---
+
+## Přihlášení do PC
+- username: lsvh
+- heslo: vyvojher2026
