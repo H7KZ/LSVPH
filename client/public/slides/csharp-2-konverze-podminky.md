@@ -1,6 +1,5 @@
 ## Lekce 2: Konverze a podmínky
 
-Letní škola vývoje her 2026 · Matyáš
 
 - Čtení vstupu od uživatele
 - Převod typů (string → int a zpět)
@@ -133,9 +132,13 @@ je pište — předejdete chybám.
 // Klasický if:
 string zprava;
 if (zdravi > 0)
+{
     zprava = "Naživu";
+}
 else
+{
     zprava = "Mrtev";
+}
 
 // Totéž na jeden řádek:
 string zprava = zdravi > 0 ? "Naživu" : "Mrtev";
@@ -169,8 +172,8 @@ switch (operace)
         break;
 }
 ```
-
-`break` ukončí aktuální case — bez něj by program propadl do dalšího case.
+- vhodné pro výběr z mnoha možností (úhlednější zápis)
+- `break` ukončí aktuální case — bez něj by program propadl do dalšího case.
 
 Notes:
 Switch je přehlednější než dlouhý if/else if, ale funguje jen pro rovnost (==). Pro složitější podmínky používejte if.
