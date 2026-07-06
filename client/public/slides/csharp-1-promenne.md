@@ -5,7 +5,7 @@ Letní škola vývoje her 2026 · Matyáš
 - Struktura C# souboru
 - Výstup na konzoli
 - Datové typy — čísla, text, pravda/lež
-- Proměnné, operátory a `var`
+- Proměnné a operátory
 - Konstanty
 - Modulo a třída Math
 - Interpolace řetězců
@@ -34,6 +34,7 @@ class Program           // třída (vysvětlíme v lekci 6)
     }
 }
 ```
+- V moderním C# lze vynechat `class Program` a `static void Main()` — kód se spustí přímo.
 
 Notes:
 Pro začátek stačí vědět: kód píšeme do Main(). `using System` je potřeba pro Console. Třídy a namespace vysvětlíme v
@@ -99,6 +100,7 @@ var pi    = 3.14;     // kompilátor ví: double
 // typ se stále nedá změnit!
 // vek = "patnáct";  // CHYBA
 ```
+- `var` už v moderním C# **nepoužíváme** (mimo krajní případy)
 
 `var` je zkratka — typ se odvodí z pravé strany. Kód je kratší, typ stále existuje.
 
