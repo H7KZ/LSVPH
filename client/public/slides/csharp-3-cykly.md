@@ -1,7 +1,5 @@
 ## Lekce 3: Cykly
 
-Letní škola vývoje her 2026 · Matyáš
-
 - while — opakuj, dokud platí podmínka
 - do while — jednou proběhni, pak kontroluj
 - for — pevný počet opakování
