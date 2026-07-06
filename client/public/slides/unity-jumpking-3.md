@@ -40,9 +40,9 @@ orthographicSize výchozí = 5, tedy 1 patro = 10 jednotek. Plošiny v patře 2 
 2. Přejmenuj na `Platform_1` (čísluj)
 3. Nastav **Scale X** podle šířky plošiny (např. `3`)
 4. Nastav **pozici Y** dle patra:
-    - Patro 1: `Y: -4` až `4`
-    - Patro 2: `Y: 6` až `14`
-    - Patro 3: `Y: 16` a výš
+	- Patro 1: `Y: -4` až `4`
+	- Patro 2: `Y: 6` až `14`
+	- Patro 3: `Y: 16` a výš
 5. **Add Component → Box Collider 2D**
 6. **Tag: Ground**
 

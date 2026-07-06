@@ -122,7 +122,7 @@ Ukázat každou vlastnost živě — vybrat obdélník a procházet pravý panel
 ## Základní zkratky
 
 | Zkratka              | Akce                     |
-| -------------------- | ------------------------ |
+|----------------------|--------------------------|
 | `Ctrl + Z`           | Zpět                     |
 | `Ctrl + G`           | Seskupit vybrané objekty |
 | `Ctrl + A`           | Vybrat vše               |
@@ -165,7 +165,7 @@ Vyber tvar → pravý panel → **Fill** → klikni na barevný čtverec.
 Herní paleta — každá barva má svůj význam:
 
 | Hex kód   | Barva   | Herní použití |
-| --------- | ------- | ------------- |
+|-----------|---------|---------------|
 | `#E74C3C` | Červená | HP, nebezpečí |
 | `#2ECC71` | Zelená  | Léčení, mana  |
 | `#F39C12` | Zlatá   | Mince, odměna |
@@ -247,7 +247,7 @@ Co s hotovým designem?
 3. Zvol formát:
 
 | Formát  | Kdy použít                           |
-| ------- | ------------------------------------ |
+|---------|--------------------------------------|
 | **PNG** | Web, průhledné pozadí, ikony         |
 | **SVG** | Vektorový — škálovatelný, pro web    |
 | **JPG** | Fotografie a pozadí bez průhlednosti |

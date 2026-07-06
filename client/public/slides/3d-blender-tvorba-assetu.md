@@ -132,10 +132,10 @@ základny, nikoli kolem svého středu. Nebo vysvětlit Object mode, tool, affec
 1. Přetáhni vyexportovaný soubor `.fbx` a uloženou texturu (`.png`) do složky **Assets** v Unity.
 2. Přetáhni model z Assets přímo do tvé 3D scény.
 3. **Přiřazení textury (Správný postup)**:
-    - Unity má materiály uvnitř `.fbx` zamčené. Vytvoříme si proto vlastní:
-    - Klikni pravým tlačítkem v Assets → **Create → Material** (pojmenuj ho).
-    - Přetáhni naši texturu do políčka **Albedo** (nebo _Base Map_) u nového materiálu.
-    - Přetáhni tento nový materiál myší přímo na model ve scéně.
+	- Unity má materiály uvnitř `.fbx` zamčené. Vytvoříme si proto vlastní:
+	- Klikni pravým tlačítkem v Assets → **Create → Material** (pojmenuj ho).
+	- Přetáhni naši texturu do políčka **Albedo** (nebo _Base Map_) u nového materiálu.
+	- Přetáhni tento nový materiál myší přímo na model ve scéně.
 4. **Tvorba Prefabu**: Nastavený model ze scény přetáhni zpět do složky Assets. Vznikne **Prefab** (šablona), kterou pak
    můžeš ve hře používat opakovaně.
 

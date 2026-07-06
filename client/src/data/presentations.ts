@@ -9,6 +9,7 @@ export type Presentation = {
 export const presentations: Presentation[] = [
 	{ slug: 'uvod', subjectSlug: 'uvod', title: 'Úvod do Letní školy' },
 	{ slug: 'csharp-uvod', subjectSlug: 'csharp', title: 'Úvod do předmětu' },
+	{ slug: 'csharp-0-klavesnice', subjectSlug: 'csharp', title: 'Klávesnice: speciální znaky pro programování' },
 	{ slug: 'csharp-1-promenne', subjectSlug: 'csharp', title: 'Lekce 1: Proměnné a datové typy' },
 	{ slug: 'csharp-2-konverze-podminky', subjectSlug: 'csharp', title: 'Lekce 2: Konverze a podmínky' },
 	{ slug: 'csharp-3-cykly', subjectSlug: 'csharp', title: 'Lekce 3: Cykly' },

@@ -61,8 +61,8 @@ Scale X = roztáhnutí spritu. Alternativa: více menších Platform objektů.
 2. Přejmenuj na `Player`
 3. Nastav pozici: `Y: -2` (nad podlahou)
 4. **Add Component → Rigidbody2D**
-    - **Gravity Scale:** `3`
-    - **Freeze Rotation Z:** ✓
+	- **Gravity Scale:** `3`
+	- **Freeze Rotation Z:** ✓
 5. **Add Component → Box Collider 2D** — přizpůsob velikost tělu
 
 > 📸 **Ukázka:** Inspector s Rigidbody2D — zvýrazni Gravity Scale a Freeze Rotation Z

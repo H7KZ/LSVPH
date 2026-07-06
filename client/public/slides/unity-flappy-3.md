@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 ```
 
 | Metoda   | Kdy se volá                |
-| -------- | -------------------------- |
+|----------|----------------------------|
 | `Start`  | jednou po aktivaci objektu |
 | `Update` | každý snímek hry           |
 
@@ -109,8 +109,8 @@ Toto je best practice Unity vývoje. public funguje, ale je to špatný zvyk.
 
 1. Přetáhni `PlayerMovement` na `Bird` v Hierarchy
 2. Inspector → propoj reference:
-    - **Jump Force:** 4
-    - **Rb:** přetáhni komponentu `Rigidbody 2D` z Inspektoru ptáčka
+	- **Jump Force:** 4
+	- **Rb:** přetáhni komponentu `Rigidbody 2D` z Inspektoru ptáčka
 
 **Play Mode (▶)** → mezerník = skok ✓
 

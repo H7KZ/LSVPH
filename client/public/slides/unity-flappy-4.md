@@ -138,9 +138,9 @@ InvokeRepeating = nejjednodušší způsob periodického volání. nameof() = co
 2. Umísti vpravo za okraj obrazovky (**X: 15**)
 3. Přiřaď skript `PipeSpawner.cs`
 4. Inspector → propoj:
-    - **Pipe:** přetáhni prefab z `Prefabs/`
-    - **Spawn Interval:** 2.5
-    - **Height Range:** 5
+	- **Pipe:** přetáhni prefab z `Prefabs/`
+	- **Spawn Interval:** 2.5
+	- **Height Range:** 5
 
 **Play Mode (▶)** → roury se generují a pohybují doleva ✓
 
