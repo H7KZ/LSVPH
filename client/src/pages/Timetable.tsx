@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TimetableTable } from '../components/TimetableTable'
-import { findLecturerByName } from '../data/lecturers'
+import { findLecturerByName, lecturers } from '../data/lecturers'
 import { groups } from '../data/timetable'
 
 export default function Timetable() {
@@ -62,6 +62,17 @@ export default function Timetable() {
 					>
 						Skupina {g.name}
 					</button>
+				))}
+			</div>
+			<div className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-1">
+				<span className="text-muted text-xs font-bold tracking-widest uppercase">Lektoři:</span>
+				{lecturers.map((lecturer, i) => (
+					<span key={lecturer.slug} className="text-sm">
+						{i > 0 && <span className="text-muted">, </span>}
+						<Link to={`/timetable/lektor/${lecturer.slug}`} className="hover:text-accent hover:underline">
+							{lecturer.name}
+						</Link>
+					</span>
 				))}
 			</div>
 			<TimetableTable rows={rows} />
