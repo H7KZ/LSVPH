@@ -2,8 +2,6 @@
 
 _**Rastr vs. Vektor** — co je rozdíl a proč na tom záleží_
 
-Letní škola vývoje her 2026 · Honza
-
 Notes:
 Uvítat studenty. Zeptat se: "Kdo z vás někdy tvořil nějaký obrázek nebo grafiku?" Nechat ruce. Pak: "Kdo ví, co je
 vektor?"
