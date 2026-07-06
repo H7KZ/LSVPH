@@ -22,6 +22,42 @@ Letní škola vývoje her 2026 · Matyáš
 
 ---
 
+## Co je to vlastně programovací jazyk?
+
+- Počítač rozumí jen **jedničkám a nulám** — programovací jazyk je most mezi
+  člověkem a strojem
+- Píšeš instrukce v podobě, které rozumíš ty, a **kompilátor** nebo
+  **interpret** je přeloží do strojového kódu
+- Existují **stovky** jazyků — každý se hodí na něco jiného
+
+---
+
+## Různé jazyky, různé účely
+
+- **Python** — jednoduchý zápis, skvělý pro začátečníky, umělou inteligenci, analýzu dat
+- **JavaScript** — jazyk webových stránek, běží v prohlížeči
+- **C++** — rychlý, nízkoúrovňový, používá se ve velkých herních enginech (Unreal Engine)
+- **C#** — moderní, čitelný, pohání Unity
+- **Swift / Kotlin** — mobilní aplikace (iOS / Android)
+
+Žádný jazyk není "nejlepší" — vždy záleží na tom, co chceš vytvořit.
+
+---
+
+## Kompilované vs. interpretované
+
+```text
+Kompilovaný jazyk (C#, C++)
+  Kód → Kompilátor → Strojový kód → Spuštění (rychlé)
+
+Interpretovaný jazyk (Python, JavaScript)
+  Kód → Interpret čte a rovnou vykonává řádek po řádku
+```
+
+C# je kompilovaný — proto jsou hry v Unity rychlé a plynulé.
+
+---
+
 ## Proč to stojí za to
 
 Každá hra je uvnitř jen **kód**. Když mu rozumíš, přestáváš být jen hráč
