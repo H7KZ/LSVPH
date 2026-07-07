@@ -102,7 +102,7 @@ Blenderu smazala.
 <ul>
 <li><strong>Apply Transform (Ctrl + A)</strong> → Vyber <strong>All Transforms</strong>. Vynuluje to pozici a nastaví měřítko (Scale) na 1. Bez toho může být model v Unity obří nebo otočený!</li>
 <li><strong>Origin (Střed)</strong>: Ujisti se, že oranžová tečka (střed) je na spodku modelu na zemi (viz podrobný návod na dalším slajdu).</li>
-<li><strong>Export</strong>: Jdi do File → Export → <strong>FBX (.fbx)</strong>.</li>
+<li><strong>Export</strong>: Jdi do File → Export → <strong>FBX (.fbx)</strong>najdi auto, změn na copy a klikni na krabičku vedle. Zapečená textura. Textura musí být uložena před exportem</li>
 </ul>
 </div>
 <img src="/slides/assets/blender_to_unity.jpg" style="width:100%;border:2px solid #000">

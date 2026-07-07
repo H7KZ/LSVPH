@@ -115,7 +115,7 @@ znovu E (vytáhnout nahoru). Tímto způsobem ukázat, jak rychle vzniká např.
 </ul>
 <p style="margin-top:1rem"><strong>Bevel (Zaoblení) — Ctrl + B</strong></p>
 <ul>
-<li>Z ostré hrany udělá zkosenou nebo zaoblenou plochu.</li>
+<li>Z ostré hrany udělá zkosenou nebo zaoblenou plochu. (pokud to zlobí, dej ctrl+a a apply rotation a scale)</li>
 <li>Vyber hranu → <strong>Ctrl + B</strong> → pohni myší (kolečkem přidáš segmenty).</li>
 </ul>
 </div>
@@ -175,6 +175,7 @@ poškození povrchu).
 - **Ctrl + B** — Bevel (Zkosení a zaoblení hran).
 - **F** — Fill (Vytvoření plošky/hrany mezi vybranými prvky).
 - **X** — Mazání (Delete vs. Dissolve).
+- **Shift + A** — Přidání objektů (chceme nejspíš mesh)
 
 Notes:
 Nechat tento slide svítit na projektoru. Zadání pro studenty na zbytek hodiny: Vyzkoušejte si vyrobit jednoduchý hrnek
