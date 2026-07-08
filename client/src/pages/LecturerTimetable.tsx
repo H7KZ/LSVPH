@@ -23,6 +23,7 @@ export default function LecturerTimetable() {
 				return {
 					slot: entry?.slot ?? null,
 					isLunch,
+					lunchPaid: entry?.lunchPaid,
 					content: entry && !isLunch && (
 						<>
 							<span className="block font-medium">{entry.slot.label}</span>

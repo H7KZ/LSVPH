@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import { findSubjectBySlug } from '../data/subjects'
 import { timeSlots, type SlotEntry } from '../data/timetable'
 
-type Cell = { slot: SlotEntry | null; content: ReactNode; isLunch?: boolean }
+type Cell = { slot: SlotEntry | null; content: ReactNode; isLunch?: boolean; lunchPaid?: boolean }
 export type TimetableRow = { day: string; date: string; cells: Cell[] }
 
 export function TimetableTable({ rows }: { rows: TimetableRow[] }) {
@@ -30,7 +30,11 @@ export function TimetableTable({ rows }: { rows: TimetableRow[] }) {
 								const subject = cell.slot?.subjectSlug ? findSubjectBySlug(cell.slot.subjectSlug) : null
 								return (
 									<td key={i} className="border-ink border-2 px-3 py-3" style={subject ? { backgroundColor: subject.accent } : undefined}>
-										{cell.isLunch ? <span className="text-muted flex items-center justify-center text-center">🍽</span> : cell.content}
+										{cell.isLunch ? (
+											cell.lunchPaid !== false && <span className="text-muted flex items-center justify-center text-center">🍽</span>
+										) : (
+											cell.content
+										)}
 									</td>
 								)
 							})}

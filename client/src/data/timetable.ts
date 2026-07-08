@@ -19,7 +19,7 @@ export type Group = {
 export type LecturerDaySchedule = {
 	day: string
 	date: string
-	entries: { time: string; group: string; slot: SlotEntry }[]
+	entries: { time: string; group: string; slot: SlotEntry; lunchPaid?: boolean }[]
 }
 
 export const timeSlots = ['9:00–10:00', '10:00–11:00', '11:00–12:00', 'Oběd', '13:00–14:00', '14:00–15:00', '15:00–16:00']
@@ -287,13 +287,13 @@ export const groups: Group[] = [
 				day: 'Pátek',
 				date: '10. 7.',
 				slots: [
-					projekt('109', 'Ondřej', '-'),
-					projekt('109', 'Ondřej', '-'),
-					projekt('109', 'Ondřej', '-'),
+					projekt('109', 'Ondřej', 'Tobiáš'),
+					projekt('109', 'Ondřej', 'Tobiáš'),
+					projekt('109', 'Ondřej', 'Tobiáš'),
 					null,
-					projekt('109', 'Ondřej', '-'),
-					projekt('109', 'Ondřej', '-'),
-					projekt('109', 'Ondřej', '-')
+					projekt('109', 'Ondřej', 'Tobiáš'),
+					projekt('109', 'Ondřej', 'Tobiáš'),
+					projekt('109', 'Ondřej', 'Tobiáš')
 				]
 			}
 		]
@@ -449,7 +449,7 @@ const obedSlot: SlotEntry = { label: 'Oběd', subjectSlug: '', room: null, lectu
 
 export function getLecturerSchedule(name: string): LecturerDaySchedule[] {
 	return groups[0].days.map((day, dayIndex) => {
-		const entries: { time: string; group: string; slot: SlotEntry }[] = []
+		const entries: { time: string; group: string; slot: SlotEntry; lunchPaid?: boolean }[] = []
 		timeSlots.forEach((time, slotIndex) => {
 			for (const group of groups) {
 				const slot = group.days[dayIndex].slots[slotIndex]
@@ -463,10 +463,13 @@ export function getLecturerSchedule(name: string): LecturerDaySchedule[] {
 		if (teachesRightAfterUvod && uvodSlot && uvodSlot.subjectSlug === 'entry') {
 			entries.unshift({ time: timeSlots[0], group: '', slot: uvodSlot })
 		}
-		const morningTimes = new Set(timeSlots.slice(0, timeSlots.indexOf('Oběd')))
+		const lunchIndex = timeSlots.indexOf('Oběd')
+		const morningTimes = new Set(timeSlots.slice(0, lunchIndex))
+		const afternoonTimes = new Set(timeSlots.slice(lunchIndex + 1))
 		const beforeLunchIndex = entries.reduce((last, e, i) => (morningTimes.has(e.time) ? i : last), -1)
 		if (beforeLunchIndex !== -1) {
-			entries.splice(beforeLunchIndex + 1, 0, { time: 'Oběd', group: '', slot: obedSlot })
+			const teachesAfternoon = entries.some(e => afternoonTimes.has(e.time))
+			entries.splice(beforeLunchIndex + 1, 0, { time: 'Oběd', group: '', slot: obedSlot, lunchPaid: teachesAfternoon })
 		}
 		return { day: day.day, date: day.date, entries }
 	})
