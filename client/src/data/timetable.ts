@@ -117,12 +117,12 @@ export const groups: Group[] = [
 						room: '6',
 						lecturers: ['Matyáš', 'Eliška']
 					},
-					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Adam', 'Matyáš'] },
-					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Adam', 'Matyáš'] },
+					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Honza', 'Matyáš'] },
+					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Honza', 'Matyáš'] },
 					null,
-					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Adam', 'Matyáš'] },
-					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Adam', 'Matyáš'] },
-					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Adam', 'Matyáš'] }
+					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Honza', 'Matyáš'] },
+					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Honza', 'Matyáš'] },
+					{ label: 'Základy Unity', subjectSlug: 'unity', room: '6', lecturers: ['Honza', 'Matyáš'] }
 				]
 			},
 			{
@@ -386,32 +386,32 @@ export const groups: Group[] = [
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '13',
-						lecturers: ['Tobiáš', 'Honza']
+						lecturers: ['Tobiáš', 'Adam']
 					},
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '13',
-						lecturers: ['Tobiáš', 'Honza']
+						lecturers: ['Tobiáš', 'Adam']
 					},
 					null,
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '13',
-						lecturers: ['Tobiáš', 'Honza']
+						lecturers: ['Tobiáš', 'Adam']
 					},
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '13',
-						lecturers: ['Tobiáš', 'Honza']
+						lecturers: ['Tobiáš', 'Adam']
 					},
 					{
 						label: 'Základy Unity',
 						subjectSlug: 'unity',
 						room: '13',
-						lecturers: ['Tobiáš', 'Honza']
+						lecturers: ['Tobiáš', 'Adam']
 					}
 				]
 			},
