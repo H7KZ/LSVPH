@@ -142,13 +142,13 @@ export const groups: Group[] = [
 				day: 'Pátek',
 				date: '10. 7.',
 				slots: [
-					projekt('6', 'Adam', 'Matyáš'),
-					projekt('6', 'Adam', 'Matyáš'),
-					projekt('6', 'Adam', 'Matyáš'),
+					projekt('6', 'Honza', 'Matyáš'),
+					projekt('6', 'Honza', 'Matyáš'),
+					projekt('6', 'Honza', 'Matyáš'),
 					null,
-					projekt('6', 'Adam', 'Matyáš'),
-					projekt('6', 'Adam', 'Matyáš'),
-					projekt('6', 'Adam', 'Matyáš')
+					projekt('6', 'Honza', 'Matyáš'),
+					projekt('6', 'Honza', 'Matyáš'),
+					projekt('6', 'Honza', 'Matyáš')
 				]
 			}
 		]
@@ -419,26 +419,26 @@ export const groups: Group[] = [
 				day: 'Čtvrtek',
 				date: '9. 7.',
 				slots: [
-					projekt('13', 'Šimon', 'Honza'),
-					projekt('13', 'Šimon', 'Honza'),
-					projekt('13', 'Šimon', 'Honza'),
+					projekt('13', 'Šimon', 'Adam'),
+					projekt('13', 'Šimon', 'Adam'),
+					projekt('13', 'Šimon', 'Adam'),
 					null,
-					projekt('13', 'Šimon', 'Honza'),
-					projekt('13', 'Šimon', 'Honza'),
-					projekt('13', 'Šimon', 'Honza')
+					projekt('13', 'Šimon', 'Adam'),
+					projekt('13', 'Šimon', 'Adam'),
+					projekt('13', 'Šimon', 'Adam')
 				]
 			},
 			{
 				day: 'Pátek',
 				date: '10. 7.',
 				slots: [
-					projekt('13', 'Šimon', 'Honza'),
-					projekt('13', 'Šimon', 'Honza'),
-					projekt('13', 'Šimon', 'Honza'),
+					projekt('13', 'Šimon', 'Adam'),
+					projekt('13', 'Šimon', 'Adam'),
+					projekt('13', 'Šimon', 'Adam'),
 					null,
-					projekt('13', 'Šimon', 'Honza'),
-					projekt('13', 'Šimon', 'Honza'),
-					projekt('13', 'Šimon', 'Honza')
+					projekt('13', 'Šimon', 'Adam'),
+					projekt('13', 'Šimon', 'Adam'),
+					projekt('13', 'Šimon', 'Adam')
 				]
 			}
 		]
