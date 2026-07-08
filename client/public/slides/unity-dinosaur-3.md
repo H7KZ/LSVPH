@@ -49,7 +49,7 @@ gravitací — a zároveň umožní trigger callbacky.
 ## Trigger vs. fyzická kolize
 
 |                | Is Trigger | Co se stane                |
-| -------------- | ---------- | -------------------------- |
+|----------------|------------|----------------------------|
 | Fyzická kolize | ☐          | Blokuje průchod, odráží    |
 | Trigger zóna   | ✓          | Proletí skrz, jen callback |
 

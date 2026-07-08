@@ -1,6 +1,5 @@
 ## Lekce 1: Proměnné a datové typy
 
-
 - Struktura C# souboru
 - Výstup na konzoli
 - Datové typy — čísla, text, pravda/lež
@@ -33,6 +32,7 @@ class Program           // třída (vysvětlíme v lekci 6)
     }
 }
 ```
+
 - V moderním C# lze vynechat `class Program` a `static void Main()` — kód se spustí přímo.
 
 Notes:
@@ -57,7 +57,7 @@ Console.WriteLine();                 // jen prázdný řádek
 ## Datové typy
 
 | Typ      | Co ukládá                 | Příklad       |
-| -------- | ------------------------- | ------------- |
+|----------|---------------------------|---------------|
 | `string` | text                      | `"Ahoj"`      |
 | `int`    | celé číslo (32-bit)       | `42`          |
 | `long`   | velké celé číslo (64-bit) | `9999999999L` |
@@ -99,6 +99,7 @@ var pi    = 3.14;     // kompilátor ví: double
 // typ se stále nedá změnit!
 // vek = "patnáct";  // CHYBA
 ```
+
 - `var` už v moderním C# **nepoužíváme** (mimo krajní případy)
 
 `var` je zkratka — typ se odvodí z pravé strany. Kód je kratší, typ stále existuje.

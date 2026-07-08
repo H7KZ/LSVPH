@@ -74,9 +74,9 @@ Ukázat hotovou strukturu složek a náhledy importovaných obrázků.
 
 1. Klikni na **Main Camera** v Hierarchy
 2. Inspector → nastav:
-    - **Projection:** Orthographic
-    - **Size:** 5
-    - **Background Color:** světle modrá
+	- **Projection:** Orthographic
+	- **Size:** 5
+	- **Background Color:** světle modrá
 
 Notes:
 Orthographic = 2D pohled bez perspektivy. Size 5 = 10 Unity jednotek výšky viditelné scény.

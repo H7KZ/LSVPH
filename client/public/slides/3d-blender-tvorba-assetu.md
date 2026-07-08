@@ -102,7 +102,7 @@ Blenderu smazala.
 <ul>
 <li><strong>Apply Transform (Ctrl + A)</strong> → Vyber <strong>All Transforms</strong>. Vynuluje to pozici a nastaví měřítko (Scale) na 1. Bez toho může být model v Unity obří nebo otočený!</li>
 <li><strong>Origin (Střed)</strong>: Ujisti se, že oranžová tečka (střed) je na spodku modelu na zemi (viz podrobný návod na dalším slajdu).</li>
-<li><strong>Export</strong>: Jdi do File → Export → <strong>FBX (.fbx)</strong>.</li>
+<li><strong>Export</strong>: Jdi do File → Export → <strong>FBX (.fbx)</strong>najdi auto, změn na copy a klikni na krabičku vedle. Zapečená textura. Textura musí být uložena před exportem</li>
 </ul>
 </div>
 <img src="/slides/assets/blender_to_unity.jpg" style="width:100%;border:2px solid #000">
@@ -132,10 +132,10 @@ základny, nikoli kolem svého středu. Nebo vysvětlit Object mode, tool, affec
 1. Přetáhni vyexportovaný soubor `.fbx` a uloženou texturu (`.png`) do složky **Assets** v Unity.
 2. Přetáhni model z Assets přímo do tvé 3D scény.
 3. **Přiřazení textury (Správný postup)**:
-    - Unity má materiály uvnitř `.fbx` zamčené. Vytvoříme si proto vlastní:
-    - Klikni pravým tlačítkem v Assets → **Create → Material** (pojmenuj ho).
-    - Přetáhni naši texturu do políčka **Albedo** (nebo _Base Map_) u nového materiálu.
-    - Přetáhni tento nový materiál myší přímo na model ve scéně.
+	- Unity má materiály uvnitř `.fbx` zamčené. Vytvoříme si proto vlastní:
+	- Klikni pravým tlačítkem v Assets → **Create → Material** (pojmenuj ho).
+	- Přetáhni naši texturu do políčka **Albedo** (nebo _Base Map_) u nového materiálu.
+	- Přetáhni tento nový materiál myší přímo na model ve scéně.
 4. **Tvorba Prefabu**: Nastavený model ze scény přetáhni zpět do složky Assets. Vznikne **Prefab** (šablona), kterou pak
    můžeš ve hře používat opakovaně.
 

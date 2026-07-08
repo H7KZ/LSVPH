@@ -193,8 +193,8 @@ PlayerPrefs = Unity vestavěná databáze klíč-hodnota. Přetrvá i po restart
 1. Vytvoř prázdný GameObject → pojmenuj `GameManager`
 2. **Add Component → GameManager** (přidá i UIManager automaticky)
 3. Propoj v Inspektoru:
-    - UIManager → StartPanel, WinPanel, ScreenText, BestScreenText, CameraController (Main Camera)
-    - GameManager → UIManager (Inspector slot)
+	- UIManager → StartPanel, WinPanel, ScreenText, BestScreenText, CameraController (Main Camera)
+	- GameManager → UIManager (Inspector slot)
 
 > 📸 **Ukázka:** Inspector GameManager objektu — zvýrazni propojené reference
 

@@ -1,6 +1,5 @@
 ## Lekce 2: Konverze a podmínky
 
-
 - Čtení vstupu od uživatele
 - Převod typů (string → int a zpět)
 - Logické operátory: `&&`, `||`, `!`
@@ -65,7 +64,7 @@ else
 ## Logické operátory
 
 | Operátor | Název     | Příklad                  | Výsledek                      |
-| -------- | --------- | ------------------------ | ----------------------------- |
+|----------|-----------|--------------------------|-------------------------------|
 | `&&`     | A zároveň | `vek >= 13 && vek <= 19` | true, jen pokud obě platí     |
 | `\|\|`   | Nebo      | `vek < 5 \|\| vek > 65`  | true, pokud aspoň jedna platí |
 | `!`      | Negace    | `!jeHrac`                | obrátí true/false             |
@@ -85,7 +84,7 @@ první je true, druhá se přeskočí.
 ## Porovnávací operátory
 
 | Operátor | Význam           |
-| -------- | ---------------- |
+|----------|------------------|
 | `==`     | rovná se         |
 | `!=`     | nerovná se       |
 | `<`      | menší než        |
@@ -172,6 +171,7 @@ switch (operace)
         break;
 }
 ```
+
 - vhodné pro výběr z mnoha možností (úhlednější zápis)
 - `break` ukončí aktuální case — bez něj by program propadl do dalšího case.
 
