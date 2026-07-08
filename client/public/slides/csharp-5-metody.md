@@ -179,33 +179,42 @@ scope — metoda nevidí proměnné jiné metody.
 
 ---
 
-## Cvičení: Zarovnaný výpis
+## Cvičení: Nákupní košík
 
-Napiš metodu `VypisProdukty(string nazev, double cena)`, která vypíše:
+1. Napiš `void` metodu `VypisPolozku(string nazev, double cena, int mnozstvi)`, která vypíše:
+   ```text
+   3x Minecraft (249 Kč/ks)
+   ```
+2. Napiš metodu `CenaCelkem(double cena, int mnozstvi)`, která celkovou cenu **vrátí** (nevypisuje ji).
+3. **Přetiž** `CenaCelkem` o třetí parametr `sleva` (v procentech), který celkovou cenu sníží.
+4. Dej parametru `sleva` **výchozí hodnotu** `0`, aby šlo metodu volat i bez slevy.
 
-```text
-Minecraft          249.00 Kč
-Fortnite             0.00 Kč
-Counter-Strike 2   399.00 Kč
+```csharp
+VypisPolozku("Minecraft", 249, 3);           // 3x Minecraft (249 Kč/ks)
+Console.WriteLine(CenaCelkem(249, 3));       // 747
+Console.WriteLine(CenaCelkem(249, 3, 10));   // 672.3  (sleva 10 %)
 ```
-
-Tak, aby název byl vždy 20 znaků a cena 10 znaků (použij `PadRight` / `PadLeft`).
-
-Pak napiš přetíženou verzi s parametrem `mena = "Kč"`.
 
 Notes:
 Řešení:
 
 ```csharp
-static void VypisProdukty(string nazev, double cena, string mena = "Kč")
+static void VypisPolozku(string nazev, double cena, int mnozstvi)
 {
-    Console.WriteLine($"{nazev.PadRight(20)}{cena.ToString("F2").PadLeft(10)} {mena}");
+    Console.WriteLine($"{mnozstvi}x {nazev} ({cena} Kč/ks)");
 }
 
-VypisProdukty("Minecraft", 249);
-VypisProdukty("Fortnite", 0);
-VypisProdukty("Counter-Strike 2", 399);
-VypisProdukty("Minecraft", 10.99, "USD");
+static double CenaCelkem(double cena, int mnozstvi, double sleva = 0)
+{
+    double celkem = cena * mnozstvi;
+    return celkem - celkem * sleva / 100;
+}
+
+VypisPolozku("Minecraft", 249, 3);
+Console.WriteLine(CenaCelkem(249, 3));
+Console.WriteLine(CenaCelkem(249, 3, 10));
 ```
 
-string.PadRight(n) doplní mezerami zprava na n znaků. PadLeft(n) zarovná zleva.
+Klíčové body pro studenty: rozdíl void vs. návratová hodnota, přetížení podle počtu parametrů,
+výchozí hodnota musí být u posledního parametru. Vyhýbáme se PadRight/PadLeft — to je téma
+formátování textu, ne metod, a zbytečně by odvádělo pozornost od tématu lekce.
