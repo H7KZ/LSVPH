@@ -123,7 +123,7 @@ ztráty kvality.
 ## Rastr vs. Vektor — srovnání
 
 | Vlastnost         | Rastrová grafika          | Vektorová grafika      |
-|-------------------|---------------------------|------------------------|
+| ----------------- | ------------------------- | ---------------------- |
 | Základní jednotka | Pixel                     | Matematický objekt     |
 | Škálovatelnost    | Pixelizuje se             | Dokonalá               |
 | Ideální pro       | Fotky, textury, pixel art | Loga, ikony, UI        |

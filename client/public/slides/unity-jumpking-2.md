@@ -178,11 +178,8 @@ Kompaktní verze pro přehled — do souboru pište klidně s více mezerami a k
 - Dlouhé držení Space → vysoký skok
 - A/D při nabíjení → skok vlevo / vpravo
 
-> 📸 **Ukázka:** postava ve vzduchu po nabíjeném skoku vpravo
-
 Notes:
-Nejčastější bug: postava skáče i ve vzduchu. Příčina: isGrounded zůstane true. Zkontrolovat Tag "Ground" na Ground
-objektu.
+Nejčastější bug: postava skáče i ve vzduchu. Příčina: isGrounded zůstane true. Zkontrolovat Tag "Ground" na Ground objektu.
 
 ---
 

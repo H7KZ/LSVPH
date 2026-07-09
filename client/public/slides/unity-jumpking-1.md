@@ -21,8 +21,6 @@ Notes:
 2. Název: `JumpKing`
 3. Složky v Assets: **Graphics/**, **Scripts/**
 
-> 📸 **Ukázka:** Unity Hub — záložka Projects, New Project, šablona 2D Core
-
 Notes:
 2D Core = žádné nadbytečné balíčky. Tilemap a URP jsou součástí.
 
@@ -34,8 +32,6 @@ Přetáhni soubory do složky **Graphics/**:
 
 - `Player.png` — sprite postavy
 - `Platform.png` — sprite plošiny / podlahy
-
-> 📸 **Ukázka:** Project okno → složka Graphics s oběma PNG soubory
 
 Notes:
 Unity importuje automaticky při přetažení. Pixel Per Unit: 100 (výchozí).
@@ -61,11 +57,9 @@ Scale X = roztáhnutí spritu. Alternativa: více menších Platform objektů.
 2. Přejmenuj na `Player`
 3. Nastav pozici: `Y: -2` (nad podlahou)
 4. **Add Component → Rigidbody2D**
-	- **Gravity Scale:** `3`
-	- **Freeze Rotation Z:** ✓
+    - **Gravity Scale:** `3`
+    - **Freeze Rotation Z:** ✓
 5. **Add Component → Box Collider 2D** — přizpůsob velikost tělu
-
-> 📸 **Ukázka:** Inspector s Rigidbody2D — zvýrazni Gravity Scale a Freeze Rotation Z
 
 Notes:
 Gravity Scale 3 = trojnásobná gravitace. Freeze Rotation = postava se nenakloní. Bez toho by se válela po zemi.

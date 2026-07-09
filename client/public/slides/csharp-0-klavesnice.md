@@ -14,7 +14,7 @@ Letní škola vývoje her 2026 · Honza
 ### Kulaté `( )`
 
 | Znak | Klávesa                         |
-|------|---------------------------------|
+| ---- | ------------------------------- |
 | `)`  | vlastní klávesa vlevo od Enteru |
 | `(`  | `Shift` + `)`                   |
 
@@ -29,7 +29,7 @@ Console.WriteLine("Hi")
 ### Hranaté `[ ]`
 
 | Znak | Klávesa       |
-|------|---------------|
+| ---- | ------------- |
 | `[`  | `AltGr` + `F` |
 | `]`  | `AltGr` + `G` |
 
@@ -44,7 +44,7 @@ pole[0] = 42;
 ### Složené `{ }`
 
 | Znak | Klávesa       |
-|------|---------------|
+| ---- | ------------- |
 | `{`  | `AltGr` + `B` |
 | `}`  | `AltGr` + `N` |
 
@@ -68,7 +68,7 @@ void Metoda()
 ### Uvozovky a apostrof
 
 | Znak | Klávesa                          | Použití        |
-|------|----------------------------------|----------------|
+| ---- | -------------------------------- | -------------- |
 | `"`  | `Shift` + `ů`                    | string literál |
 | `'`  | `Shift` + `\|` (vlevo od Enteru) | char literál   |
 
@@ -80,7 +80,7 @@ char pismeno = 'A';
 ### Lomítka
 
 | Znak | Klávesa       | Použití                |
-|------|---------------|------------------------|
+| ---- | ------------- | ---------------------- |
 | `/`  | `Shift` + `ú` | dělení, komentář `//`  |
 | `\`  | `AltGr` + `Q` | cesty, escape sekvence |
 
@@ -95,7 +95,7 @@ string cesta = @"C:\hry\hra.exe";
 ### Porovnávání a rovnost
 
 | Znak | Klávesa                         | Použití      |
-|------|---------------------------------|--------------|
+| ---- | ------------------------------- | ------------ |
 | `=`  | vlastní klávesa (vpravo od `0`) | přiřazení    |
 | `<`  | `AltGr` + `,`                   | menší než    |
 | `>`  | `AltGr` + `.`                   | větší než    |
@@ -110,7 +110,7 @@ if (x > 5 && x != 7)
 ### Aritmetika
 
 | Znak | Klávesa                                    |
-|------|--------------------------------------------|
+| ---- | ------------------------------------------ |
 | `+`  | vlastní klávesa (úplně vlevo, první řádek) |
 | `-`  | vlastní klávesa (vedle pravého Shiftu)     |
 | `*`  | `AltGr` + `-` (vedle pravého Shiftu)       |
@@ -129,7 +129,7 @@ if (x > 5 && x != 7)
 ### Logické operátory
 
 | Znak | Klávesa       | Použití           |
-|------|---------------|-------------------|
+| ---- | ------------- | ----------------- |
 | `&`  | `AltGr` + `C` | `&&` logické AND  |
 | `\|` | `AltGr` + `W` | `\|\|` logické OR |
 
@@ -141,7 +141,7 @@ if (a > 0 || b > 0) { }
 ### Speciální znaky
 
 | Znak | Klávesa       | Použití                      |
-|------|---------------|------------------------------|
+| ---- | ------------- | ---------------------------- |
 | `@`  | `AltGr` + `V` | verbatim string, atributy    |
 | `#`  | `AltGr` + `X` | direktivy (`#region`, `#if`) |
 | `$`  | `AltGr` + `ů` | interpolovaný string         |
@@ -157,7 +157,7 @@ Console.WriteLine($"Zdraví: {hp}");
 ### Méně časté, ale užitečné
 
 | Znak | Klávesa                  | Použití                |
-|------|--------------------------|------------------------|
+| ---- | ------------------------ | ---------------------- |
 | `~`  | `AltGr` + `1`            | bitové NOT, destruktor |
 | `^`  | `AltGr` + `3` + mezerník | XOR, index od konce    |
 

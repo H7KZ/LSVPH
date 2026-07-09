@@ -28,8 +28,7 @@ currentScreen >= totalScreens → TriggerWin (konec hry)
 Kamera se nikdy nepohybuje plynule — záměrně, tak to funguje v Jump Kingu.
 
 Notes:
-orthographicSize = polovina výšky. Celá výška = orthographicSize × 2. Výchozí orthographicSize = 5 → patro = 10
-jednotek.
+orthographicSize = polovina výšky. Celá výška = orthographicSize × 2. Výchozí orthographicSize = 5 → patro = 10 jednotek.
 
 ---
 
@@ -117,11 +116,8 @@ Mathf.Max(0, ...) = hráč nemůže klesnout pod patro 0. Z = -10 = standardní 
 
 ▶ **Play** → skoč do horní části scény
 
-> 📸 **Ukázka:** Inspector Main Camera s CameraController — zvýrazni pole Player a Total Screens
-
 Notes:
-Pokud kamera neskočí: zkontrolovat, že Player má správnou pozici Y. SnapCamera v Awake nastaví kameru na patro 0 při
-startu.
+Pokud kamera neskočí: zkontrolovat, že Player má správnou pozici Y. SnapCamera v Awake nastaví kameru na patro 0 při startu.
 
 ---
 
@@ -151,8 +147,7 @@ Studenti mohou ověřit: v Play Mode sledovat Y souřadnici Main Camera v Inspek
 - Z patra 3 → hra skončí (bude v lekci 5)
 
 Notes:
-Pokud kamera neskáče: TriggerWin volá GameManager.Instance — ten musí existovat ve scéně (přidáme v lekci 5). Zatím
-ignorovat.
+Pokud kamera neskáče: TriggerWin volá GameManager.Instance — ten musí existovat ve scéně (přidáme v lekci 5). Zatím ignorovat.
 
 ---
 

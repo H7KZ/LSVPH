@@ -57,7 +57,7 @@ Console.WriteLine();                 // jen prázdný řádek
 ## Datové typy
 
 | Typ      | Co ukládá                 | Příklad       |
-|----------|---------------------------|---------------|
+| -------- | ------------------------- | ------------- |
 | `string` | text                      | `"Ahoj"`      |
 | `int`    | celé číslo (32-bit)       | `42`          |
 | `long`   | velké celé číslo (64-bit) | `9999999999L` |

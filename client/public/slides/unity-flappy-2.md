@@ -20,7 +20,7 @@ Tato lekce zavádí klíčové pojmy Unity: GameObject, Component, Inspector, Ri
 V Unity je vše **GameObject**. Vlastnosti mu dávají **komponenty**.
 
 | Komponenta       | Co dělá                  |
-|------------------|--------------------------|
+| ---------------- | ------------------------ |
 | `Transform`      | pozice, rotace, velikost |
 | `SpriteRenderer` | kreslí 2D obrázek        |
 | `Rigidbody2D`    | fyzika a gravitace       |
@@ -43,32 +43,18 @@ Přejmenování je důležité — v skriptu na objekt odkazujeme.
 
 ---
 
-> 📸 **Ukázka:** Hierarchy — objekt Bird, Inspector — Transform a komponenta SpriteRenderer
-
-Notes:
-Ukázat přejmenovaný Bird objekt a komponentu SpriteRenderer v Inspektoru.
-
----
-
 ## Rigidbody2D — přidání fyziky
 
 1. Vyber `Bird` v Hierarchy
 2. Inspector → **Add Component** → `Rigidbody 2D`
 3. Nastav:
-	- **Gravity Scale:** `1.5`
-	- **Constraints → Freeze Rotation Z:** ✓
+    - **Gravity Scale:** `1.5`
+    - **Constraints → Freeze Rotation Z:** ✓
 
 **Play Mode (▶)** → ptáček padá dolů ✓
 
 Notes:
 Freeze Rotation Z = ptáček se neobrátí při první kolizi. Vyzkoušejte různé hodnoty Gravity Scale.
-
----
-
-> 📸 **Ukázka:** Inspector — Rigidbody2D, Gravity Scale: 1.5, Freeze Rotation Z zaškrtnutý
-
-Notes:
-Ukázat všechna nastavení Rigidbody2D v Inspektoru.
 
 ---
 
@@ -104,7 +90,7 @@ Is Trigger = průlet skrz, ale dostaneme callback. Bez Is Trigger by se ptáček
 ## Trigger vs. fyzická kolize
 
 | Typ            | Is Trigger | Chování                   |
-|----------------|------------|---------------------------|
+| -------------- | ---------- | ------------------------- |
 | Fyzická kolize | ☐          | Blokuje průchod, odraz    |
 | Trigger zóna   | ✓          | Průlet skrz, jen callback |
 

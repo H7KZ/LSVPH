@@ -64,7 +64,7 @@ else
 ## Logické operátory
 
 | Operátor | Název     | Příklad                  | Výsledek                      |
-|----------|-----------|--------------------------|-------------------------------|
+| -------- | --------- | ------------------------ | ----------------------------- |
 | `&&`     | A zároveň | `vek >= 13 && vek <= 19` | true, jen pokud obě platí     |
 | `\|\|`   | Nebo      | `vek < 5 \|\| vek > 65`  | true, pokud aspoň jedna platí |
 | `!`      | Negace    | `!jeHrac`                | obrátí true/false             |
@@ -84,7 +84,7 @@ první je true, druhá se přeskočí.
 ## Porovnávací operátory
 
 | Operátor | Význam           |
-|----------|------------------|
+| -------- | ---------------- |
 | `==`     | rovná se         |
 | `!=`     | nerovná se       |
 | `<`      | menší než        |

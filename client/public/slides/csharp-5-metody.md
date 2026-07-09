@@ -182,9 +182,9 @@ scope — metoda nevidí proměnné jiné metody.
 ## Cvičení: Nákupní košík
 
 1. Napiš `void` metodu `VypisPolozku(string nazev, double cena, int mnozstvi)`, která vypíše:
-   ```text
-   3x Minecraft (249 Kč/ks)
-   ```
+    ```text
+    3x Minecraft (249 Kč/ks)
+    ```
 2. Napiš metodu `CenaCelkem(double cena, int mnozstvi)`, která celkovou cenu **vrátí** (nevypisuje ji).
 3. **Přetiž** `CenaCelkem` o třetí parametr `sleva` (v procentech), který celkovou cenu sníží.
 4. Dej parametru `sleva` **výchozí hodnotu** `0`, aby šlo metodu volat i bez slevy.

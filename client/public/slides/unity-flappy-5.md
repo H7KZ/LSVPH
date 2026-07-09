@@ -26,13 +26,6 @@ Canvas = průhledná fólie přes celou scénu. Všechny UI prvky jsou uvnitř C
 
 ---
 
-> 📸 **Ukázka:** Hierarchy — Canvas s EventSystem, Inspector — Canvas Scaler nastaven
-
-Notes:
-Ukázat vytvořený Canvas, EventSystem a nastavení Canvas Scaler v Inspektoru.
-
----
-
 ## Text Mesh Pro — skóre
 
 1. Pravý klik na Canvas → **UI → Text - TextMeshPro**
@@ -97,13 +90,6 @@ ScoreZone je child prefabu → pohybuje se s rourou automaticky ✓
 
 Notes:
 ScoreZone jako child objekt znamená, že stačí nastavit jednou v prefabu — platí pro všechny instance.
-
----
-
-> 📸 **Ukázka:** Pipe prefab — ScoreZone jako child objekt, Box Collider 2D s Is Trigger
-
-Notes:
-Ukázat ScoreZone v hierarchii prefab editoru a jeho Collider v Inspektoru.
 
 ---
 

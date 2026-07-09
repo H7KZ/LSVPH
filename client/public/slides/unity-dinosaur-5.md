@@ -101,8 +101,8 @@ překlepy!
 
 1. Na GameObject `GameManager` přidej komponentu `ScoreManager`
 2. V Inspektoru propoj:
-	- **Score Text** → přetáhni `ScoreText` z Canvasu
-	- **High Score Text** → přetáhni `HighScoreText` z Canvasu
+    - **Score Text** → přetáhni `ScoreText` z Canvasu
+    - **High Score Text** → přetáhni `HighScoreText` z Canvasu
 
 **Play Mode (▶)** → skóre narůstá, rekord se aktualizuje průběžně ✓
 

@@ -11,16 +11,16 @@ Letní škola vývoje her 2026
 ## Lektoři
 
 - Učitelé
-	- Matyáš
-	- Šimon
+    - Matyáš
+    - Šimon
 - Absolventi
-	- Honza
-	- Ondřej
-	- David
+    - Honza
+    - Ondřej
+    - David
 - Studenti
-	- Eliška
-	- Adam
-	- Tobiáš
+    - Eliška
+    - Adam
+    - Tobiáš
 
 ---
 
@@ -31,11 +31,11 @@ Letní škola vývoje her 2026
 ## Průběh
 
 - Pondělí a úterý
-	- intenzivní výuka programování, 2D, Blenderu a gamedesignu
+    - intenzivní výuka programování, 2D, Blenderu a gamedesignu
 - Středa
-	- intenzivní výuka Unity
+    - intenzivní výuka Unity
 - Čtvrtek a pátek
-	- prezentace Bohemia Interactive a práce na projektu pod dohledem lektorů
+    - prezentace Bohemia Interactive a práce na projektu pod dohledem lektorů
 
 ---
 

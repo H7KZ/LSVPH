@@ -103,14 +103,7 @@ Canvas
 **WinPanel** i **StartPanel** nastav jako **Inactive** v Inspektoru.
 
 Notes:
-TMP = TextMeshPro. Pokud chybí balíček, Unity nabídne instalaci při prvním použití TMP komponentu.
-
----
-
-> 📸 **Ukázka:** Hierarchy — Canvas s StartPanel, WinPanel a HUD; StartPanel a WinPanel jsou šedé (inactive)
-
-Notes:
-Šedá ikona = inactive. Studenti si to snadno pletou — ukázat jak vypadá aktivní vs. inactive objekt.
+TMP = TextMeshPro. Pokud chybí balíček, Unity nabídne instalaci při prvním použití TMP komponentu. Šedá ikona = inactive.
 
 ---
 
@@ -193,10 +186,8 @@ PlayerPrefs = Unity vestavěná databáze klíč-hodnota. Přetrvá i po restart
 1. Vytvoř prázdný GameObject → pojmenuj `GameManager`
 2. **Add Component → GameManager** (přidá i UIManager automaticky)
 3. Propoj v Inspektoru:
-	- UIManager → StartPanel, WinPanel, ScreenText, BestScreenText, CameraController (Main Camera)
-	- GameManager → UIManager (Inspector slot)
-
-> 📸 **Ukázka:** Inspector GameManager objektu — zvýrazni propojené reference
+    - UIManager → StartPanel, WinPanel, ScreenText, BestScreenText, CameraController (Main Camera)
+    - GameManager → UIManager (Inspector slot)
 
 Notes:
 Nejčastější bug: prázdná reference (None) v Inspektoru → NullReferenceException. Projít každé pole.
@@ -242,7 +233,7 @@ Volitelná rozšíření: animace postavy (Animator), zvuky (AudioSource.PlayOne
 
 ## Gratulace — Jump King dokončen! 👑
 
-**4 skripty, které jste napsali:**
+**4 skripty, které jsi napsal:**
 
 - `PlayerController` — nabíjený skok
 - `CameraController` — přepínání pater
@@ -250,5 +241,4 @@ Volitelná rozšíření: animace postavy (Animator), zvuky (AudioSource.PlayOne
 - `UIManager` — panely + PlayerPrefs rekord
 
 Notes:
-Ukázat studentům hotovou hru. Připomenout co se naučili: Rigidbody2D, kolize, singleton, stavový stroj, PlayerPrefs, UI
-Canvas.
+Připomenout co se studenti naučili: Rigidbody2D, kolize, singleton, stavový stroj, PlayerPrefs, UI Canvas.

@@ -153,11 +153,11 @@ List<string> zPole = new List<string>(pole);
 ## Pole vs. List
 
 |            | Pole `T[]`     | List `List<T>`  |
-|------------|----------------|-----------------|
+| ---------- | -------------- | --------------- |
 | Velikost   | pevná          | dynamická       |
 | Výkon      | rychlejší      | mírně pomalejší |
-| Přidávání  | ❌              | ✅ `.Add()`      |
-| Odebírání  | ❌              | ✅ `.Remove()`   |
+| Přidávání  | ❌             | ✅ `.Add()`     |
+| Odebírání  | ❌             | ✅ `.Remove()`  |
 | Řazení     | `Array.Sort()` | `.Sort()`       |
 | Kdy použít | pevný počet    | neznámý počet   |
 

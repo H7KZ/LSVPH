@@ -45,13 +45,6 @@ Tag "Pipe" budeme potřebovat v OnTriggerEnter2D. Unity tagy jsou case-sensitive
 
 ---
 
-> 📸 **Ukázka:** Project okno — Pipe.prefab ve složce Prefabs (modrá ikona)
-
-Notes:
-Ukázat hotový prefab v Project okně s modrou prefab ikonou.
-
----
-
 ## Pipe.cs — pohyb roury
 
 ```csharp
@@ -138,21 +131,14 @@ InvokeRepeating = nejjednodušší způsob periodického volání. nameof() = co
 2. Umísti vpravo za okraj obrazovky (**X: 15**)
 3. Přiřaď skript `PipeSpawner.cs`
 4. Inspector → propoj:
-	- **Pipe:** přetáhni prefab z `Prefabs/`
-	- **Spawn Interval:** 2.5
-	- **Height Range:** 5
+    - **Pipe:** přetáhni prefab z `Prefabs/`
+    - **Spawn Interval:** 2.5
+    - **Height Range:** 5
 
 **Play Mode (▶)** → roury se generují a pohybují doleva ✓
 
 Notes:
 Pokud roury padají dolů: zkontroluj, že Pipe.cs je přiřazen na prefab, ne na scénu.
-
----
-
-> 📸 **Ukázka:** Inspector — PipeSpawner s vyplněným Pipe prefabem a hodnotami
-
-Notes:
-Ukázat Inspector PipeSpawneru s pipe prefabem a nastaveními Spawn Interval / Height Range.
 
 ---
 

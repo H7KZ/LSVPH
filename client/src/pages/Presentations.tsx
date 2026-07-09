@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
-import { presentationsForSubject } from '../data/presentations';
-import { subjects } from '../data/subjects';
-
+import { Link } from 'react-router-dom'
+import { presentationsForSubject } from '../data/presentations'
+import { subjects } from '../data/subjects'
 
 export default function Presentations() {
 	return (
